@@ -1,0 +1,46 @@
+require_once "../../backend/class/conexion.php";
+$obj= new Conectar();
+$conexion= $obj->conexion();
+require_once "../../backend/class/clientes.php";
+$cli= new Cliente();
+$idcliente=$_GET['idcliente'];
+$listar=$cli->listar($idcliente);
+$ver=mysqli_fetch_row($listar);
+$listarbanco=$cli->listarbanco($idcliente);
+
+ <table class="table table-bordered text-center">
+            <tr>
+                <th colspan="7" class="text-center">Datos Banco Cliente</th>
+            </tr>
+            <tr>
+                <th>Nombre del Titular</th>
+                <th>Numero de Cuenta</th>
+                <th>Tipo de Cuenta</th>
+                <th>Rif del banco</th>
+                <th>Nombre del Banco</th>
+                <th>Correo del Banco</th>
+                <th>Telefono del Titular</th>
+            </tr>
+            <tbody>
+                <?php while( $ver2= mysqli_fetch_row($listarbanco)):?>
+                <tr>
+                    <td><?php echo $ver2[0]; ?></td>
+                    <td><?php echo $ver2[1]; ?></td>
+                    <td><?php echo $ver2[2]; ?></td>
+                    <td><?php echo $ver2[3]; ?></td>
+                    <td><?php echo $ver2[4]; ?></td>
+                    <td><?php echo $ver2[5]; ?></td>
+                    <td><?php echo $ver2[6]; ?></td>
+                </tr>
+                <?php endwhile;?>
+            </tbody>
+        </table>
+
+
+
+require_once "../../backend/class/clientes.php";
+$cli= new Cliente();
+$idcliente=$_GET['idcliente'];
+$listar=$cli->listar($idcliente);
+$ver=mysqli_fetch_row($listar);
+$listarbanco=$cli->listarbanco($idcliente);

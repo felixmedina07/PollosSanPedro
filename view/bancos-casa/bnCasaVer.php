@@ -9,10 +9,10 @@ session_start();
               nuc_bnc,
               rcd_bnc,
               nom_bnc,
-              cor_bnc 
-       FROM   bancos_casa 
+              cor_bnc
+       FROM   bancos_casa
        WHERE  est_bnc='A'";
-   $result = mysqli_query($conexion,$sql);   
+   $result = mysqli_query($conexion,$sql);
 ?>
 <br>
 <br>
@@ -29,7 +29,7 @@ session_start();
                     <td>Rif del Banco</td>
                     <td>Correo Del Banco</td>
                     <?php if($_SESSION['rol']=='A'): ?> 
-                    <td>Editar</td> 
+                    <td>Editar</td>
                     <td>Eliminar</td>
                     <?php endif; ?>
                 </tr>

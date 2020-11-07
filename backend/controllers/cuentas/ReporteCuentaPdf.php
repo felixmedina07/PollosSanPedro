@@ -18,7 +18,7 @@ function file_get_contents_curl($url) {
     return $data;
 }
 
-$html=file_get_contents("http://localhost/PolloSanPedro/view/cuentas/ReporteCuentaPdf.php?idcuenta=".$id);
+$html=file_get_contents("http://localhost/PollosSanPedro/view/cuentas/ReporteCuentaPdf.php?idcuenta=".$id);
 
 
 

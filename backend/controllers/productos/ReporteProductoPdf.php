@@ -18,7 +18,7 @@ function file_get_contents_curl($url) {
     return $data;
 }
 
-$html=file_get_contents("http://localhost/PolloSanPedro/view/producto/ProductoVerPdf.php?idproducto=".$id);
+$html=file_get_contents("http://localhost/PollosSanPedro/view/producto/ProductoVerPdf.php?idproducto=".$id);
 
 
 

@@ -26,7 +26,7 @@ $peso=($ver[7] / $p_po);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="../bootstrap-4.4/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../librerias/bootstrap-4.4/bootstrap.min.css">
         <title>Reporte Despacho</title>
     </head>
     <body>
@@ -102,10 +102,10 @@ $peso=($ver[7] / $p_po);
                     </tr>
                     <tbody>
                         <tr>
-                            <td><?php echo $ver[3]."cesta"." "."Pollo Cesta";?></td>
-                            <td><?php echo $ver[4]."cesta"." "."Patas Cesta";?></td>
-                            <td><?php echo $ver[5]."cesta"." "."Alas Cesta";?></td>
-                            <td><?php echo $ver[6]."cesta"." "."Mollejas Cesta";?></td>
+                            <td><?php echo $ver[3]."cesta"." "."Pollo";?></td>
+                            <td><?php echo $ver[4]."cesta"." "."Patas";?></td>
+                            <td><?php echo $ver[5]."cesta"." "."Alas";?></td>
+                            <td><?php echo $ver[6]."cesta"." "."Mollejas";?></td>
                         </tr>
                         <tr>
                             <td><?php echo $ver[7]."Kg"." "."Pollo Peso";?></td>

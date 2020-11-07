@@ -123,7 +123,7 @@
                 url:"backend/controllers/proovedor/AgregarProovedor.php",
                 success:function(r){
                         r = r.trim();
-                        console.log(r);         
+                        console.log(r);
                     if(r==1){
                         $('#frmProovedor')[0].reset();
                         swal("¡Exito!", "Proovedor agregado con exito", "success");
@@ -132,7 +132,6 @@
                     }else if(r==3){
                         swal("¡Error!", "Proovedor ya existe verifique rif o correo", "error");
                     }
-                    
                 }
             });
         }

@@ -39,15 +39,6 @@ $result=mysqli_query($conexion,$sql);
                        </div>
                    </div>
                 </div>
-                <!-- <div class="form-group">
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="pass2_usu">Re-Contraseña</label>
-                            <input type="password" class="form-control" id="pass2_usu" name="pass2_usu" placeholder="Repita Contraseña" required>
-                            <small id="p2-error" class="form-text text-muted"></small>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="form-group">
                   <div class="row">
                       <div class="col-12">
@@ -86,105 +77,21 @@ $result=mysqli_query($conexion,$sql);
             method: "POST",
             data: datos,
             url: "backend/controllers/login/agregaUsuario.php",
-            success: function(respuesta) {
-                 respuesta = respuesta.trim();
-                console.log(respuesta);
-                if (respuesta == 2) {
-                    alertify.success("Este Usuario ya exite!! ");
+            success: function(r) {
+                r = r.trim();
+                console.log(r);
+                if (r == 2) {
+                    swal("¡Error!", "Esta Usuario ya existe , intente de nuevo", "error");
                 }
-                if (respuesta == 1) {
+                if (r == 1) {
                     $('#register_form')[0].reset();
                     window.location.href = encodeURI(DOMAIN+"/index.php?msg=Registrado Con exito"); 
                 }
-                if(respuesta == 0){
+                if(r == 0){
                     alertify.error( "Fallo al Agregar");
                 }
             }
         });
     return false;
-
-    // var nom = $("#nom_usu");
-    // var cor = $("#ema_usu");
-    // var cont = $("#pas_usu");
-    // var cont2 = $("#pass2_usu");
-    // var rol= $("#rol_usu");
-    // //expresiones regulares
-    // var regexp=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&-.])[A-Za-z\d$@$!%*?&-.]{8,15}$/;
-    // var regex = /^[a-zA-Z]+$/;
-    // var regexn = /^[0-9]+$/;
-    // var regexnu = new RegExp("^([0-9]{20})$")
-    // var regext = new RegExp("^([0-9]{11})$")
-    // var e_patt =new RegExp(/^[a-z0-9_-]+(\.[a-z0-9_-]+)*@[a-z0-9_-]+(\.[a-z0-9_-]+)*(\.[a-z]{2,4})$/);
-    // var regEsRif = new RegExp("^([VEJPG]{1})([0-9]{7,8})$");
-
-    // //nombre
-    // if(nom.val().lenght <= 2 || nom.val()==""){
-    //         nom.addClass("border-danger");
-    //         $("#n_error").html("<span class='text-danger'>Este Campo es Obligatorio.</span>")
-    //         status=false;
-    //     }else{
-    //         nom.removeClass("border-danger");
-    //         $("#n_error").html("");
-    //         status=true;
-    //     }
-
-    //     if(!regex.test(nom.val())){
-    //             nom.addClass("border-danger");
-    //             $("n_error").html("<span class='text-danger'>No se permiten numeros.</span>")
-    //             status=false;
-    //         }else{
-    //             nom.removeClass("border-danger");
-    //             $("n_error").html("");
-    //             status= true;
-    //             status2=true;
-    //     }
-    //     //correo
-    //     if(cor.val()==""){
-    //         cor.addClass("border-danger");
-    //         $("#e_error").html("<span class='text-danger'>Este Campo es Obligatorio.</span>")
-    //         status=false;
-    //     }else{
-    //         cor.removeClass("border-danger");
-    //         $("#e_error").html("");
-    //         status= true;
-    //     }
-    //     if(!e_patt.test(cor.val())){
-    //         cor.addClass("border-danger");
-    //         $("#e_error").html("<span class='text-danger'>El Email es incorrecto.</span>")
-    //         status=false;
-    //     }else{
-    //         cor.removeClass("border-danger");
-    //         $("#e_error").html("");
-    //         status= true;
-    //     }
-    //     //contraseña
-    //     if(cont.val()==""){
-    //         cont.addClass("border-danger");
-    //         $("#p1-error").html("<span class='text-danger'>Este Campo es Obligatorio.</span>")
-    //         status=false;
-    //     }else{
-    //         cont.removeClass("border-danger");
-    //         $("#p1-error").html("");
-    //         status= true;
-    //     }
-    //     if(!regexp.test(cont.val())){
-    //         cont.addClass("border-danger");
-    //         $("#p1-error").html("<span class='text-danger'>La contraseña es incorrecta.</span>")
-    //         status=false;
-    //     }else{
-    //         cont.removeClass("border-danger");
-    //         $("#p1-error").html("");
-    //         status= true;
-    //     }
-    //     //re-contraseña
-    //     if(cont2.val().lenght < 2 || cont2.val()==""){
-    //         cont2.addClass("border-danger");
-    //         $("#p2-error").html("<span class='text-danger'>Este Campo es Obligatorio.</span>")
-    //         status=false;
-    //     }else{
-    //         cont2.removeClass("border-danger");
-    //         $("#p2-error").html("");
-    //         status=true;
-    //     }
 }
 </script>

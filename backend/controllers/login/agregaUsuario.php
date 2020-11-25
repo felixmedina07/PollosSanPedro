@@ -1,5 +1,4 @@
 <?php
-
     require_once "../../class/usuarios.php";
     
    $password=sha1($_POST['pas_usu']);

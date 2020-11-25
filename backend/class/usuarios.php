@@ -5,7 +5,7 @@ class Usuario extends Conectar{
     $conexion = Conectar::conexion();
     $cre_usu=date("Y-m-d h:i:s");
     $nom_usu =$datos[0];
-    if($this->buscarUsuarioRepetido($nom_usu) === 1){
+    if($this->buscarUsuarioRepetido($nom_usu)){
         return 2;
     }
         $sql="INSERT INTO usuarios(nom_usu,
@@ -17,22 +17,18 @@ class Usuario extends Conectar{
               VALUES ('$datos[0]','$datos[1]','$datos[2]','$datos[3]','A','$cre_usu')";
         $d=mysqli_query($conexion,$sql);
         if($d){
-        echo "<script>alert('1')</script>";
           return 1;
         }
         if(!$d){
           return 0;
         }
-    
   }
 
   public function buscarUsuarioRepetido($nom_usu){
     $conexion = Conectar::conexion();
     $sql="SELECT nom_usu FROM usuarios WHERE nom_usu = '$nom_usu' AND est_usu='A'";
-    $result= mysqli_query($conexion,$sql);
-    $datos= mysqli_fetch_array($result);
-    if($datos['nom_usu'] != "" || $datos['nom_usu']==$nom_usu){
-      echo "<script>alert('$datos')</script>";
+    $datos= mysqli_query($conexion,$sql);
+    if(mysqli_num_rows($datos) > 0){
       return 1;
     }else{
         return 0;

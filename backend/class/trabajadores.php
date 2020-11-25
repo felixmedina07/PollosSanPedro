@@ -10,6 +10,7 @@ class Trabajador extends Conectar{
     $cre_tra = date("Y-m-d h:i:s");
     $ced_tra = $datos[2];
     if($this->buscaTrab($ced_tra)){
+      $_SESSION['error']= 0;
        return 3;
     }else{
        $sql="INSERT INTO trabajadores(nom_tra,
@@ -17,19 +18,20 @@ class Trabajador extends Conectar{
                                        ced_tra,
                                        ads_tra,
                                        cor_tra,
-                                       tel_tra
+                                       tel_tra,
                                        est_tra,
                                        cod_usu,
                                        cre_tra)
                VALUES('$datos[0]','$datos[1]','$datos[2]','$datos[3]','$datos[4]','$datos[5]','A','$idusuario','$cre_tra')";
        $resultado= mysqli_query($conexion,$sql);
        if($resultado){
+         $_SESSION['error']= 1;
          return 1;
-        $_SESSION['error']= 1;
        }
        if(!$resultado){
+        $_SESSION['error']= 0;
        return 0;
-       }        
+       }
     }
  }
  

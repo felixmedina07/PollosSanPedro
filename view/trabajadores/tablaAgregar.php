@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <div class="row ml-2 mr-2">
                             <div class="col-md-6">
-                                <input type="text" name="nom_tra" required id="nom_tra" class="form-control" placeholder="Nombre del Trabajador">
+                                <input type="text" name="nom_tra"  id="nom_tra" class="form-control" placeholder="Nombre del Trabajador">
                                 <small id="nom_error"></small>
                             </div>
                             <div class="col-md-6">
@@ -28,8 +28,8 @@
                             <div class="col-md-6">
                                 <input type="text" name="ads_tra" id="ads_tra" class="form-control" placeholder="Direccion del Trabajador">
                                 <small id="ads_error"></small>
-                            </div>  
-                        </div>           
+                            </div>
+                        </div>
                    </div>
                    <div class="form-group"> 
                         <div class="row ml-2 mr-2">
@@ -40,8 +40,8 @@
                             <div class="col-md-6">
                                 <input type="text" name="tel_tra" id="tel_tra" class="form-control" placeholder="Telefono del Trabajador">
                                 <small id="tel_error"></small>
-                            </div>  
-                        </div>           
+                            </div>
+                        </div>
                    </div>
                     <div class="form-group mt-3 mr-4 ml-4">
                         <div class="col text-center">

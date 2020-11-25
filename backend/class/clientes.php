@@ -43,7 +43,7 @@
 
    public function buscarCliente($ced,$correo){
     $conexion = Conectar::conexion();
-    $sql="SELECT * FROM cliente WHERE ced_cli='$ced' OR cor_cli='$correo'";
+    $sql="SELECT * FROM cliente WHERE ced_cli='$ced' OR cor_cli='$correo' AND est_cli='A'";
     $result= mysqli_query($conexion,$sql);
     if(mysqli_num_rows($result) > 0){
       echo "<script>alert('$sql')</script>"; 

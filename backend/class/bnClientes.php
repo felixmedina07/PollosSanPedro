@@ -38,7 +38,6 @@ class BnCliente extends Conectar{
       $sql="SELECT * FROM bancos_cliente WHERE ncu_bnk='$num'";
       $result= mysqli_query($conexion,$sql);
       if(mysqli_num_rows($result) > 0){
-       
         return 1;
       }else{
           return 0;

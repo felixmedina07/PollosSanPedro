@@ -6,7 +6,7 @@ require_once "view/head/head2.php";
       <?php
          if (isset($_GET["msg"]) AND !empty($_GET["msg"])):
       ?>
-         <div class="alert alert-success alert-dismissible fade show" role="alert">
+         <div class="alert alert-success alert-dismissible text-center fade show" role="alert">
             <?php echo $_GET["msg"]; ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

@@ -10,10 +10,10 @@ $ide=$_SESSION['idUsuario'];
                 ced_tra,
                 ads_tra,
                 cor_tra,
-                tel_tra 
+                tel_tra
         FROM trabajadores
         WHERE est_tra='A'";
-    $result=mysqli_query($conexion,$sql);            
+    $result=mysqli_query($conexion,$sql);
 ?>
 <br>
 <br>
@@ -97,7 +97,6 @@ $ide=$_SESSION['idUsuario'];
                         </div>
                         <div class="form-group">
                             <div class="row">
-                              
                               <div class="col-6">
                                    <label for="ced_traU">Cedula</label>
                                    <input type="text" name="ced_traU" id="ced_traU" class="form-control">

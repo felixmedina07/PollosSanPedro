@@ -12,17 +12,17 @@ $ide=$_SESSION['idUsuario'];
                 cor_tra,
                 tel_tra
         FROM trabajadores
-        WHERE est_tra='A'";
+        WHERE est_tra='A' ORDER BY cod_tra DESC";
     $result=mysqli_query($conexion,$sql);
 ?>
 <br>
 <br>
-    <div class="card p-5 sombra">
+    <div class="card p-5 sombra table-responsive">
         <div class="card-title mx-auto text-white text-center c-cliente sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Lista Trabajadores</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover table-bordered  text-center" id="tablatrabDataTable">
+            <table class="table table-hover  table-bordered  text-center" id="tablatrabajador">
                 <thead class="bc-cliente">
                     <tr>
                         <td>Nombre</td>
@@ -35,7 +35,7 @@ $ide=$_SESSION['idUsuario'];
                         <?php if($_SESSION['rol']=='A' && $ide==1): ?> 
                         <td>Eliminar</td>
                         <?php endif;?>
-                    </tr>    
+                    </tr>
                 </thead>
                 <?php while($ver = mysqli_fetch_row($result)): ?>
                     <tr>
@@ -46,7 +46,7 @@ $ide=$_SESSION['idUsuario'];
                         <td><?php echo $ver[5];?></td>
                         <td><?php echo $ver[6];?></td>
                         <td>
-                        <span class="btn btn-warning " data-toggle="modal" data-target="#abremodalTrabUpdate" onclick="ObtenerDatosTrab('<?php echo $ver[0];?>')">
+                        <span class="btn btn-warning " id="cod" data-toggle="modal" data-target="#abremodalTrabUpdate" onclick="ObtenerDatosTrab('<?php echo $ver[0];?>')">
                          <i class="fas fa-pencil-alt"></i>
                         </span>
                         </td>
@@ -159,7 +159,6 @@ $(document).ready(function () {
             success:function(r){
                 if (r==1){
                     $('#tablaVer').load('tablaVer.php');
-                 //    $('#clienteVer').load('view/clientes/clienteVer.php');
                     alertify.success("Trabajador actualizado con exito");
                 }else{
                     alertify.error("No se pudo actualizar Trabajador");
@@ -195,11 +194,8 @@ function papelera(idtrab) {
 
 <script>
     $(document).ready(function() {
-        $('#tablatrabDataTable').DataTable({
-            "scrollX": "90%",
-            "scrollCollapse": false,
+        $('#tablatrabajador').DataTable({
             "language": idioma_español,
-            "order": [cod_tra,'asc'],
         });
     });
 

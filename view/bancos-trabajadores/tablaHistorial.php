@@ -2,30 +2,27 @@
 require_once "../../backend/class/conexion.php";
 $obj= new Conectar();
 $conexion=$obj->conexion();
-$sql="SELECT b.not_bnk,
-             b.ncu_bnk,
-             b.tpc_bnk,
-             b.rcd_bnk,
-             b.nom_bnk,
-             b.cor_bnk,
-             b.tti_bnk,
-             c.nom_cli,
-             b.cod_bnk
-     FROM bancos_cliente_resp as b
-     INNER JOIN cliente_resp as c
-     ON b.cod_cli=c.cod_cli"; 
-    $result = mysqli_query($conexion,$sql); 
+$sql="SELECT b.not_bnt,
+             b.ncu_bnt,
+             b.tpc_bnt,
+             b.rcd_bnt,
+             b.nom_bnt,
+             b.cor_bnt,
+             b.tti_bnt,
+             t.nom_tra,
+             b.cod_bnt
+     FROM bancos_trabajadores_resp as b
+     INNER JOIN trabajadores_resp as t
+     ON b.cod_tra=t.cod_tra"; 
+    $result = mysqli_query($conexion,$sql);
 ?>
-
-<div class="container p-4">
 <br>
-<br>
-    <div class="card p-5 sombra" style="width:110%;height:110%">
+    <div class="card p-5 sombra">
         <div class="card-title mx-auto text-white text-center c-banco sombra mt-2 pt-2 " style="width: 80%; height: 80%; border-radius:10px;">
                 <h3>Historial Bancos Clientes</h3>
         </div>
      <hr style="width: 90%; height: 90%;" class="mx-auto">
-        <table class="table table-hover table-bordered text-center" id="tablabnHDataTable">
+        <table class="table table-hover table-bordered text-center" id="tablabnTrabHDataTable">
             <thead class="bc-banco">
                 <tr class="text-center">
                     <td>Nombre titular</td>
@@ -35,7 +32,7 @@ $sql="SELECT b.not_bnk,
                     <td>Nombre del Banco</td>
                     <td>Correo del Banco</td>
                     <td>Telefono del titular</td>
-                    <td>Nombre Cliente</td>
+                    <td>Nombre Trabajador</td>
                 </tr>
             </thead>
             <?php while ($ver=mysqli_fetch_row($result)): ?>
@@ -52,11 +49,10 @@ $sql="SELECT b.not_bnk,
             <?php endwhile; ?>
         </table>
     </div>
-</div>
 
 <script>
     $(document).ready(function() {
-        $('#tablabnHDataTable').DataTable({
+        $('#tablabnTrabHDataTable').DataTable({
             "scrollX": "90%",
             "scrollCollapse": false,
           "language":idioma_español

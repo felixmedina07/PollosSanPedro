@@ -78,7 +78,7 @@ $result=mysqli_query($conexion,$sql);
             data: datos,
             url: "backend/controllers/login/agregaUsuario.php",
             success: function(r) {
-                r = r.trim();
+               r = r.trim();
                 console.log(r);
                 if (r == 2) {
                     swal("¡Error!", "Esta Usuario ya existe , intente de nuevo", "error");

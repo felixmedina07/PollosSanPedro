@@ -50,7 +50,6 @@
             </div>
       </li>
       <?php endif;?>
-     
       <?php if($_SESSION['rol']=='A' && $_SESSION['idUsuario']==1):?>
       <li class="nav-item mr-2">
         <a class="nav-link link-felix" href="papelera.php"><i class="far fa-trash-alt"></i> Papelera</a>

@@ -14,7 +14,6 @@
     $result=mysqli_query($conexion,$sql);            
 ?>
 <br>
-<br>
     <div class="card p-5 sombra">
         <div class="card-title mx-auto text-white text-center c-cliente sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Historial Trabajadores</h3>

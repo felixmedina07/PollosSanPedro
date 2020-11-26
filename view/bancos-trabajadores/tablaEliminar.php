@@ -1,79 +1,84 @@
 <?php
-  session_start();
-  $ide=$_SESSION['idUsuario'];
-  require_once "../../backend/class/conexion.php";
-  $obj = new Conectar();
-  $conexion = $obj->conexion();
-  $sql ="SELECT cod_tra,
-                nom_tra,
-                ape_tra,
-                ced_tra,
-                ads_tra,
-                cor_tra,
-                tel_tra
-        FROM trabajadores
-        WHERE est_tra='B'";
-    $result=mysqli_query($conexion,$sql);
+session_start();
+$ide=$_SESSION['idUsuario'];
+require_once "../../backend/class/conexion.php";
+$obj= new Conectar();
+$conexion=$obj->conexion();
+$sql="SELECT b.not_bnt,
+             b.ncu_bnt,
+             b.tpc_bnt,
+             b.rcd_bnt,
+             b.nom_bnt,
+             b.cor_bnt,
+             b.tti_bnt,
+             t.nom_tra,
+             b.cod_bnt       
+     FROM bancos_trabajadores as b
+     INNER JOIN trabajadores as t
+     ON b.cod_tra=t.cod_tra
+     AND b.est_bnt ='B'"; 
+    $result = mysqli_query($conexion,$sql); 
 ?>
-   <br>
- <div class="card p-5 sombra">
-    <div class="card-title mx-auto text-white text-center c-clientep sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
-            <h3>Papelera Trabajadores</h3>
-    </div>
-    <hr style="width: 90%; height: 90%;" class="mx-auto">
-    <table class="table table-hover table-bordered text-center" id="tablaTrabajadoresD">
-        <thead class="bc-clientep">
+
+<br>  
+    <div class="card p-5 sombra">
+        <div class="card-title mx-auto text-white text-center c-bancop sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+                <h3>Papelera Bancos Trabajador</h3>
+        </div>
+        <hr style="width: 90%; height: 90%;" class="mx-auto">
+        <table class="table table-hover table-bordered text-center" id="tablaBnTrabajadoresD">
+            <thead class="bc-bancop">
             <tr>
-                <td>Nombre</td>
-                <td>Apellido</td>
-                <td>Cedula</td>
-                <td>Direccion</td>
-                <td>Correo</td>
-                <td>Telefono</td>
-                <?php if($_SESSION['rol']=='A'): ?>
+                <td>Nombre titular</td>
+                <td>Numero de cuenta</td>
+                <td>Tipo de Cuenta</td>
+                <td>Rif o Cedula</td>
+                <td>Nombre del Banco</td>
+                <td>Correo del Banco</td>
+                <td>Telefono del titular</td>
+                <td>Nombre Trabajador</td>
+                <?php if($_SESSION['rol']=='A'): ?> 
                 <td>Eliminar</td>
                 <td>Restaurar</td>
                 <?php endif;?>
             </tr>
-        </thead>
-        <tbody>
-        <?php while($ver = mysqli_fetch_row($result)): ?>
+            </thead>
+        <?php while ($ver=mysqli_fetch_row($result)): ?>
             <tr>
-                <td><?php echo $ver[1];?></td>
-                <td><?php echo $ver[2];?></td>
-                <td><?php echo $ver[3];?></td>
-                <td><?php echo $ver[4];?></td>
-                <td><?php echo $ver[5];?></td>
-                <td><?php echo $ver[6];?></td>
-                <?php if($_SESSION['rol']=='A'): ?>
+                <td><?php echo $ver[0]; ?></td>
+                <td><?php echo $ver[1] ;?></td>
+                <td><?php echo $ver[2] ;?></td>
+                <td><?php echo $ver[3]; ?></td>
+                <td><?php echo $ver[4]; ?></td>
+                <td><?php echo $ver[5]; ?></td>
+                <td><?php echo $ver[6]; ?></td>
+                <td><?php echo $ver[7]; ?></td>
+                <?php if($_SESSION['rol']=='A'): ?> 
                 <td>
-                    <span class="btn btn-danger btn-sm" onclick="eliminarTrabajador('<?php echo $ver[0];?>')">
+                    <span class="btn btn-danger btn-sm" onclick="eliminarbnCliente('<?php echo $ver[8];?>')">
                         <i class="fas fa-trash"></i>
                     </span>
                 </td>
                 <td>
-                    <span class="btn btn-warning btn-sm" onclick="restaurar('<?php echo $ver[0];?>')">
+                    <span class="btn btn-warning btn-sm" onclick="restaurar('<?php echo $ver[8];?>')">
                         <i class="fas fa-undo-alt"></i>
                     </span>
                 </td>
                 <?php endif;?>
             </tr>
-            <?php endwhile; ?>
-        </tbody> 
-    </table>
- </div>
-
+        <?php endwhile; ?>
+        </table>
+    </div>
 <script>
-
-function eliminarTrabajador(idtrab) {
-            alertify.confirm('¿Desea eliminar esta categoria ?', 'Confirm Message',
+ function eliminarbnCliente(idbnt) {
+            alertify.confirm('¿Desea eliminar este Banco ?', 'Confirm Message',
                 function(){
                     $.ajax({
                         type:"POST",
-                        data:"idtrab=" + idtrab ,
-                        url:"../../backend/controllers/trabajadores/EliminarTrabajador.php",
+                        data:"idbnt=" + idbnt ,
+                        url:"../../backend/controllers/bnTrabajadores/EliminarBnTrabajadores.php",
                         success:function(r){
-                             if (r==1){
+                            if (r==1){
                                 $('#tablaEliminar').load('tablaEliminar.php');
                                 alertify.success('Elimando Con Exito');
                             }else{
@@ -88,16 +93,15 @@ function eliminarTrabajador(idtrab) {
 </script>
 
 <script>
-
-function restaurar(idtrab) {
-            alertify.confirm('¿Desea Restaurar esta categoria ?', 'Confirm Message',
+ function restaurar(idbnt) {
+            alertify.confirm('¿Desea Restaurar este Banco ?', 'Confirm Message',
                 function(){
                     $.ajax({
                         type:"POST",
-                        data:"idtrab=" + idtrab ,
-                        url:"../../backend/controllers/trabajadores/Restaurar.php",
+                        data:"idbnt=" + idbnt ,
+                        url:"../../backend/controllers/bnTrabajadores/Restaurar.php",
                         success:function(r){
-                             if (r==1){
+                            if (r==1){
                                 $('#tablaEliminar').load('tablaEliminar.php');
                                 alertify.success('Restaurado Con Exito');
                             }else{
@@ -112,8 +116,10 @@ function restaurar(idtrab) {
 </script>
 
 <script>
-  $(document).ready(function() {
-        $('#tablaTrabajadoresD').DataTable({
+ $(document).ready(function() {
+        $('#tablaBnTrabajadoresD').DataTable({
+            "scrollX": "80%",
+            "scrollCollapse": false,
             "language":idioma_español
         });
     } ); 

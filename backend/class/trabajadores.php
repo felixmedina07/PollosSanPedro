@@ -70,6 +70,13 @@ class Trabajador extends Conectar{
   return mysqli_query($conexion,$sql);
  }
 
+ public function eliminarTrab($idtrab){
+  $conexion = Conectar::conexion();
+  $sql="DELETE FROM trabajadores WHERE cod_tra='$idtrab'";
+  return mysqli_query($conexion,$sql);
+
+}
+
  public function papelera($idtrab){
   $conexion = Conectar::conexion();
   $del_tra = date("Y-m-d h:i:s");

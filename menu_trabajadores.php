@@ -12,30 +12,30 @@ if(isset($_SESSION['nom_usu'])){
     <br>
     <div class="row">
         <div class="card mx-auto sombra"  style="width: 50rem;">
-            <div class="card-header bc-banco-t text-white text-center">
+            <div class="card-header text-white text-center c-cliente">
             <h4 class="text-center">Trabajadores</h4>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-3 d-flex justify-content-around">
-                        <a href="view/trabajadores/TrabAgregar.php" class="btn btn-primary ml-2">
+                        <a href="view/trabajadores/TrabAgregar.php" class="btn bc-cliente ml-2">
                         Agregar Trabajadores  
                         </a>
                     </div>
                     <div class="col-md-6 mb-3 d-flex justify-content-around">
-                        <a href="view/trabajadores/TrabVer.php" class="btn btn-primary ml-3">
+                        <a href="view/trabajadores/TrabVer.php" class="btn bc-cliente ml-3">
                         Ver Trabajadores
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 d-flex justify-content-around">
-                        <a href="view/trabajadores/TrabFiltrar.php" class="btn btn-primary">
+                        <a href="view/trabajadores/TrabFiltrar.php" class="btn bc-cliente">
                         Filtrar Trabajadores
                         </a>
                     </div>
                     <div class="col-md-6 d-flex justify-content-around">
-                        <a href="view/trabajadores/TrabHistorial.php" class="btn btn-primary ml-5">
+                        <a href="view/trabajadores/TrabHistorial.php" class="btn bc-cliente ml-5">
                         Historial Trabajadores
                         </a>
                     </div>

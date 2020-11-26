@@ -190,7 +190,6 @@ session_start();
             "scrollX": "100%",
             "scrollY": "90%"
         });
-        $('#tablaClienteDataTable_next').addClass("next-banco");
     });
 
     var idioma_español= {

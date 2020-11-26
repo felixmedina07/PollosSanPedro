@@ -4,15 +4,15 @@ if(isset($_SESSION['nom_usu'])){
 require_once "../head/head3.php";
 $es = new estilos();
 $head = $es->encabezado();
-require_once "../menu/menu2.php";
+require_once "../menu/menu2.php"; 
 ?>
 <div class="container p-4">
    <?php 
-     if(isset($_SESSION['error']) && $_SESSION['error'] === 1){
+     if($_SESSION['error'] === 1){
       echo "<div class='row'>
                 <div class='col-12 mx-auto text-center'>
                     <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                        <p>Trabajador Agregado</p>
+                        <p>Banco Trabajador Agregado</p>
                         <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                             <span aria-hidden='true'>&times;</span>
                         </button>
@@ -25,7 +25,7 @@ require_once "../menu/menu2.php";
    ?>
    <?php $_SESSION['error']=0; ?>
     <div class="row">
-     <a href="../../menu_trabajadores.php" class="btn btn-dark" style="border-radius: 20px;"><i class="fas fa-angle-left"></i></a>
+     <a href="../../menu_bn_trabajadores.php" class="btn btn-dark" style="border-radius: 20px;"><i class="fas fa-angle-left"></i></a>
     </div>
     <div id="tablaVer"></div>
 </div>
@@ -36,7 +36,7 @@ require_once "../menu/menu2.php";
  ?>
 
 <?php 
-$head = $es->pie(); 
+$head = $es->pie();
 ?>
 <script>
     $(document).ready(function(){
@@ -44,4 +44,4 @@ $head = $es->pie();
     });
 </script>
 
-<script src="../js/principal/trabajadores.js"></script>
+<script src="../js/principal/bntrabajadores.js"></script>

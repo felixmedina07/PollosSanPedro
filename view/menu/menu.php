@@ -50,11 +50,19 @@
             </div>
       </li>
       <?php endif;?>
-      <?php if($_SESSION['rol']=='A' && $_SESSION['idUsuario']==1):?>
-      <li class="nav-item mr-2">
-        <a class="nav-link link-felix" href="papelera.php"><i class="far fa-trash-alt"></i> Papelera</a>
+      <?php if($_SESSION['rol']=='E' || $_SESSION['rol']=='A' ||  $_SESSION['rol']=='S'): ?> 
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle link-felix" href="#" id="navbarDropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-plus-circle"></i> Mas
+        </a>
+            <div class="dropdown-menu"  aria-labelledby="navbarDropdownLink">
+                <a class="dropdown-item" href="menu_nomina.php"><i class="fas fa-clipboard-list"></i> Otras Opciones</a>
+                <?php  if($_SESSION['rol']=='A' && $_SESSION['idUsuario']==1): ?>
+                <a class="dropdown-item" href="papelera.php"><i class="far fa-trash-alt"></i> Papelera</a>
+                <?php endif;?>
+            </div>
       </li>
-      <?php endif; ?> 
+      <?php endif;?>
       <li class="nav-item dropdown">
           <button class="btn btn-menu  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="far fa-address-card bg-red"></i> Usuario <?php echo $_SESSION['nom_usu'];?>

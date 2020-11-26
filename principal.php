@@ -23,41 +23,7 @@ if(isset($_SESSION['nom_usu'])){
       <?php
          endif;
       ?>
-      <br>
-      <br>
-       <div class="col 12">
-         <div class="card mx-auto sombra" style="width: 40rem;">
-            <div class="card-header">
-             <h4 class="text-center">Otras Opciones</h4>
-            </div>
-            <div class="card-body">
-               <div class="row">
-                  <div class="col-6">
-                  <div class="card">
-                     <div class="card-header text-center ">
-                        <h4>Nomina</h4>
-                     </div>
-                     <div class="card-body mx-auto">
-                        <a href="menu_nomina.php" class="btn btn-primary">Entrar</a>
-                     </div>
-                  </div>
-                  </div>
-                  <div class="col-6">
-                  <div class="card">
-                     <div class="card-header text-center">
-                       <h4>Precios</h4>
-                     </div>
-                     <div class="card-body mx-auto">
-                        <a href="precios.php" class="btn btn-primary">Entrar</a>
-                     </div>
-                  </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      
-  
+     
   </div>
    <?php
       require_once "view/footer/footer.php";

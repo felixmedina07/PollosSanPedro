@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(isset($_SESSION['nom_usu'])){
+if(isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A'|| $_SESSION['rol'] =='E'||$_SESSION['rol']=='S'){
 require_once "../head/head3.php";
 $es = new estilos();
 $head = $es->encabezado();

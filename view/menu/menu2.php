@@ -55,11 +55,10 @@
         <i class="fas fa-plus-circle"></i> Mas
         </a>
             <div class="dropdown-menu"  aria-labelledby="navbarDropdownLink">
-              <?php if($_SESSION['rol']=='E' || $_SESSION['rol']=='A'){?> 
                 <a class="dropdown-item" href="../../menu_nomina.php"><i class="fas fa-clipboard-list"></i> Otras Opciones</a>
-              <?php }else if($_SESSION['rol']=='A' && $_SESSION['idUsuario']==1){ ?>
+                <?php  if($_SESSION['rol']=='A' && $_SESSION['idUsuario']==1): ?>
                 <a class="dropdown-item" href="../../papelera.php"><i class="far fa-trash-alt"></i> Papelera</a>
-              <?php } ?>
+                <?php endif;?>
             </div>
       </li>
       <?php endif;?>

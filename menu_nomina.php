@@ -9,22 +9,22 @@ if(isset($_SESSION['nom_usu'])){
 <div class="container p-4">
     <div class="card mx-auto sombra"  style="width: 50rem;">
         <div class="card-header text-center">
-           <h4 class="text-center">Opciones</h4>
+           <h4 class="text-center">Otras Opciones</h4>
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-12 mb-2 d-flex justify-content-center">
-                    <a href="menu_trabajadores.php" class="btn btn-primary">
+                <div class="col-md-4  d-flex justify-content-around">
+                    <a href="menu_trabajadores.php" class="btn bc-cliente">
                       Trabajadores  
                     </a>
                 </div>
-                <div class="col-md-12 mb-2 d-flex justify-content-center">
-                    <a href="menu_bn_trabajadores.php" class="btn btn-primary ml-5">
+                <div class="col-md-4  d-flex justify-content-around">
+                    <a href="menu_bn_trabajadores.php" class="btn bc-banco">
                       Bancos Trabajadores
                     </a>
                 </div>
-                <div class="col-md-12 mb-2 d-flex justify-content-center">
-                    <a href="menu_pg_nomina.php" class="btn btn-primary">
+                <div class="col-md-4  d-flex justify-content-around">
+                    <a href="menu_pg_nomina.php" class="btn bc-cuenta">
                       Pagar Nomina
                     </a>
                 </div>

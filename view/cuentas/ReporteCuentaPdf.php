@@ -21,7 +21,7 @@ $ver=mysqli_fetch_row($listar);
                 <tr>
                     <th colspan="5">
                         <img src="../../../logo/pollito.png" width="90px;" height="90px;" class="ml-auto"><p class="text-center pl-2" style="font-size:20px;">Pollos San Pedro C.A <br>Rif:J-40346843-5 <br>Carrera 17 entre calle 1 Capachito Parte Alta</p></th>
-                    </tr>
+                </tr>
                     <tr>
                         <th colspan="5" class="text-center">Datos Cliente</th>
                     </tr>

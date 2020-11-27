@@ -17,6 +17,9 @@ require_once "view/menu/menu.php";
                   <?php if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' && $ver==1): ?>
                     <span class="btn bc-cliente ml-2" id="clienteHistorialBtn">Historial</span>
                   <?php endif;?>  
+                  <a href="backend/controllers/clientes/ReporteClientesTodosPdf.php" class="btn bc-cliente ml-2">
+                  Pdf Trabajadores
+                  </a>
                 </div>
           </div>
           <div class="row">

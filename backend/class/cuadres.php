@@ -63,6 +63,29 @@ class Cuadre extends Conectar{
         }
     }
 
+    public function listar($idcuadre){
+        $conexion = Conectar::conexion();
+        $sql="SELECT cl.nom_cli,
+                    cl.ape_cli,
+                    cl.ced_cli,
+                    cl.rif_cli,
+                    cl.ads_cli,
+                    c.cpo_cua,
+                    c.cpa_cua,
+                    c.cal_cua,
+                    c.cmo_cua,
+                    c.pre_cua
+        FROM cuadres AS c
+        INNER JOIN cliente AS cl
+        ON c.cod_cli=cl.cod_cli
+        AND cod_cua='$idcuadre'";
+        return  mysqli_query($conexion,$sql);
+       }
+       public function listarCliente($idcliente){
+        $conexion = Conectar::conexion();
+        $sql="SELECT nom_cli,ape_cli,ced_cli,rif_cli,ads_cli FROM cliente WHERE cod_cli='$idcliente'";
+        return  mysqli_query($conexion,$sql);
+       }
     public function restaurar($idcuadre){
       $conexion=Conectar::conexion();
       $res_cua = date("Y-m-d h:i:s");

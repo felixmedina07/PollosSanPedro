@@ -54,6 +54,7 @@ $sql="SELECT cl.nom_cli,
                         <?php if($_SESSION['rol']=='A' && $ide==1): ?> 
                         <td>Eliminar</td>
                         <?php endif;?>
+                        <td>Pdf</td>
                      </tr> 
                 </thead>
                 <?php while($ver=mysqli_fetch_row($result)): ?>
@@ -74,6 +75,10 @@ $sql="SELECT cl.nom_cli,
                             </span>
                         </td>
                         <?php endif;?>
+                        <td>
+                            <a href="backend/controllers/cuadres/ReporteCuadresPdf.php?idcuadre=<?php echo $ver[9]?>" class="btn btn-danger btn-sm">
+                            <span><i class="fas fa-clipboard-check"></i></span>
+                        </td>
                     </tr>
                 <?php endwhile; ?>
             </table>
@@ -108,6 +113,8 @@ $sql="SELECT cl.nom_cli,
 <script>
     $(document).ready(function() {
         $('#tablaCuadresDataTable').DataTable({
+            "scrollX": "90%",
+            "scrollCollapse": false,
             "language":idioma_español
         });
     } );

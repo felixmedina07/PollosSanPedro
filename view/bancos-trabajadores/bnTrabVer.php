@@ -8,7 +8,7 @@ require_once "../menu/menu2.php";
 ?>
 <div class="container p-4">
    <?php 
-     if($_SESSION['error'] === 1){
+     if(isset($_SESSION['error']) && $_SESSION['error'] === 1){
       echo "<div class='row'>
                 <div class='col-12 mx-auto text-center'>
                     <div class='alert alert-success alert-dismissible fade show' role='alert'>

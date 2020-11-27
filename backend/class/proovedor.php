@@ -29,6 +29,7 @@ class Proovedor extends Conectar{
        }
          
     }
+    
 
     public function buscarProovedor($rif, $correo){
       $conexion = Conectar::conexion();
@@ -56,6 +57,12 @@ class Proovedor extends Conectar{
         );
         return $datos;
     }
+
+    public function listar($idproovedor){
+        $conexion = Conectar::conexion();
+        $sql="SELECT nom_edo,rif_edo,cor_edo,dir_edo FROM proovedor WHERE cod_edo='$idproovedor'";
+        return  mysqli_query($conexion,$sql);
+       }
 
     public function ActualizarProovedor($datos){
         $conexion= Conectar::conexion();

@@ -18,25 +18,37 @@ if(isset($_SESSION['nom_usu'])){
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-3 d-flex justify-content-around">
-                        <a href="view/trabajadores/TrabAgregar.php" class="btn bc-cliente ml-2">
+                        <a href="view/trabajadores/TrabAgregar.php" class="btn bc-cliente">
                         Agregar Trabajadores  
                         </a>
                     </div>
                     <div class="col-md-6 mb-3 d-flex justify-content-around">
-                        <a href="view/trabajadores/TrabVer.php" class="btn bc-cliente ml-3">
+                        <a href="view/trabajadores/TrabVer.php" class="btn bc-cliente">
                         Ver Trabajadores
                         </a>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 d-flex justify-content-around">
+                    <div class="col-md-6 mb-3 d-flex justify-content-around">
                         <a href="view/trabajadores/TrabFiltrar.php" class="btn bc-cliente">
                         Filtrar Trabajadores
                         </a>
                     </div>
-                    <div class="col-md-6 d-flex justify-content-around">
-                        <a href="view/trabajadores/TrabHistorial.php" class="btn bc-cliente ml-5">
+                    <div class="col-md-6 mb-3 d-flex justify-content-around">
+                        <a href="view/trabajadores/TrabHistorial.php" class="btn bc-cliente">
                         Historial Trabajadores
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-around">
+                        <a href="view/trabajadores/TrabEliminar.php" class="btn bc-cliente">
+                        Papelera Trabajadores
+                        </a>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-around">
+                        <a href="backend/controllers/trabajadores/ReporteTrabajadoresTodosPdf.php" class="btn bc-cliente">
+                        Pdf Trabajadores
                         </a>
                     </div>
                 </div>

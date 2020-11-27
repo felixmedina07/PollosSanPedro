@@ -31,8 +31,9 @@
                         <td>Editar</td>
                         <?php if($_SESSION['rol']=='A' && $ide==1):?>
                         <td>Eliminar</td>
+                        <td>Pdf</td>
                         <?php endif;?>
-                    </tr>    
+                    </tr>
                 </thead>
                 <?php while($ver = mysqli_fetch_row($result)): ?>
                     <tr>
@@ -50,6 +51,10 @@
                             <span class="btn btn-danger btn-sm" onclick="papelera('<?php echo $ver[0];?>')">
                                 <i class="fas fa-trash"></i>
                             </span>
+                        </td>
+                        <td>
+                            <a href="backend/controllers/proovedor/ReporteProovedor.php?idproovedor=<?php echo $ver[0]?>" class="btn btn-danger btn-sm">
+                            <span><i class="fas fa-clipboard-check"></i></span>
                         </td>
                         <?php
                         endif;

@@ -136,7 +136,7 @@ public function restaurar($idusuario){
 
 public function recuperar($datos){
 $conexion = Conectar::conexion();
-$sql="SELECT * FROM usuarios WHERE nom_usu='$datos[0]' AND ema_usu='$datos[1]' AND pas_usu='$datos[3]' AND est_usu='A'";
+$sql="SELECT * FROM usuarios WHERE nom_usu='$datos[0]' AND ema_usu='$datos[1]' AND est_usu='A'";
 $result=mysqli_query($conexion,$sql);
    if(mysqli_num_rows($result) > 0){
      $sql="UPDATE usuarios SET pas_usu='$datos[2]' WHERE nom_usu='$datos[0]' AND ema_usu='$datos[1]' AND est_usu='A'";

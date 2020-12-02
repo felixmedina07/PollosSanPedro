@@ -35,15 +35,6 @@ require_once "view/head/head2.php";
                        </div>
                    </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="pass2_usuR">Contraseña Vieja</label>
-                            <input type="password" class="form-control" id="pass2_usuR" name="pass2_usuR" placeholder="Repita Contraseña">
-                            <small id="p2-error" class="form-text text-muted"></small>
-                        </div>
-                    </div>
-                </div>
                 <div class="form-group mt-3">
                   <div class="row">
                       <div class="col-4">
@@ -85,7 +76,6 @@ require_once "view/head/head2.php";
         var nom=$('#nom_usuR');
         var cor=$('#ema_usuR');
         var cont=$('#pas_usuR');
-        var cont2=$('#pass2_usuR');
 
         //expresiones regulares
         var regexp=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&-.])[A-Za-z\d$@$!%*?&-.]{8,15}$/;
@@ -157,16 +147,6 @@ require_once "view/head/head2.php";
             status4= true;
         }
 
-        //contraseña vieja
-        if(cont2.val().lenght < 2 || cont2.val()==""){
-            cont2.addClass("border-danger");
-            $("#p2-error").html("<span class='text-danger'>Este Campo es Obligatorio.</span>")
-            status=false;
-        }else{
-            cont2.removeClass("border-danger");
-            $("#p2-error").html("");
-            status=true;
-        }
         datos=$('#recuperar_form').serialize();
         if(status && status2 && status3 && status4){
             $.ajax({

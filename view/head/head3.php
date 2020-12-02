@@ -2,7 +2,12 @@
 
 class estilos {
    public function encabezado(){
-    echo "<link rel='stylesheet' href='../../librerias/flatly/bootstrap.min.css'>
+    echo "<meta charset='UTF-8'>
+          <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+          <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+          <link rel='icon' href='../../logo/pollito.png'>
+          <title>Pollos San Pedro</title>
+          <link rel='stylesheet' href='../../librerias/flatly/bootstrap.min.css'>
           <link rel='stylesheet' href='../../librerias/datatable/datatables.min.css'>
           <link rel='stylesheet' href='../../librerias/datatable/datatables.css'>
           <link rel='stylesheet' href='../../librerias/fontawesome/css/all.css'>

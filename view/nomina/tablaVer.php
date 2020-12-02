@@ -1,42 +1,52 @@
 <?php
 session_start();
 $ide=$_SESSION['idUsuario'];
-  require_once "../../backend/class/conexion.php";
-  $obj = new Conectar();
-  $conexion = $obj->conexion();
-  $sql ="SELECT b.not_bnt,
-                b.ncu_bnt,
-                b.tpc_bnt,
-                b.rcd_bnt,
-                b.nom_bnt,
-                b.cor_bnt,
-                b.tti_bnt,
-                t.nom_tra,
-                b.cod_bnt
-        FROM bancos_trabajadores as b
-        INNER JOIN trabajadores as t
-        ON  b.cod_tra = t.cod_tra
-        AND b.est_bnt='A'";
-    $result=mysqli_query($conexion,$sql);
+require_once "../../backend/class/conexion.php";
+$obj= new Conectar();
+$conexion=$obj->conexion();
+$sql="SELECT n.nrf_nom,
+             n.cnp_nom,
+             n.fcu_nom,
+             t.nom_tra,
+             t.ape_tra,
+             bc.nom_bnc,
+             bt.nom_bnt,
+             n.cod_nom
+      FROM nomina AS n
+      INNER JOIN bancos_trabajadores AS bt
+      ON n.cod_bnt=bt.cod_bnt
+      INNER JOIN bancos_casa AS bc
+      ON n.cod_bnc=bc.cod_bnc
+      INNER JOIN trabajadores AS t
+      ON n.cod_tra=t.cod_tra 
+      AND n.est_nom='A'";
+$result=mysqli_query($conexion,$sql);
+
+$sql2="SELECT cod_bnc,nom_bnc,rcd_bnc FROM bancos_casa WHERE est_bnc='A'";
+$result2 =mysqli_query($conexion,$sql2);
+
+$sql3="SELECT b.cod_bnt,b.nom_bnt,t.nom_tra,t.ape_tra  FROM bancos_trabajadores as b
+                                                INNER JOIN trabajadores as t
+                                                ON b.cod_tra=t.cod_tra
+                                                AND b.est_bnt='A'";
+$result3=mysqli_query($conexion,$sql3);
 ?>
 <br>
-<br>
     <div class="card p-5 sombra table-responsive">
-        <div class="card-title mx-auto text-white text-center c-banco sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
-            <h3>Lista Banco Trabajadores</h3>
+        <div class="card-title mx-auto text-white text-center c-cuenta sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+            <h3>Lista Pago Nomina</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover  table-bordered  text-center" id="tablaBancotrabajador">
-                <thead class="bc-banco">
+            <table class="table table-hover  table-bordered  text-center" id="tablaNomina">
+                <thead class="bc-cuenta">
                     <tr>
-                        <td>Nombre titular</td>
-                        <td>Numero de cuenta</td>
-                        <td>Tipo de Cuenta</td>
-                        <td>Rif o Cedula</td>
-                        <td>Banco</td>
-                        <td>Correo del Banco</td>
-                        <td>Telefono</td>
-                        <td>Trabajador</td>
+                        <td>Nombre Trabajador</td>
+                        <td>Apellido Trabajador</td>
+                        <td>Banco Trabajador</td>
+                        <td>Banco Empresa</td>
+                        <td>Numero Referencia</td>
+                        <td>Cantidad Transferencia</td>
+                        <td>Fecha Pago</td>
                         <?php if($_SESSION['rol']=='A'): ?> 
                         <td>Editar</td>
                         <td>Eliminar</td>
@@ -45,22 +55,21 @@ $ide=$_SESSION['idUsuario'];
                 </thead>
                 <?php while($ver = mysqli_fetch_row($result)): ?>
                     <tr>
+                        <td><?php echo $ver[3];?></td>
+                        <td><?php echo $ver[4];?></td>
+                        <td><?php echo $ver[6];?></td>
+                        <td><?php echo $ver[5];?></td>
                         <td><?php echo $ver[0];?></td>
                         <td><?php echo $ver[1];?></td>
                         <td><?php echo $ver[2];?></td>
-                        <td><?php echo $ver[3];?></td>
-                        <td><?php echo $ver[4];?></td>
-                        <td><?php echo $ver[5];?></td>
-                        <td><?php echo $ver[6];?></td>
-                        <td><?php echo $ver[7];?></td>
                         <?php if($_SESSION['rol']=='A'): ?> 
                         <td>
-                        <span class="btn btn-warning " data-toggle="modal" data-target="#abremodalbnTrabUpdate" onclick="ObtenerDatosbnTrab('<?php echo $ver[8];?>')">
+                        <span class="btn btn-warning " data-toggle="modal" data-target="#abremodalNominaUpdate" onclick="obtenerNomina('<?php echo $ver[7];?>')">
                          <i class="fas fa-pencil-alt"></i>
                         </span>
                         </td>
                         <td>
-                            <span class="btn btn-danger" onclick="papelera('<?php echo $ver[8];?>')">
+                            <span class="btn btn-danger" onclick="papelera('<?php echo $ver[7];?>')">
                              <i class="fas fa-trash"></i>
                             </span>
                         </td>
@@ -71,18 +80,18 @@ $ide=$_SESSION['idUsuario'];
     </div>
 
     <!-- modal de mostrar y actualizar datos -->
-    <div class="modal fade" id="abremodalbnTrabUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="abremodalNominaUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header c-banco text-white">
+                <div class="modal-header c-cuenta text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Actualizar Trabajador</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="frmBnTrabU">
-                    <input type="text" name="idbnt" hidden="" id="idbnt">
+                    <form id="frmNominaU">
+                    <input type="text" name="idnominaU" hidden="" id="idnominaU">
                         <div class="form-group">
                             <div class="row">
                                <div class="col-12">
@@ -102,42 +111,36 @@ $ide=$_SESSION['idUsuario'];
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col">
-                                    <label for="not_bntU">Nombre Titular Banco</label>
-                                    <input type="text" name="not_bntU" id="not_bntU" required class="form-control">
-                                </div>
+                                <div class="col-6">
+                                 <label for="">Banco Empresa</label>
+                                  <select class="form-control " id="bnCasaSelectU" name="bnCasaSelectU" >
+                                    <option value="A">Seleccione un Banco</option> 
+                                    <?php 
+                                        while($ver2= mysqli_fetch_row($result2)): ?>
+                                        <option value="<?php echo $ver2[0];?>"><?php echo $ver2[1]. "-".$ver2[2]; ?></option>
+                                    <?php endwhile; ?>
+                                 </select>
+                               </div>
+                               <div class="col-6">
+                                 <label for="">Banco Trabajador</label>
+                                  <select class="form-control " id="bnbTrabajadorSelectU" name="bnbTrabajadorSelectU" >
+                                    <option value="A">Seleccione Banco del Trabajador</option> 
+                                    <?php while($ver3= mysqli_fetch_row($result3)): ?>
+                                        <option value="<?php echo $ver3[0];?>"><?php echo $ver3[1]. "-".$ver3[2]." ".$ver3[3]; ?> </option>
+                                    <?php endwhile; ?>
+                                  </select>
+                               </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col">
-                                    <label for="ncu_bntU">N° De Cuenta</label>
-                                    <input type="text" name="ncu_bntU" id="ncu_bntU" class="form-control">            
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
                                 <div class="col-6">
-                                    <label for="tpc_bntU">Tipo de Cuenta</label>
-                                    <input type="text" name="tpc_bntU" id="tpc_bntU" class="form-control">
+                                    <label for="nrf_nomU">Numero de Referencia</label>
+                                    <input type="text" name="nrf_nomU" id="nrf_nomU" class="form-control">
                                 </div>
                                 <div class="col-6">
-                                    <label for="rcd_bntU">Rif o Cedula del Banco</label>
-                                    <input type="text" name="rcd_bntU" id="rcd_bntU" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="nom_bntU">Nombre del Banco</label>
-                                    <input type="text" name="nom_bntU" id="nom_bntU" class="form-control">
-                                </div>
-                                <div class="col-6">
-                                    <label for="tti_bntU">Telefono del Titular</label>
-                                    <input type="text" name="tti_bntU" id="tti_bntU" class="form-control">
+                                    <label for="cnp_nomU">Cantidad De La Transferencia</label>
+                                    <input type="text" name="cnp_nomU" id="cnp_nomU" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -145,15 +148,15 @@ $ide=$_SESSION['idUsuario'];
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-12">
-                                    <label for="cor_bntU">Correo del Banco</label>
-                                    <input type="email" name="cor_bntU" id="cor_bntU" class="form-control">
+                                    <label for="fcu_nomU">Fecha del Pago</label>
+                                    <input type="text" name="fcu_nomU" id="fcu_nomU" class="form-control">
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnAgregarBnTrabU" class="btn px-8 bc-banco mx-auto" data-dismiss="modal">Actualizar</button>
+                    <button type="button" id="btnAgregarNominaU" class="btn px-8 bc-cuenta mx-auto" data-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>
@@ -162,22 +165,20 @@ $ide=$_SESSION['idUsuario'];
   
 
 <script>
-function ObtenerDatosbnTrab(idbnt){
+function obtenerNomina(idnomina){
             $.ajax({
                 type: "POST",
-                data: "idbnt=" + idbnt,
-                url: "../../backend/controllers/bnTrabajadores/ObtenerBnTrabajores.php",
+                data: "idnomina=" + idnomina,
+                url: "../../backend/controllers/nomina/ObtenerNomina.php",
                 success: function(r){
                     datos = jQuery.parseJSON(r);
-                    $('#idbnt').val(datos['cod_bnt']);
+                    $('#idnominaU').val(datos['cod_nom']);
                     $('#bnTrabajadorSelectU').val(datos['cod_tra']);
-                    $('#not_bntU').val(datos['not_bnt']);
-                    $('#ncu_bntU').val(datos['ncu_bnt']);
-                    $('#tpc_bntU').val(datos['tpc_bnt']);
-                    $('#rcd_bntU').val(datos['rcd_bnt']);
-                    $('#nom_bntU').val(datos['nom_bnt']);
-                    $('#tti_bntU').val(datos['tti_bnt']);
-                    $('#cor_bntU').val(datos['cor_bnt']);
+                    $('#bnCasaSelectU').val(datos['cod_bnc']);
+                    $('#bnbTrabajadorSelectU').val(datos['cod_bnt']);
+                    $('#nrf_nomU').val(datos['nrf_nom']);
+                    $('#cnp_nomU').val(datos['cnp_nom']);
+                    $('#fcu_nomU').val(datos['fcu_nom']);
                 },
                 error: function(r){
                     console.log(r);
@@ -186,19 +187,19 @@ function ObtenerDatosbnTrab(idbnt){
         }
 
 $(document).ready(function () {
-    $('#btnAgregarBnTrabU').click(function () {
-        datos=$('#frmBnTrabU').serialize();
+    $('#btnAgregarNominaU').click(function () {
+        datos=$('#frmNominaU').serialize();
         $.ajax({
             type:"POST",
             data:datos,
-            url:"../../backend/controllers/bnTrabajadores/ActualizarBnTrabajadores.php",
+            url:"../../backend/controllers/nomina/ActualizarNomina.php",
             success:function(r){
                 console.log(r);
                 if (r==1){
                     $('#tablaVer').load('tablaVer.php');
-                    alertify.success("Banco actualizado con exito");
+                    alertify.success("Pago actualizado con exito");
                 }else{
-                    alertify.error("No se pudo actualizar Banco");
+                    alertify.error("No se pudo actualizar Pago");
                 }
             }
         });
@@ -207,13 +208,13 @@ $(document).ready(function () {
 
 
 
-function papelera(idbnt) {
+function papelera(idnomina) {
             alertify.confirm('¿Desea eliminar este Banco ?', 'Confirm Message',
                 function(){
                     $.ajax({
                         type:"POST",
-                        data:"idbnt=" + idbnt ,
-                        url:"../../backend/controllers/bnTrabajadores/Papelera.php",
+                        data:"idnomina=" + idnomina ,
+                        url:"../../backend/controllers/nomina/Papelera.php",
                         success:function(r){
                              if (r==1){
                                 $('#tablaVer').load('tablaVer.php');
@@ -231,7 +232,9 @@ function papelera(idbnt) {
 
 <script>
     $(document).ready(function() {
-        $('#tablaBancotrabajador').DataTable({
+        $('#tablaNomina').DataTable({
+            "scrollX": "90%",
+            "scrollCollapse": false,
             "language": idioma_español,
         });
     });

@@ -30,7 +30,6 @@ class BnTrabajador extends Conectar{
          return 1;
        }
        if(!$resultado){
-         echo "<script>alert('$sql')</script>";
        return 0;
        }
     }
@@ -122,13 +121,27 @@ public function restaurar($idbnt){
 
 public function filtrar($datos){
   $conexion = Conectar::conexion();
-  $filtro1=($datos[0]!="")?"and nom_tra like '%$datos[0]%'":"";
-  $filtro2=($datos[1]!="")?"and ape_tra like '%$datos[1]%'":"";
-  $filtro3=($datos[2]!="")?"and ced_tra like '%$datos[2]%'":"";
-  $filtro4=($datos[3]!="")?"and ads_tra like '%$datos[3]%'":"";
-  $filtro5=($datos[4]!="")?"and cor_tra like '%$datos[4]%'":"";
-  $filtro6=($datos[5]!="")?"and tel_tra like '%$datos[5]%'":"";
-  $sql= "select nom_tra,ape_tra,ced_tra,ads_tra,cor_tra,tel_tra from trabajadores where 1=1 $filtro1 $filtro2 $filtro3 $filtro4 $filtro5 $filtro6 AND est_tra='A'";
+  $filtro1=($datos[0]!="")?"and t.nom_tra like '%$datos[0]%'":"";
+  $filtro2=($datos[1]!="")?"and b.not_bnt like '%$datos[1]%'":"";
+  $filtro3=($datos[2]!="")?"and b.ncu_bnt like '%$datos[2]%'":"";
+  $filtro4=($datos[3]!="")?"and b.tpc_bnt like '%$datos[3]%'":"";
+  $filtro5=($datos[4]!="")?"and b.rcd_bnt like '%$datos[4]%'":"";
+  $filtro6=($datos[5]!="")?"and b.nom_bnt like '%$datos[5]%'":"";
+  $filtro7=($datos[6]!="")?"and b.cor_bnt like '%$datos[6]%'":"";
+  $filtro8=($datos[7]!="")?"and b.tti_bnt like '%$datos[7]%'":"";
+  $filtro9=($datos[8]!="")?"and t.ape_tra like '%$datos[8]%'":"";
+  $sql= "SELECT t.nom_tra,
+                b.not_bnt,
+                b.ncu_bnt,
+                b.tpc_bnt,
+                b.rcd_bnt,
+                b.nom_bnt,
+                b.cor_bnt,
+                b.tti_bnt
+         FROM bancos_trabajadores as b
+         INNER JOIN trabajadores as t
+         ON b.cod_tra = t.cod_tra WHERE 1=1 $filtro1 $filtro9 $filtro2 $filtro3 $filtro4 $filtro5 $filtro6 $filtro7 $filtro8
+         AND b.est_bnt='A'";
   return mysqli_query($conexion,$sql);
 }
 

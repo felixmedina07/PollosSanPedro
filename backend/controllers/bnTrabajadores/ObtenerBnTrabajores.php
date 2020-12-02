@@ -4,5 +4,4 @@
  $obj = new BnTrabajador();
  $idbnt =$_POST['idbnt'];
  echo json_encode($obj->obtenerBnTrab($idbnt));
-//  echo json_encode($obj->obtenDatosCliente());
 ?>

@@ -8,9 +8,9 @@ require_once "../menu/menu2.php";
 ?>
 <div class="container p-4">
     <div class="row">
-     <a href="../../menu_bn_trabajadores.php" class="btn bc-banco"><i class="fas fa-angle-left"></i></a>
+     <a href="../../menu_pg_nomina.php" class="btn bc-cuenta"><i class="fas fa-angle-left"></i></a>
     </div>
-      <div id="tablaEliminar"></div>
+      <div id="tablaAgregar"></div>
 </div>
 <?php
    }else{
@@ -24,6 +24,8 @@ $head = $es->pie();
 
 <script>
     $(document).ready(function(){
-        $('#tablaEliminar').load("tablaEliminar.php");
+        $('#tablaAgregar').load("tablaAgregar.php");
     });
 </script>
+
+<script src="../js/Principal/nomina.js"></script>

@@ -7,7 +7,7 @@ if(isset($_SESSION['nom_usu'])){
 
 <div class="container p-4">
     <div class="row">
-     <a href="menu_nomina.php" class="btn btn-dark" ><i class="fas fa-angle-left"></i></a>
+     <a href="menu_nomina.php" class="btn bc-cliente"><i class="fas fa-angle-left"></i></a>
     </div>
     <br>
     <div class="row">
@@ -19,7 +19,7 @@ if(isset($_SESSION['nom_usu'])){
                 <div class="row">
                     <div class="col-md-6 mb-3 d-flex justify-content-around">
                         <a href="view/trabajadores/TrabAgregar.php" class="btn bc-cliente">
-                        Agregar Trabajadores  
+                        Agregar Trabajadores
                         </a>
                     </div>
                     <div class="col-md-6 mb-3 d-flex justify-content-around">

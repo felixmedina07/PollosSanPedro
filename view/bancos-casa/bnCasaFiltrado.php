@@ -25,7 +25,9 @@ if(isset($_SESSION['nom_usu'])){
 
 ?>
 <div class="container p-4">
-<br>
+<div class="col">
+    <a href="../../bn-casa.php" class="btn bc-banco"><i class="fas fa-angle-left"></i></a>
+    </div>
 <br>
 <div class="card p-5 sombra">
     <div class="card-title mx-auto text-white text-center c-banco sombra mt-2 pt-2 " style="width: 80%; height: 80%; border-radius:10px;">

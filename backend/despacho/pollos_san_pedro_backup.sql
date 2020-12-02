@@ -17,11 +17,11 @@ CREATE TABLE `bancos_casa` (
   CONSTRAINT `bancosC_ibfk_1` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
-INSERT INTO bancos_casa VALUES("1","01020344556677889987","J40346843","mercantil","pollosanpedro@gmail.com","A","1","2020-02-27 09:37:08","","","");
-INSERT INTO bancos_casa VALUES("2","01034567899043657523","J40346843","banesco","pollosanpedro@hotmail.com","A","1","2020-02-27 09:38:13","2020-03-18 02:27:30","2020-03-21 08:25:25","2020-03-21 08:26:53");
-INSERT INTO bancos_casa VALUES("3","01056787454343443132","J29789065","venezuela","bancopollo@gmail.com","A","1","2020-05-12 12:07:37","","","");
+INSERT INTO bancos_casa VALUES("1","01020344556677889987","J40346843","mercantil","pollosanpedro2@gmail.com","A","1","2020-02-27 09:37:08","2020-11-30 03:52:30","","");
+INSERT INTO bancos_casa VALUES("2","01034567899043657522","J40346843","banesco","pollosanpedro@hotmail.com","A","1","2020-02-27 09:38:13","2020-11-30 03:31:10","2020-03-21 08:25:25","2020-03-21 08:26:53");
+INSERT INTO bancos_casa VALUES("3","01056787454343443132","J29789065","venezuela","bancopollo@gmail.com","B","1","2020-05-12 12:07:37","","2020-11-30 03:57:35","");
 INSERT INTO bancos_casa VALUES("4","01343434343434344344","V29580458","bicentenario","felixbicentenario@gmail.com","A","1","2020-06-15 05:48:02","","","");
-INSERT INTO bancos_casa VALUES("5","09432423423466666445","J28569567","provincial","provincial@gmail.com","A","1","2020-11-24 10:17:35","","","");
+INSERT INTO bancos_casa VALUES("5","09432423423466666445","J28569567","provincial","provincial@gmail.com","A","1","2020-11-24 10:17:35","","2020-11-30 04:02:22","2020-11-30 04:03:01");
 
 
 
@@ -40,11 +40,11 @@ CREATE TABLE `bancos_casa_resp` (
   PRIMARY KEY (`cod_bnc`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
-INSERT INTO bancos_casa_resp VALUES("1","01020344556677889987","J40346843","mercantil","pollosanpedro@gmail.com","A","1","2020-02-27 09:37:08","","","");
-INSERT INTO bancos_casa_resp VALUES("2","01034567899043657523","J40346843","banesco","pollosanpedro@hotmail.com","A","1","2020-02-27 09:38:13","","","");
-INSERT INTO bancos_casa_resp VALUES("3","01056787454343443132","J29789065","venezuela","bancopollo@gmail.com","A","1","2020-05-12 12:07:37","","","");
+INSERT INTO bancos_casa_resp VALUES("1","01020344556677889987","J40346843","mercantil","pollosanpedro2@gmail.com","A","1","2020-02-27 09:37:08","2020-11-30 03:52:30","","");
+INSERT INTO bancos_casa_resp VALUES("2","01034567899043657522","J40346843","banesco","pollosanpedro@hotmail.com","A","1","2020-02-27 09:38:13","2020-11-30 03:31:10","","");
+INSERT INTO bancos_casa_resp VALUES("3","01056787454343443132","J29789065","venezuela","bancopollo@gmail.com","B","1","2020-05-12 12:07:37","","","");
 INSERT INTO bancos_casa_resp VALUES("4","01343434343434344344","V29580458","bicentenario","felixbicentenario@gmail.com","A","1","2020-06-15 17:48:02","","","");
-INSERT INTO bancos_casa_resp VALUES("5","09432423423466666445","J28569567","provincial","provincial@gmail.com","A","1","2020-11-24 22:17:35","","","");
+INSERT INTO bancos_casa_resp VALUES("5","09432423423466666445","J28569567","provincial","provincial@gmail.com","A","1","2020-11-24 22:17:35","","2020-11-30 04:02:22","2020-11-30 04:03:01");
 
 
 
@@ -73,9 +73,9 @@ CREATE TABLE `bancos_cliente` (
 
 INSERT INTO bancos_cliente VALUES("1","rosana coromoto medina ","02030587986554233421","ahorro","J50986754","bicentenario","rosanamedina2@gmail.com","04140070021","A","1","1","2020-02-27 09:40:36","","","");
 INSERT INTO bancos_cliente VALUES("2","rosana coromoto medina","02016578954378875434","corriente","J8095668","venezuela","rosanamedina1@gmail.com","04140070021","A","1","1","2020-02-27 09:42:24","","","");
-INSERT INTO bancos_cliente VALUES("3","jose felix medina","04050687967534213456","corriente","J8095668","mercantil","josemedina@gmail.com","04247734274","A","2","1","2020-02-27 09:47:21","","2020-03-21 08:25:35","2020-03-21 08:26:17");
+INSERT INTO bancos_cliente VALUES("3","jose felix medina","04050687967534213456","corriente","J8095668","mercantil","josemedina@gmail.com","04247734274","A","1","1","2020-02-27 09:47:21","2020-12-02 12:16:29","2020-03-21 08:25:35","2020-03-21 08:26:17");
 INSERT INTO bancos_cliente VALUES("4","jose felix medina ","05067843671265437890","corriente","J09566856","provincial","josemedina@gmail.com","04247199694","A","2","1","2020-02-27 09:49:01","","","");
-INSERT INTO bancos_cliente VALUES("5","maribel medina zambrano","07986745234567875632","corriente","V8102476","sofitasa","mama_maribel@gmail.com","04247734274","A","4","1","2020-03-21 09:28:56","","","");
+INSERT INTO bancos_cliente VALUES("5","maribel medina","07986745234567875625","ahorro","V28016569","banesco","mom_maribel@gmail.com","04247008458","A","4","1","2020-03-21 09:28:56","2020-12-01 12:13:32","","");
 
 
 
@@ -100,9 +100,9 @@ CREATE TABLE `bancos_cliente_resp` (
 
 INSERT INTO bancos_cliente_resp VALUES("1","rosana coromoto medina ","02030587986554233421","ahorro","J50986754","bicentenario","rosanamedina2@gmail.com","04140070021","A","1","1","2020-02-27 09:40:36","","","");
 INSERT INTO bancos_cliente_resp VALUES("2","rosana coromoto medina","02016578954378875434","corriente","J8095668","venezuela","rosanamedina1@gmail.com","04140070021","A","1","1","2020-02-27 09:42:24","","","");
-INSERT INTO bancos_cliente_resp VALUES("3","jose felix medina","04050687967534213456","corriente","J8095668","mercantil","josemedina@gmail.com","04247734274","A","2","1","2020-02-27 09:47:21","","","");
+INSERT INTO bancos_cliente_resp VALUES("3","jose felix medina","04050687967534213456","corriente","J8095668","mercantil","josemedina@gmail.com","04247734274","A","1","1","2020-02-27 09:47:21","2020-12-02 12:16:29","","");
 INSERT INTO bancos_cliente_resp VALUES("4","jose felix medina ","05067843671265437890","corriente","J09566856","provincial","josemedina@gmail.com","04247199694","A","2","1","2020-02-27 09:49:01","","","");
-INSERT INTO bancos_cliente_resp VALUES("5","maribel medina zambrano","07986745234567875632","corriente","V8102476","sofitasa","mama_maribel@gmail.com","04247734274","A","4","1","2020-03-21 21:28:56","","","");
+INSERT INTO bancos_cliente_resp VALUES("5","maribel medina","07986745234567875625","ahorro","V28016569","banesco","mom_maribel@gmail.com","04247008458","A","4","1","2020-03-21 21:28:56","2020-12-01 12:13:32","","");
 
 
 
@@ -127,9 +127,9 @@ CREATE TABLE `bancos_trabajadores` (
   KEY `bnc_trab_ibfk_2` (`cod_tra`),
   CONSTRAINT `bnc_trab_ibfk_1` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON UPDATE CASCADE,
   CONSTRAINT `bnc_trab_ibfk_2` FOREIGN KEY (`cod_tra`) REFERENCES `trabajadores` (`cod_tra`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
-INSERT INTO bancos_trabajadores VALUES("4","fdfsdfdsf","34243254353453453556","sdfdsfsdfsdf","V29580458","fsdfsdfsdfsd","f@gmail.com","04140070021","A","2","1","2020-11-26 09:27:41","","","");
+INSERT INTO bancos_trabajadores VALUES("4","felix jesus medina ","34243254353453453556","corriente","V29580458","Venezuela","f@gmail.com","04140070021","A","2","1","2020-11-26 09:27:41","2020-12-02 12:46:00","","");
 
 
 
@@ -150,9 +150,10 @@ CREATE TABLE `bancos_trabajadores_resp` (
   `del_bnt` datetime DEFAULT NULL,
   `res_bnt` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnt`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
-INSERT INTO bancos_trabajadores_resp VALUES("1","fdfsdfdsf","34243254353453453556","sdfdsfsdfsdf","V29580458","fsdfsdfsdfsd","f@gmail.com","04140070021","A","2","1","2020-11-26 09:27:41","","","");
+INSERT INTO bancos_trabajadores_resp VALUES("4","felix jesus medina ","34243254353453453556","corriente","V29580458","Venezuela","f@gmail.com","04140070021","A","2","1","2020-11-26 09:27:41","2020-12-02 12:46:00","","");
+INSERT INTO bancos_trabajadores_resp VALUES("5","tulio felipe zambrano nazal","01057698325476980974","ahorro","J89076543","bicentenario","tuliofelipe@gmail.com","04247734274","B","3","1","2020-11-30 14:26:49","","2020-12-02 12:44:34","");
 
 
 
@@ -180,7 +181,7 @@ INSERT INTO cliente VALUES("1","rosana ","medina","V8095668","V80956689","toico 
 INSERT INTO cliente VALUES("2","jose","medina","V8108469","J81084698","pueblo nuevo - Core 2","medina_josefasa@gmail.com","04247199694","A","1","2020-02-27 09:35:45","2020-07-29 05:32:09","2020-03-21 08:09:53","2020-03-21 08:26:07");
 INSERT INTO cliente VALUES("3","diego","contreras","V26789456","J2455566","toico","felixdiego@gmail.com","04140070021","B","1","2020-03-17 10:16:45","","2020-03-21 08:49:39","2020-03-21 08:49:27");
 INSERT INTO cliente VALUES("4","maribel","medina","V88933242","V88933242","las pilas","maribel@gmail.com","03424234234","A","1","2020-03-18 02:36:39","2020-05-08 11:29:08","","");
-INSERT INTO cliente VALUES("5","blas Ignacio","hernandez sanchez","V29580451","V295804511","palo gordo","blas@gmail.com","04140070021","A","1","2020-11-07 04:00:09","","","");
+INSERT INTO cliente VALUES("5","blas Ignacio","hernandez sanches","V29580451","V295804511","palo gordo","blas@gmail.com","04140070021","A","1","2020-11-07 04:00:09","2020-12-02 10:21:25","","");
 
 
 
@@ -206,7 +207,7 @@ INSERT INTO cliente_resp VALUES("1","rosana ","medina","V8095668","V80956689","t
 INSERT INTO cliente_resp VALUES("2","jose","medina","V8108469","J81084698","pueblo nuevo","medina_jose@gmail.com","04247199694","A","1","2020-02-27 09:35:45","","","");
 INSERT INTO cliente_resp VALUES("3","diego","contreras","V26789456","J2455566","toico","felixdiego@gmail.com","04140070021","A","1","2020-03-17 22:16:45","","","");
 INSERT INTO cliente_resp VALUES("4","maribel","medina","V88933242","V88933242","asdasd","maribel@gmail.com","03424234234","A","1","2020-03-18 02:36:39","","","");
-INSERT INTO cliente_resp VALUES("5","blas Ignacio","hernandez sanchez","V29580451","V295804511","palo gordo","blas@gmail.com","04140070021","A","1","2020-11-07 04:00:09","","","");
+INSERT INTO cliente_resp VALUES("5","blas Ignacio","hernandez sanches","V29580451","V295804511","palo gordo","blas@gmail.com","04140070021","A","1","2020-11-07 04:00:09","2020-12-02 10:21:25","","");
 
 
 
@@ -431,10 +432,10 @@ CREATE TABLE `nomina` (
   `cod_bnt` int(11) NOT NULL,
   `cod_tra` int(11) NOT NULL,
   `cod_usu` int(11) NOT NULL,
-  `cre_nom` datetime NOT NULL,
-  `upd_nom` datetime NOT NULL,
-  `del_nom` datetime NOT NULL,
-  `res_nom` datetime NOT NULL,
+  `cre_nom` datetime DEFAULT NULL,
+  `upd_nom` datetime DEFAULT NULL,
+  `del_nom` datetime DEFAULT NULL,
+  `res_nom` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_nom`),
   KEY `nomina_ibfk_1` (`cod_usu`),
   KEY `nomina_ibfk_2` (`cod_tra`),
@@ -444,8 +445,12 @@ CREATE TABLE `nomina` (
   CONSTRAINT `nomina_ibfk_2` FOREIGN KEY (`cod_tra`) REFERENCES `trabajadores` (`cod_tra`) ON UPDATE CASCADE,
   CONSTRAINT `nomina_ibfk_3` FOREIGN KEY (`cod_bnc`) REFERENCES `bancos_casa` (`cod_bnc`) ON UPDATE CASCADE,
   CONSTRAINT `nomina_ibfk_4` FOREIGN KEY (`cod_bnt`) REFERENCES `bancos_trabajadores` (`cod_bnt`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
+INSERT INTO nomina VALUES("1","07689","200.00","2020-11-27","A","2","4","2","1","2020-11-27 02:14:43","2020-12-02 12:37:14","","");
+INSERT INTO nomina VALUES("3","878","2000.00","2020-11-27","B","1","4","2","1","2020-11-27 06:49:39","","2020-11-30 01:39:20","2020-11-27 07:56:37");
+INSERT INTO nomina VALUES("4","088","900.00","2020-11-28","A","1","4","2","1","2020-11-27 06:52:10","","","");
+INSERT INTO nomina VALUES("5","255667","250.00","2020-12-02","A","2","4","2","1","2020-12-02 12:28:56","2020-12-02 12:29:21","","");
 
 
 
@@ -459,13 +464,16 @@ CREATE TABLE `nomina_resp` (
   `cod_bnt` int(11) NOT NULL,
   `cod_tra` int(11) NOT NULL,
   `cod_usu` int(11) NOT NULL,
-  `cre_nom` datetime NOT NULL,
-  `upd_nom` datetime NOT NULL,
-  `del_nom` datetime NOT NULL,
-  `res_nom` datetime NOT NULL,
+  `cre_nom` datetime DEFAULT NULL,
+  `upd_nom` datetime DEFAULT NULL,
+  `del_nom` datetime DEFAULT NULL,
+  `res_nom` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+INSERT INTO nomina_resp VALUES("1","07689","200.00","2020-11-27","A","2","4","2","1","2020-11-27 18:49:39","2020-12-02 12:37:14","","");
+INSERT INTO nomina_resp VALUES("2","088","900.00","2020-11-28","A","1","4","2","1","2020-11-27 18:52:10","","","");
+INSERT INTO nomina_resp VALUES("3","255667","250.00","2020-12-02","A","4","4","2","1","2020-12-02 00:28:56","","","");
 
 
 
@@ -549,7 +557,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 INSERT INTO productos VALUES("1","50000.00","2.50","1.00","1.00","1.00","125000.00","50000.00","50000.00","50000.00","2.50","20","2.600","1160","118.000","118.000","59.000","A","A","2020-02-25","2020-02-27","2","1","2020-02-27 09:30:23","2020-03-21 10:44:01","2020-03-21 08:41:55","2020-03-21 08:42:07");
-INSERT INTO productos VALUES("3","1000000.00","3.00","1.00","1.00","1.50","3000000.00","1000000.00","1500000.00","1000000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-03-13","2020-03-16","1","1","2020-03-16 11:18:23","","2020-03-21 08:48:57","2020-03-21 08:49:06");
+INSERT INTO productos VALUES("3","10000.00","3.00","1.00","1.00","1.50","30000.00","10000.00","15000.00","10000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-03-13","2020-03-16","1","1","2020-03-16 11:18:23","2020-12-01 12:41:22","2020-03-21 08:48:57","2020-03-21 08:49:06");
 
 
 
@@ -620,7 +628,7 @@ CREATE TABLE `productos_resp` (
 
 INSERT INTO productos_resp VALUES("1","50000.00","2.50","1.00","1.00","1.00","125000.00","50000.00","50000.00","50000.00","2.50","20","2.600","1500","150.000","150.000","75.000","A","A","2020-02-25 00:00:00","2020-02-27 00:00:00","1","1","2020-02-27 09:30:23","","","");
 INSERT INTO productos_resp VALUES("2","40000.00","2.60","1.00","1.00","1.00","104000.00","40000.00","40000.00","40000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-02-24 00:00:00","2020-02-26 00:00:00","2","1","2020-02-27 09:32:54","","","");
-INSERT INTO productos_resp VALUES("3","1000000.00","3.00","1.00","1.00","1.50","3000000.00","1000000.00","1500000.00","1000000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-03-13 00:00:00","2020-03-16 00:00:00","1","1","2020-03-16 11:18:23","","","");
+INSERT INTO productos_resp VALUES("3","10000.00","3.00","1.00","1.00","1.50","30000.00","10000.00","15000.00","10000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-03-13 00:00:00","2020-03-16 00:00:00","1","1","2020-03-16 11:18:23","2020-12-01 12:41:22","","");
 INSERT INTO productos_resp VALUES("4","2000.00","1.00","1.00","1.00","1.00","2000.00","2000.00","2000.00","2000.00","2.50","20","2.600","500","50.000","50.000","25.000","A","B","2020-03-16 00:00:00","2020-03-18 00:00:00","2","1","2020-03-16 11:48:57","","","");
 
 
@@ -642,10 +650,10 @@ CREATE TABLE `proovedor` (
   CONSTRAINT `proovedor_ibfk_1` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
-INSERT INTO proovedor VALUES("1","tobi pollo","V22801656","alejandra@gmail.com","tachira-concordia","A","1","2020-02-27 09:29:04","2020-05-04 06:23:37","","");
+INSERT INTO proovedor VALUES("1","tobi pollo","V2280","alejandra@gmail.com","tachira-concordia","A","1","2020-02-27 09:29:04","2020-12-01 12:49:34","","");
 INSERT INTO proovedor VALUES("2","guasima pollo","J9096731","guasimapollo@gmail.com","falcon venezuela","A","1","2020-02-27 09:29:35","2020-10-31 06:01:50","","");
 INSERT INTO proovedor VALUES("10","okispollo","J8096735","okispollo@gmail.com","fafdsfcs","A","1","2020-03-18 02:35:33","","2020-03-21 08:27:41","2020-03-21 08:28:45");
-INSERT INTO proovedor VALUES("11","guasimodopollo","J28580457","guasi@gmail.com","fsdgsdfsdf","A","1","2020-03-18 02:40:20","","2020-07-09 08:56:13","2020-07-09 08:56:29");
+INSERT INTO proovedor VALUES("11","guasimodopollo","J2858045","guasi@gmail.com","valencia-tachira","A","1","2020-03-18 02:40:20","2020-12-01 11:43:21","2020-07-09 08:56:13","2020-07-09 08:56:29");
 
 
 
@@ -664,7 +672,7 @@ CREATE TABLE `proovedor_resp` (
   PRIMARY KEY (`cod_edo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
-INSERT INTO proovedor_resp VALUES("1","tobi pollo","V22801656","alejandro@gmail.com","concordia","A","1","2020-02-27 09:29:04","","","");
+INSERT INTO proovedor_resp VALUES("1","tobi pollo","V2280","alejandra@gmail.com","tachira-concordia","A","1","2020-02-27 09:29:04","2020-12-01 12:49:34","","");
 INSERT INTO proovedor_resp VALUES("2","guasima pollo","J9096734","guasimapollo@gmail.com","valencia","A","1","2020-02-27 09:29:35","","","");
 INSERT INTO proovedor_resp VALUES("3","felixpo","J9096735","felix@gmail.com","guarumitos","A","1","2020-03-18 02:28:04","","","");
 INSERT INTO proovedor_resp VALUES("4","felixpo","J9096735","felix@gmail.com","guarumitos","A","1","2020-03-18 02:28:06","","","");
@@ -674,7 +682,7 @@ INSERT INTO proovedor_resp VALUES("7","felixpo","J9096735","felix@gmail.com","gu
 INSERT INTO proovedor_resp VALUES("8","felixpo","J9096735","felix@gmail.com","guarumitos","A","1","2020-03-18 02:28:09","","","");
 INSERT INTO proovedor_resp VALUES("9","felixpo","J9096735","felix@gmail.com","guarumitos","A","1","2020-03-18 02:28:10","","","");
 INSERT INTO proovedor_resp VALUES("10","okispollo","J8096735","okispollo@gmail.com","fafdsfcs","A","1","2020-03-18 02:35:33","","","");
-INSERT INTO proovedor_resp VALUES("11","guasimodopollo","J28580457","guasi@gmail.com","fsdgsdfsdf","A","1","2020-03-18 02:40:20","","","");
+INSERT INTO proovedor_resp VALUES("11","guasimodopollo","J2858045","guasi@gmail.com","valencia-tachira","A","1","2020-03-18 02:40:20","2020-12-01 11:43:21","","");
 
 
 
@@ -695,7 +703,7 @@ CREATE TABLE `trabajadores` (
   PRIMARY KEY (`cod_tra`),
   KEY `trabajadores_ibfk_1` (`cod_usu`),
   CONSTRAINT `trabajadores_ibfk_1` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 
 INSERT INTO trabajadores VALUES("1","jose","medina","8108469","pueblo nuevo","felix_josefa@gmail.com","04247199694","B","1","2020-05-09 11:50:31","2020-05-09 03:07:37","2020-05-12 01:48:59","");
 INSERT INTO trabajadores VALUES("2","felix ","jesus","V8018469","palo gordo-toico","felixjesus@gmail.com","04247734274","A","1","2020-05-09 11:51:03","2020-11-25 12:16:22","","");
@@ -715,7 +723,7 @@ INSERT INTO trabajadores VALUES("19","jan","","V4535345","","","","B","1","2020-
 INSERT INTO trabajadores VALUES("20","jon ","","V2221132","","","","B","1","2020-05-12 12:36:42","","2020-05-12 12:37:59","");
 INSERT INTO trabajadores VALUES("21","jon ","","V22211323","","","","B","1","2020-05-12 12:36:45","","2020-05-12 12:38:00","");
 INSERT INTO trabajadores VALUES("22","sdasdasd","","V29009765","","","","B","1","2020-05-12 12:37:47","","2020-05-12 12:38:08","");
-INSERT INTO trabajadores VALUES("23","felix","medina","V12345670","palo grande","felixmedina@gmail.com","04247734274","A","1","2020-05-12 01:30:56","2020-05-14 12:54:11","","");
+INSERT INTO trabajadores VALUES("23","felix","medina","V12345670","palo grande","felixmedina@gmail.com","04247734274","A","1","2020-05-12 01:30:56","2020-12-01 01:54:16","2020-12-01 01:01:53","2020-12-01 01:02:23");
 INSERT INTO trabajadores VALUES("24","juan","mendez","V31456907","juncis","juncis@gmail.com","056564523","B","1","2020-05-12 01:33:14","","2020-05-12 01:49:01","");
 INSERT INTO trabajadores VALUES("25","jone","sdadasd","1111133","erfgdhfh","","4234234243","B","1","2020-05-12 01:35:11","","2020-05-12 01:49:10","");
 INSERT INTO trabajadores VALUES("26","jones","sadasda","444455566","dsdfsf","","423432","B","1","2020-05-12 01:36:18","","2020-05-12 01:48:57","");
@@ -734,11 +742,12 @@ INSERT INTO trabajadores VALUES("40","mbnhgh","","6781001","","","","B","1","202
 INSERT INTO trabajadores VALUES("41","lon","","444","","","","B","1","2020-05-12 02:15:04","","2020-05-14 12:35:31","");
 INSERT INTO trabajadores VALUES("42","dsadasd","","09","","","","B","1","2020-05-12 02:15:34","","2020-05-14 12:55:13","");
 INSERT INTO trabajadores VALUES("43","Medina","asdasda","V42342356","toico ","s@gmail.com","04126577888","A","1","2020-11-07 06:24:40","2020-11-26 06:41:36","","");
-INSERT INTO trabajadores VALUES("44","dasdsadasdaa","dasdasd","V3123123","yosei","bb@gmail.com","04123123334","A","1","2020-11-07 06:28:27","2020-11-26 06:42:28","","");
-INSERT INTO trabajadores VALUES("45","felix","dasdasd","V29580458","dasdad","felix@gmail.com","04140070021","A","1","2020-11-07 06:30:31","","","");
-INSERT INTO trabajadores VALUES("46","petrofosefina ","luna","V90578654","palo gordo","petrajosefa@gmail.com","04147724274","A","1","2020-11-26 12:53:49","","","");
+INSERT INTO trabajadores VALUES("44","yoselin","castillo","V3123123","yosei","bb@gmail.com","04123123334","B","1","2020-11-07 06:28:27","2020-11-30 12:25:47","2020-12-01 11:51:32","");
+INSERT INTO trabajadores VALUES("45","felixx","rwe","V29580433","asdasd","felix@gmail.es","42424","B","1","2020-11-07 06:30:31","2020-12-01 01:00:01","2020-12-01 01:54:23","");
+INSERT INTO trabajadores VALUES("46","petrofosefina ","luna","V90578654","palo gordo","petrajosefa@gmail.com","04147724274","B","1","2020-11-26 12:53:49","","2020-12-01 01:54:30","");
 INSERT INTO trabajadores VALUES("47","manuel ","perez","V8018169","loibon","loibon@gmail.com","04127776655","A","1","2020-11-26 12:58:45","","","");
 INSERT INTO trabajadores VALUES("48","josue","molina","V21789654","moneli","molina@gmail.com","04123456785","A","1","2020-11-26 02:01:17","","","");
+INSERT INTO trabajadores VALUES("49","Jesus David","Medina Medina","V29581457","toico palogordo","jesus@gmail.com","04140070021","A","1","2020-12-01 11:50:25","2020-12-01 11:50:39","","");
 
 
 
@@ -757,33 +766,18 @@ CREATE TABLE `trabajadores_resp` (
   `del_tra` datetime DEFAULT NULL,
   `res_tra` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_tra`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 INSERT INTO trabajadores_resp VALUES("1","felix","jose","V29580357","junco","felix@gmail.com","04140070021","A","1","2020-05-08 19:28:56","","","");
-INSERT INTO trabajadores_resp VALUES("2","jose","medina","8108469","pueblo nuevo","felix_jose@gmail.com","04247199694","A","1","2020-05-09 11:50:31","","","");
-INSERT INTO trabajadores_resp VALUES("3","felix ","jesus","V8018469","palo gordo","felixjesus@gmail.com","04247734274","A","1","2020-05-09 11:51:03","","","");
-INSERT INTO trabajadores_resp VALUES("4","","","","palo gordo","","","A","1","2020-05-09 16:14:57","","","");
-INSERT INTO trabajadores_resp VALUES("5","","","","","","","A","1","2020-05-11 18:15:45","","","");
+INSERT INTO trabajadores_resp VALUES("2","felix ","jesus","V8018469","palo gordo","felixjesus@gmail.com","04247734274","A","1","2020-05-09 11:51:03","","","");
 INSERT INTO trabajadores_resp VALUES("6","manuel","cepeda","V8096665","junco","manuelcepeda@gmail.com","04267897653","A","1","2020-05-12 11:57:42","","","");
 INSERT INTO trabajadores_resp VALUES("7","manolo","suarez","V26789540","palo gordo","manolosuarez@gmail.com","0412345789","A","1","2020-05-12 12:01:56","","","");
 INSERT INTO trabajadores_resp VALUES("8","fdfds","fdsfsdf","5234234","fddsf","gsdfsd","524234","A","1","2020-05-12 12:03:33","","","");
 INSERT INTO trabajadores_resp VALUES("9","dasdas","dasdasd","431242","sdadasd","dsadasd","341323","A","1","2020-05-12 12:04:59","","","");
-INSERT INTO trabajadores_resp VALUES("10","kkkk","","5646456","","","","A","1","2020-05-12 12:05:35","","","");
-INSERT INTO trabajadores_resp VALUES("11","jose","m","423423","asdasd","","","A","1","2020-05-12 12:06:31","","","");
 INSERT INTO trabajadores_resp VALUES("12","dsyuio","adsads","7898776","dasdasd","dsadasd@hotmail.com","4324234","A","1","2020-05-12 12:12:40","","","");
-INSERT INTO trabajadores_resp VALUES("13","dsadasd","dasdasd","V8018463","","","","A","1","2020-05-12 12:32:02","","","");
-INSERT INTO trabajadores_resp VALUES("14","jose","","V59654321","","","","A","1","2020-05-12 12:33:13","","","");
-INSERT INTO trabajadores_resp VALUES("15","jun","","V4234324","","","","A","1","2020-05-12 12:33:39","","","");
-INSERT INTO trabajadores_resp VALUES("16","jon","","V56465","","","","A","1","2020-05-12 12:34:20","","","");
-INSERT INTO trabajadores_resp VALUES("17","jan","","V4535345","","","","A","1","2020-05-12 12:35:47","","","");
-INSERT INTO trabajadores_resp VALUES("18","jon ","","V2221132","","","","A","1","2020-05-12 12:36:42","","","");
-INSERT INTO trabajadores_resp VALUES("19","jon ","","V22211323","","","","A","1","2020-05-12 12:36:45","","","");
-INSERT INTO trabajadores_resp VALUES("20","sdasdasd","","V29009765","","","","A","1","2020-05-12 12:37:47","","","");
 INSERT INTO trabajadores_resp VALUES("21","felix","medina","V12345679","palo grande","felixmedinamedina@gmail.com","04247734274","A","1","2020-05-12 13:30:56","","","");
 INSERT INTO trabajadores_resp VALUES("22","juan","mendez","V31456907","juncis","juncis@gmail.com","056564523","A","1","2020-05-12 13:33:14","","","");
-INSERT INTO trabajadores_resp VALUES("23","jone","sdadasd","1111133","erfgdhfh","","4234234243","A","1","2020-05-12 13:35:11","","","");
-INSERT INTO trabajadores_resp VALUES("24","jones","sadasda","444455566","dsdfsf","","423432","A","1","2020-05-12 13:36:18","","","");
-INSERT INTO trabajadores_resp VALUES("25","junes","sdasd","777666","asdasda","","432543535","A","1","2020-05-12 13:42:05","","","");
+INSERT INTO trabajadores_resp VALUES("23","felix","medina","V12345670","palo grande","felixmedina@gmail.com","04247734274","A","1","2020-05-12 13:35:11","2020-12-01 01:54:16","2020-12-01 01:01:53","2020-12-01 01:02:23");
 INSERT INTO trabajadores_resp VALUES("26","janes","dasdasd","568909754","","","","A","1","2020-05-12 13:43:27","","","");
 INSERT INTO trabajadores_resp VALUES("27","jine","fadfsf","2453534","sfsdfsd","sdffsdf","5345654","A","1","2020-05-12 13:45:43","","","");
 INSERT INTO trabajadores_resp VALUES("28","jn","fdsdfsdf","235654758","","","","A","1","2020-05-12 13:47:13","","","");
@@ -802,7 +796,8 @@ INSERT INTO trabajadores_resp VALUES("40","dasdsadasdaa","dasdasd","V3123123","e
 INSERT INTO trabajadores_resp VALUES("41","felix","dasdasd","V29580458","dasdad","felix@gmail.com","04140070021","A","1","2020-11-07 06:30:31","","","");
 INSERT INTO trabajadores_resp VALUES("42","petrofosefina ","luna","V90578654","palo gordo","petrajosefa@gmail.com","04147724274","A","1","2020-11-26 00:53:49","","","");
 INSERT INTO trabajadores_resp VALUES("43","manuel ","perez","V8018169","loibon","loibon@gmail.com","04127776655","A","1","2020-11-26 00:58:45","","","");
-INSERT INTO trabajadores_resp VALUES("44","josue","molina","V21789654","moneli","molina@gmail.com","04123456785","A","1","2020-11-26 02:01:17","","","");
+INSERT INTO trabajadores_resp VALUES("44","yoselin","castillo","V3123123","yosei","bb@gmail.com","04123123334","B","1","2020-11-26 02:01:17","2020-11-30 12:25:47","2020-12-01 11:51:32","");
+INSERT INTO trabajadores_resp VALUES("45","JesusDavid","Medina Medina","V29581457","toico palogordo","jesus@gmail.com","04140070021","A","1","2020-12-01 23:50:25","","","");
 
 
 
@@ -819,19 +814,22 @@ CREATE TABLE `usuarios` (
   `las_usu` datetime DEFAULT NULL,
   `res_usu` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
-INSERT INTO usuarios VALUES("1","felix","felixmedina07052000@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","A","A","2020-02-27 09:27:56","2020-10-31 04:44:27","","2020-11-26 06:09:11","");
-INSERT INTO usuarios VALUES("2","marbe","marbe@gmail.com","3af1b547a8dd07a5ac0bcf962ec852b3f060b716","E","A","2020-03-18 03:07:57","2020-03-21 08:53:19","","2020-03-21 08:53:29","");
-INSERT INTO usuarios VALUES("3","jose","jose@gmail.com","5b53cad999b409898a88133ca9851b097abb500d","S","A","2020-03-19 02:26:32","2020-10-31 04:44:33","2020-03-19 02:27:19","2020-03-19 02:45:26","2020-03-19 02:44:56");
-INSERT INTO usuarios VALUES("4","kevin","kevin@gmail.com","1c51e553cb863175222ebd166abc152cca513a50","E","A","2020-07-02 11:42:16","2020-07-02 11:44:37","","2020-07-02 11:44:51","");
-INSERT INTO usuarios VALUES("5","luis","luis@gmail.com","a77fc64da554424bfcbb1ce6036a1f814073fe28","V","A","2020-10-31 04:46:19","","","","");
-INSERT INTO usuarios VALUES("8","lol","lol@gmail.com","a75b563181dea35f4a19ef34324aedfaa388caa1","V","A","2020-10-31 04:53:46","","","","");
-INSERT INTO usuarios VALUES("10","jesus","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","A","2020-10-31 06:11:38","","","","");
-INSERT INTO usuarios VALUES("11","focas","jesus@gmail.com","d27f4469be6eadfde078a1e371c9d67d3f7512c7","V","A","2020-11-24 10:05:02","","","2020-11-24 10:05:49","");
-INSERT INTO usuarios VALUES("12","kfff","kfkf@gmail.com","09595e7223d759a4aaff9dae7bf5ce01fd99eb45","V","A","2020-11-24 10:14:21","","","","");
-INSERT INTO usuarios VALUES("13","manojose","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","A","2020-11-25 12:58:56","","","","");
-INSERT INTO usuarios VALUES("14","josefiladelfia","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","A","2020-11-25 12:59:42","","","","");
+INSERT INTO usuarios VALUES("1","felix","felixmedina07052000@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","A","A","2020-02-27 09:27:56","2020-10-31 04:44:27","","2020-12-02 10:29:52","");
+INSERT INTO usuarios VALUES("2","marbe","marbe@gmail.com","3af1b547a8dd07a5ac0bcf962ec852b3f060b716","E","B","2020-03-18 03:07:57","2020-03-21 08:53:19","2020-11-29 11:46:31","2020-03-21 08:53:29","");
+INSERT INTO usuarios VALUES("3","jose","jose@gmail.com","5b53cad999b409898a88133ca9851b097abb500d","S","B","2020-03-19 02:26:32","2020-10-31 04:44:33","2020-12-01 11:21:41","2020-03-19 02:45:26","2020-03-19 02:44:56");
+INSERT INTO usuarios VALUES("4","kevin","kevin@gmail.com","1c51e553cb863175222ebd166abc152cca513a50","E","B","2020-07-02 11:42:16","2020-07-02 11:44:37","2020-12-01 11:21:37","2020-07-02 11:44:51","");
+INSERT INTO usuarios VALUES("5","luis","luis@gmail.com","a77fc64da554424bfcbb1ce6036a1f814073fe28","V","B","2020-10-31 04:46:19","","2020-11-29 11:46:55","","");
+INSERT INTO usuarios VALUES("8","lol","lol@gmail.com","a75b563181dea35f4a19ef34324aedfaa388caa1","V","B","2020-10-31 04:53:46","","2020-11-29 11:46:43","","");
+INSERT INTO usuarios VALUES("10","jesus","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","S","B","2020-10-31 06:11:38","2020-12-01 01:06:57","2020-12-01 11:21:44","","");
+INSERT INTO usuarios VALUES("11","focas","jesus@gmail.com","d27f4469be6eadfde078a1e371c9d67d3f7512c7","V","B","2020-11-24 10:05:02","","2020-11-29 11:46:49","2020-11-24 10:05:49","");
+INSERT INTO usuarios VALUES("12","kfff","kfkf@gmail.com","09595e7223d759a4aaff9dae7bf5ce01fd99eb45","V","B","2020-11-24 10:14:21","","2020-11-29 11:46:36","","");
+INSERT INTO usuarios VALUES("13","manojose","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","B","2020-11-25 12:58:56","","2020-11-29 11:46:45","","");
+INSERT INTO usuarios VALUES("14","josefiladelfia","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","B","2020-11-25 12:59:42","","2020-11-29 11:46:40","","");
+INSERT INTO usuarios VALUES("15","luisa","luisa@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","S","B","2020-11-29 11:43:45","2020-11-29 11:47:19","2020-12-02 12:08:40","2020-11-30 05:27:23","");
+INSERT INTO usuarios VALUES("16","Yony","jonny@gmail.com","e55376f27439b31804b56d77c3c9552d89c2b8dd","E","A","2020-12-01 11:28:13","2020-12-02 12:08:35","","2020-12-01 11:30:14","");
+INSERT INTO usuarios VALUES("17","prueba","prueba@gmail.com","93301ada8177f4b7841620847f3d06d41febdd1d","S","A","2020-12-01 11:40:07","2020-12-01 11:41:39","","2020-12-01 11:40:51","");
 
 
 
@@ -848,20 +846,23 @@ CREATE TABLE `usuarios_resp` (
   `las_usu` datetime DEFAULT NULL,
   `res_usu` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
-INSERT INTO usuarios_resp VALUES("1","felix","felixmedina07052000@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","A","A","2020-02-27 09:27:56","","","","");
+INSERT INTO usuarios_resp VALUES("1","felix","felixmedina07052000@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","A","A","2020-02-27 09:27:56","2020-10-31 04:44:27","","","");
 INSERT INTO usuarios_resp VALUES("2","marbe","marbe@gmail.com","fb3122091edeff3ecea93e9347d20ee8caec987b","V","A","2020-03-18 15:07:58","","","","");
-INSERT INTO usuarios_resp VALUES("3","jose","jose@gmail.com","5b53cad999b409898a88133ca9851b097abb500d","V","A","2020-03-19 02:26:32","","","","");
-INSERT INTO usuarios_resp VALUES("4","kevin","kevin@gmail.com","1c51e553cb863175222ebd166abc152cca513a50","V","A","2020-07-02 11:42:16","","","","");
+INSERT INTO usuarios_resp VALUES("3","jose","jose@gmail.com","5b53cad999b409898a88133ca9851b097abb500d","S","B","2020-03-19 02:26:32","2020-10-31 04:44:33","2020-12-01 11:21:41","","");
+INSERT INTO usuarios_resp VALUES("4","kevin","kevin@gmail.com","1c51e553cb863175222ebd166abc152cca513a50","E","B","2020-07-02 11:42:16","2020-07-02 11:44:37","2020-12-01 11:21:37","","");
 INSERT INTO usuarios_resp VALUES("5","luis","luis@gmail.com","a77fc64da554424bfcbb1ce6036a1f814073fe28","V","A","2020-10-31 16:46:19","","","","");
 INSERT INTO usuarios_resp VALUES("6","lola","lola@gmail.com","2a5bb5475ac143cc17acc38d28e97ad2cb2114d5","V","A","2020-10-31 16:48:58","","","","");
 INSERT INTO usuarios_resp VALUES("7","lodas","lodas@gmail.com","db8cdd9e722cfe60a69883da73e78df77c9120e8","V","A","2020-10-31 16:50:05","","","","");
 INSERT INTO usuarios_resp VALUES("8","lol","lol@gmail.com","a75b563181dea35f4a19ef34324aedfaa388caa1","V","A","2020-10-31 16:53:46","","","","");
 INSERT INTO usuarios_resp VALUES("9","lului","loiloi@gmail.com","e80a628d28c05d8490c3be35b26cfc3c49a1b6ac","V","A","2020-10-31 17:53:31","","","","");
-INSERT INTO usuarios_resp VALUES("10","jesus","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","A","2020-10-31 18:11:38","","","","");
+INSERT INTO usuarios_resp VALUES("10","jesus","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","S","B","2020-10-31 18:11:38","2020-12-01 01:06:57","2020-12-01 11:21:44","","");
 INSERT INTO usuarios_resp VALUES("11","focas","jesus@gmail.com","d27f4469be6eadfde078a1e371c9d67d3f7512c7","V","A","2020-11-24 22:05:02","","","","");
 INSERT INTO usuarios_resp VALUES("12","kfff","kfkf@gmail.com","09595e7223d759a4aaff9dae7bf5ce01fd99eb45","V","A","2020-11-24 22:14:21","","","","");
 INSERT INTO usuarios_resp VALUES("13","manojose","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","A","2020-11-25 00:58:56","","","","");
 INSERT INTO usuarios_resp VALUES("14","josefiladelfia","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","A","2020-11-25 00:59:42","","","","");
+INSERT INTO usuarios_resp VALUES("15","luisa","luisa@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","S","B","2020-11-29 23:43:45","2020-11-29 11:47:19","2020-12-02 12:08:40","","");
+INSERT INTO usuarios_resp VALUES("16","Yony","jonny@gmail.com","e55376f27439b31804b56d77c3c9552d89c2b8dd","E","A","2020-12-01 23:28:13","2020-12-02 12:08:35","","","");
+INSERT INTO usuarios_resp VALUES("17","prueba","prueba@gmail.com","93301ada8177f4b7841620847f3d06d41febdd1d","S","A","2020-12-01 23:40:08","2020-12-01 11:41:39","","","");
 

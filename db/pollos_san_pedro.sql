@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 31-10-2020 a las 22:17:10
+-- Tiempo de generación: 02-12-2020 a las 23:40:34
 -- Versión del servidor: 5.7.28
 -- Versión de PHP: 7.4.0
 
@@ -28,13 +28,40 @@ DELIMITER $$
 --
 DROP PROCEDURE IF EXISTS `sp_mostrar_cliente`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_mostrar_cliente` ()  BEGIN
- select cod_cli,
-		nom_cli,
+ select nom_cli,
 		ape_cli,
 		ced_cli,
 		rif_cli,
-		ads_cli
+		ads_cli,
+        cor_cli,
+        tel_cli
  from cliente;
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_mostrar_nomina`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_mostrar_nomina` ()  BEGIN
+SELECT n.nrf_nom,
+             n.cnp_nom,
+             n.fcu_nom,
+             t.nom_tra,
+             t.ape_tra,
+             bc.nom_bnc,
+             bt.nom_bnt,
+             n.cod_nom
+      FROM nomina AS n
+      INNER JOIN bancos_trabajadores AS bt
+      ON n.cod_bnt=bt.cod_bnt
+      INNER JOIN bancos_casa AS bc
+      ON n.cod_bnc=bc.cod_bnc
+      INNER JOIN trabajadores AS t
+      ON n.cod_tra=t.cod_tra 
+      AND n.est_nom ='A';
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_mostrar_trabajadores`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_mostrar_trabajadores` ()  BEGIN
+ select nom_tra,ape_tra,ced_tra,ads_tra,cor_tra,tel_tra
+ from trabajadores where est_tra ='A';
 END$$
 
 DELIMITER ;
@@ -60,17 +87,18 @@ CREATE TABLE IF NOT EXISTS `bancos_casa` (
   `res_bnc` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnc`),
   KEY `bancosC_ibfk_1` (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `bancos_casa`
 --
 
 INSERT INTO `bancos_casa` (`cod_bnc`, `nuc_bnc`, `rcd_bnc`, `nom_bnc`, `cor_bnc`, `est_bnc`, `cod_usu`, `cre_bnc`, `upd_bnc`, `del_bnc`, `res_bnc`) VALUES
-(1, '01020344556677889987', 'J40346843', 'mercantil', 'pollosanpedro@gmail.com', 'A', 1, '2020-02-27 09:37:08', NULL, NULL, NULL),
-(2, '01034567899043657523', 'J40346843', 'banesco', 'pollosanpedro@hotmail.com', 'A', 1, '2020-02-27 09:38:13', '2020-03-18 02:27:30', '2020-03-21 08:25:25', '2020-03-21 08:26:53'),
-(3, '01056787454343443132', 'J29789065', 'venezuela', 'bancopollo@gmail.com', 'A', 1, '2020-05-12 12:07:37', NULL, NULL, NULL),
-(4, '01343434343434344344', 'V29580458', 'bicentenario', 'felixbicentenario@gmail.com', 'A', 1, '2020-06-15 05:48:02', NULL, NULL, NULL);
+(1, '01020344556677889987', 'J40346843', 'mercantil', 'pollosanpedro2@gmail.com', 'A', 1, '2020-02-27 09:37:08', '2020-11-30 03:52:30', NULL, NULL),
+(2, '01034567899043657522', 'J40346843', 'banesco', 'pollosanpedro@hotmail.com', 'A', 1, '2020-02-27 09:38:13', '2020-11-30 03:31:10', '2020-03-21 08:25:25', '2020-03-21 08:26:53'),
+(3, '01056787454343443132', 'J29789065', 'venezuela', 'bancopollo@gmail.com', 'B', 1, '2020-05-12 12:07:37', NULL, '2020-11-30 03:57:35', NULL),
+(4, '01343434343434344344', 'V29580458', 'bicentenario', 'felixbicentenario@gmail.com', 'A', 1, '2020-06-15 05:48:02', NULL, NULL, NULL),
+(5, '09432423423466666445', 'J28569567', 'provincial', 'provincial@gmail.com', 'A', 1, '2020-11-24 10:17:35', NULL, '2020-11-30 04:02:22', '2020-11-30 04:03:01');
 
 --
 -- Disparadores `bancos_casa`
@@ -79,6 +107,27 @@ DROP TRIGGER IF EXISTS `bancos_casa_AI`;
 DELIMITER $$
 CREATE TRIGGER `bancos_casa_AI` AFTER INSERT ON `bancos_casa` FOR EACH ROW INSERT INTO bancos_casa_resp(nuc_bnc,rcd_bnc,nom_bnc,cor_bnc,est_bnc,cod_usu,cre_bnc) VALUES
 (NEW.nuc_bnc,NEW.rcd_bnc,NEW.nom_bnc,NEW.cor_bnc,NEW.est_bnc,NEW.cod_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `bancos_casa_BU`;
+DELIMITER $$
+CREATE TRIGGER `bancos_casa_BU` BEFORE UPDATE ON `bancos_casa` FOR EACH ROW IF(NEW.cod_bnc = OLD.cod_bnc)THEN
+UPDATE bancos_casa_resp SET nuc_bnc=NEW.nuc_bnc,
+                            rcd_bnc=NEW.rcd_bnc,
+                            nom_bnc=NEW.nom_bnc,
+                            cor_bnc=NEW.cor_bnc,
+                            est_bnc=NEW.est_bnc,
+                            upd_bnc=NEW.upd_bnc 
+WHERE cod_bnc=NEW.cod_bnc;
+
+IF(NEW.est_bnc='B' && OLD.est_bnc='A') THEN
+UPDATE bancos_casa_resp SET del_bnc=NEW.del_bnc WHERE cod_bnc=NEW.cod_bnc;
+END IF;
+
+IF(NEW.est_bnc='A' && OLD.est_bnc='B') THEN
+UPDATE bancos_casa_resp SET res_bnc=NEW.res_bnc WHERE cod_bnc=NEW.cod_bnc;
+END IF;
+END IF
 $$
 DELIMITER ;
 
@@ -102,17 +151,18 @@ CREATE TABLE IF NOT EXISTS `bancos_casa_resp` (
   `del_bnc` datetime DEFAULT NULL,
   `res_bnc` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnc`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `bancos_casa_resp`
 --
 
 INSERT INTO `bancos_casa_resp` (`cod_bnc`, `nuc_bnc`, `rcd_bnc`, `nom_bnc`, `cor_bnc`, `est_bnc`, `cod_usu`, `cre_bnc`, `upd_bnc`, `del_bnc`, `res_bnc`) VALUES
-(1, '01020344556677889987', 'J40346843', 'mercantil', 'pollosanpedro@gmail.com', 'A', 1, '2020-02-27 09:37:08', NULL, NULL, NULL),
-(2, '01034567899043657523', 'J40346843', 'banesco', 'pollosanpedro@hotmail.com', 'A', 1, '2020-02-27 09:38:13', NULL, NULL, NULL),
-(3, '01056787454343443132', 'J29789065', 'venezuela', 'bancopollo@gmail.com', 'A', 1, '2020-05-12 12:07:37', NULL, NULL, NULL),
-(4, '01343434343434344344', 'V29580458', 'bicentenario', 'felixbicentenario@gmail.com', 'A', 1, '2020-06-15 17:48:02', NULL, NULL, NULL);
+(1, '01020344556677889987', 'J40346843', 'mercantil', 'pollosanpedro2@gmail.com', 'A', 1, '2020-02-27 09:37:08', '2020-11-30 03:52:30', NULL, NULL),
+(2, '01034567899043657522', 'J40346843', 'banesco', 'pollosanpedro@hotmail.com', 'A', 1, '2020-02-27 09:38:13', '2020-11-30 03:31:10', NULL, NULL),
+(3, '01056787454343443132', 'J29789065', 'venezuela', 'bancopollo@gmail.com', 'B', 1, '2020-05-12 12:07:37', NULL, NULL, NULL),
+(4, '01343434343434344344', 'V29580458', 'bicentenario', 'felixbicentenario@gmail.com', 'A', 1, '2020-06-15 17:48:02', NULL, NULL, NULL),
+(5, '09432423423466666445', 'J28569567', 'provincial', 'provincial@gmail.com', 'A', 1, '2020-11-24 22:17:35', NULL, '2020-11-30 04:02:22', '2020-11-30 04:03:01');
 
 -- --------------------------------------------------------
 
@@ -149,9 +199,9 @@ CREATE TABLE IF NOT EXISTS `bancos_cliente` (
 INSERT INTO `bancos_cliente` (`cod_bnk`, `not_bnk`, `ncu_bnk`, `tpc_bnk`, `rcd_bnk`, `nom_bnk`, `cor_bnk`, `tti_bnk`, `est_bnk`, `cod_cli`, `cod_usu`, `cre_bnk`, `upd_bnk`, `del_bnk`, `res_bnk`) VALUES
 (1, 'rosana coromoto medina ', '02030587986554233421', 'ahorro', 'J50986754', 'bicentenario', 'rosanamedina2@gmail.com', '04140070021', 'A', 1, 1, '2020-02-27 09:40:36', NULL, NULL, NULL),
 (2, 'rosana coromoto medina', '02016578954378875434', 'corriente', 'J8095668', 'venezuela', 'rosanamedina1@gmail.com', '04140070021', 'A', 1, 1, '2020-02-27 09:42:24', NULL, NULL, NULL),
-(3, 'jose felix medina', '04050687967534213456', 'corriente', 'J8095668', 'mercantil', 'josemedina@gmail.com', '04247734274', 'A', 2, 1, '2020-02-27 09:47:21', NULL, '2020-03-21 08:25:35', '2020-03-21 08:26:17'),
+(3, 'jose felix medina', '04050687967534213456', 'corriente', 'J8095668', 'mercantil', 'josemedina@gmail.com', '04247734274', 'A', 1, 1, '2020-02-27 09:47:21', '2020-12-02 12:16:29', '2020-03-21 08:25:35', '2020-03-21 08:26:17'),
 (4, 'jose felix medina ', '05067843671265437890', 'corriente', 'J09566856', 'provincial', 'josemedina@gmail.com', '04247199694', 'A', 2, 1, '2020-02-27 09:49:01', NULL, NULL, NULL),
-(5, 'maribel medina zambrano', '07986745234567875632', 'corriente', 'V8102476', 'sofitasa', 'mama_maribel@gmail.com', '04247734274', 'A', 4, 1, '2020-03-21 09:28:56', NULL, NULL, NULL);
+(5, 'maribel medina', '07986745234567875625', 'ahorro', 'V28016569', 'banesco', 'mom_maribel@gmail.com', '04247008458', 'A', 4, 1, '2020-03-21 09:28:56', '2020-12-01 12:13:32', NULL, NULL);
 
 --
 -- Disparadores `bancos_cliente`
@@ -159,6 +209,31 @@ INSERT INTO `bancos_cliente` (`cod_bnk`, `not_bnk`, `ncu_bnk`, `tpc_bnk`, `rcd_b
 DROP TRIGGER IF EXISTS `bancos_cliente_AI`;
 DELIMITER $$
 CREATE TRIGGER `bancos_cliente_AI` AFTER INSERT ON `bancos_cliente` FOR EACH ROW INSERT INTO bancos_cliente_resp(not_bnk,ncu_bnk,tpc_bnk,rcd_bnk,nom_bnk,cor_bnk,tti_bnk,est_bnk,cod_cli,cod_usu,cre_bnk) VALUES(NEW.not_bnk,NEW.ncu_bnk,NEW.tpc_bnk,NEW.rcd_bnk,NEW.nom_bnk,NEW.cor_bnk,NEW.tti_bnk,NEW.est_bnk,NEW.cod_cli,NEW.cod_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `bancos_cliente_BU`;
+DELIMITER $$
+CREATE TRIGGER `bancos_cliente_BU` BEFORE UPDATE ON `bancos_cliente` FOR EACH ROW IF(NEW.cod_bnk = OLD.cod_bnk)THEN
+UPDATE bancos_cliente_resp SET not_bnk=NEW.not_bnk,
+			    ncu_bnk=NEW.ncu_bnk,
+                            tpc_bnk=NEW.tpc_bnk,
+                            rcd_bnk=NEW.rcd_bnk,
+                            nom_bnk=NEW.nom_bnk,
+                            cor_bnk=NEW.cor_bnk,
+                            tti_bnk=NEW.tti_bnk,
+                            est_bnk=NEW.est_bnk,
+                            cod_cli=NEW.cod_cli,
+                            upd_bnk=NEW.upd_bnk 
+WHERE cod_bnk=NEW.cod_bnk;
+
+IF(NEW.est_bnk='B' && OLD.est_bnk='A') THEN
+UPDATE bancos_cliente_resp SET del_bnk=NEW.del_bnk WHERE cod_bnk=NEW.cod_bnk;
+END IF;
+
+IF(NEW.est_bnk='A' && OLD.est_bnk='B') THEN
+UPDATE bancos_cliente_resp SET res_bnk=NEW.res_bnk WHERE cod_bnk=NEW.cod_bnk;
+END IF;
+END IF
 $$
 DELIMITER ;
 
@@ -195,9 +270,9 @@ CREATE TABLE IF NOT EXISTS `bancos_cliente_resp` (
 INSERT INTO `bancos_cliente_resp` (`cod_bnk`, `not_bnk`, `ncu_bnk`, `tpc_bnk`, `rcd_bnk`, `nom_bnk`, `cor_bnk`, `tti_bnk`, `est_bnk`, `cod_cli`, `cod_usu`, `cre_bnk`, `upd_bnk`, `del_bnk`, `res_bnk`) VALUES
 (1, 'rosana coromoto medina ', '02030587986554233421', 'ahorro', 'J50986754', 'bicentenario', 'rosanamedina2@gmail.com', '04140070021', 'A', 1, 1, '2020-02-27 09:40:36', NULL, NULL, NULL),
 (2, 'rosana coromoto medina', '02016578954378875434', 'corriente', 'J8095668', 'venezuela', 'rosanamedina1@gmail.com', '04140070021', 'A', 1, 1, '2020-02-27 09:42:24', NULL, NULL, NULL),
-(3, 'jose felix medina', '04050687967534213456', 'corriente', 'J8095668', 'mercantil', 'josemedina@gmail.com', '04247734274', 'A', 2, 1, '2020-02-27 09:47:21', NULL, NULL, NULL),
+(3, 'jose felix medina', '04050687967534213456', 'corriente', 'J8095668', 'mercantil', 'josemedina@gmail.com', '04247734274', 'A', 1, 1, '2020-02-27 09:47:21', '2020-12-02 12:16:29', NULL, NULL),
 (4, 'jose felix medina ', '05067843671265437890', 'corriente', 'J09566856', 'provincial', 'josemedina@gmail.com', '04247199694', 'A', 2, 1, '2020-02-27 09:49:01', NULL, NULL, NULL),
-(5, 'maribel medina zambrano', '07986745234567875632', 'corriente', 'V8102476', 'sofitasa', 'mama_maribel@gmail.com', '04247734274', 'A', 4, 1, '2020-03-21 21:28:56', NULL, NULL, NULL);
+(5, 'maribel medina', '07986745234567875625', 'ahorro', 'V28016569', 'banesco', 'mom_maribel@gmail.com', '04247008458', 'A', 4, 1, '2020-03-21 21:28:56', '2020-12-01 12:13:32', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -219,13 +294,55 @@ CREATE TABLE IF NOT EXISTS `bancos_trabajadores` (
   `cod_tra` int(11) NOT NULL,
   `cod_usu` int(11) NOT NULL,
   `cre_bnt` datetime NOT NULL,
-  `upd_bnt` datetime NOT NULL,
-  `del_bnt` datetime NOT NULL,
-  `res_bnt` datetime NOT NULL,
+  `upd_bnt` datetime DEFAULT NULL,
+  `del_bnt` datetime DEFAULT NULL,
+  `res_bnt` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnt`),
   KEY `bnc_trab_ibfk_1` (`cod_usu`),
   KEY `bnc_trab_ibfk_2` (`cod_tra`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `bancos_trabajadores`
+--
+
+INSERT INTO `bancos_trabajadores` (`cod_bnt`, `not_bnt`, `ncu_bnt`, `tpc_bnt`, `rcd_bnt`, `nom_bnt`, `cor_bnt`, `tti_bnt`, `est_bnt`, `cod_tra`, `cod_usu`, `cre_bnt`, `upd_bnt`, `del_bnt`, `res_bnt`) VALUES
+(4, 'felix jesus medina ', '34243254353453453556', 'corriente', 'V29580458', 'Venezuela', 'f@gmail.com', '04140070021', 'A', 2, 1, '2020-11-26 09:27:41', '2020-12-02 12:46:00', NULL, NULL),
+(6, 'jose benitez', '01023456789021346543', 'corriente', 'J97896575', 'banesco', 'joseperez1@gmail.com', '04140070021', 'A', 52, 1, '2020-12-02 11:08:20', '2020-12-02 11:10:47', '2020-12-02 11:08:43', '2020-12-02 11:08:51');
+
+--
+-- Disparadores `bancos_trabajadores`
+--
+DROP TRIGGER IF EXISTS `bancos_trabajadores_AI`;
+DELIMITER $$
+CREATE TRIGGER `bancos_trabajadores_AI` AFTER INSERT ON `bancos_trabajadores` FOR EACH ROW INSERT INTO bancos_trabajadores_resp(not_bnt,ncu_bnt,tpc_bnt,rcd_bnt,nom_bnt,cor_bnt,tti_bnt,est_bnt,cod_tra,cod_usu,cre_bnt) VALUES(NEW.not_bnt,NEW.ncu_bnt,NEW.tpc_bnt,NEW.rcd_bnt,NEW.nom_bnt,NEW.cor_bnt,NEW.tti_bnt,NEW.est_bnt,NEW.cod_tra,NEW.cod_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `bancos_trabajadores_BU`;
+DELIMITER $$
+CREATE TRIGGER `bancos_trabajadores_BU` BEFORE UPDATE ON `bancos_trabajadores` FOR EACH ROW IF(NEW.cod_bnt = OLD.cod_bnt)THEN
+UPDATE bancos_trabajadores_resp SET not_bnt=NEW.not_bnt,
+							ncu_bnt=NEW.ncu_bnt,
+                            tpc_bnt=NEW.tpc_bnt,
+                            rcd_bnt=NEW.rcd_bnt,
+                            nom_bnt=NEW.nom_bnt,
+                            cor_bnt=NEW.cor_bnt,
+                            tti_bnt=NEW.tti_bnt,
+                            est_bnt=NEW.est_bnt,
+                            cod_tra=New.cod_tra,
+                            upd_bnt=NEW.upd_bnt 
+WHERE cod_bnt=NEW.cod_bnt;
+
+IF(NEW.est_bnt='B' && OLD.est_bnt='A') THEN
+UPDATE bancos_trabajadores_resp SET del_bnt=NEW.del_bnt WHERE cod_bnt=NEW.cod_bnt;
+END IF;
+
+IF(NEW.est_bnt='A' && OLD.est_bnt='B') THEN
+UPDATE bancos_trabajadores_resp SET res_bnt=NEW.res_bnt WHERE cod_bnt=NEW.cod_bnt;
+END IF;
+END IF
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -246,12 +363,21 @@ CREATE TABLE IF NOT EXISTS `bancos_trabajadores_resp` (
   `est_bnt` varchar(1) NOT NULL,
   `cod_tra` int(11) NOT NULL,
   `cod_usu` int(11) NOT NULL,
-  `cre_bnt` datetime NOT NULL,
-  `upd_bnt` datetime NOT NULL,
-  `del_bnt` datetime NOT NULL,
-  `res_bnt` datetime NOT NULL,
+  `cre_bnt` datetime DEFAULT NULL,
+  `upd_bnt` datetime DEFAULT NULL,
+  `del_bnt` datetime DEFAULT NULL,
+  `res_bnt` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnt`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `bancos_trabajadores_resp`
+--
+
+INSERT INTO `bancos_trabajadores_resp` (`cod_bnt`, `not_bnt`, `ncu_bnt`, `tpc_bnt`, `rcd_bnt`, `nom_bnt`, `cor_bnt`, `tti_bnt`, `est_bnt`, `cod_tra`, `cod_usu`, `cre_bnt`, `upd_bnt`, `del_bnt`, `res_bnt`) VALUES
+(4, 'felix jesus medina ', '34243254353453453556', 'corriente', 'V29580458', 'Venezuela', 'f@gmail.com', '04140070021', 'A', 2, 1, '2020-11-26 09:27:41', '2020-12-02 12:46:00', NULL, NULL),
+(5, 'tulio felipe zambrano nazal', '01057698325476980974', 'ahorro', 'J89076543', 'bicentenario', 'tuliofelipe@gmail.com', '04247734274', 'B', 3, 1, '2020-11-30 14:26:49', NULL, '2020-12-02 12:44:34', NULL),
+(6, 'jose benitez', '01023456789021346543', 'corriente', 'J97896575', 'banesco', 'joseperez1@gmail.com', '04140070021', 'A', 52, 1, '2020-12-02 11:08:20', '2020-12-02 11:10:47', '2020-12-02 11:08:43', '2020-12-02 11:08:51');
 
 -- --------------------------------------------------------
 
@@ -277,7 +403,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `res_cli` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_cli`),
   KEY `cliente_ibfk_1` (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -287,7 +413,8 @@ INSERT INTO `cliente` (`cod_cli`, `nom_cli`, `ape_cli`, `ced_cli`, `rif_cli`, `a
 (1, 'rosana ', 'medina', 'V8095668', 'V80956689', 'toico palo gordo', 'rosanamedina@gmail.com', '04140070021', 'A', 1, '2020-02-27 09:34:32', NULL, NULL, NULL),
 (2, 'jose', 'medina', 'V8108469', 'J81084698', 'pueblo nuevo - Core 2', 'medina_josefasa@gmail.com', '04247199694', 'A', 1, '2020-02-27 09:35:45', '2020-07-29 05:32:09', '2020-03-21 08:09:53', '2020-03-21 08:26:07'),
 (3, 'diego', 'contreras', 'V26789456', 'J2455566', 'toico', 'felixdiego@gmail.com', '04140070021', 'B', 1, '2020-03-17 10:16:45', NULL, '2020-03-21 08:49:39', '2020-03-21 08:49:27'),
-(4, 'maribel', 'medina', 'V88933242', 'V88933242', 'las pilas', 'maribel@gmail.com', '03424234234', 'A', 1, '2020-03-18 02:36:39', '2020-05-08 11:29:08', NULL, NULL);
+(4, 'maribel', 'medina', 'V88933242', 'V88933242', 'las pilas', 'maribel@gmail.com', '03424234234', 'A', 1, '2020-03-18 02:36:39', '2020-05-08 11:29:08', NULL, NULL),
+(5, 'felipe Ignacio', 'hernandez sanches', 'V29580451', 'V295804511', 'palo gordo', 'blas@gmail.com', '04140070021', 'A', 1, '2020-11-07 04:00:09', '2020-12-02 10:32:42', NULL, NULL);
 
 --
 -- Disparadores `cliente`
@@ -296,6 +423,30 @@ DROP TRIGGER IF EXISTS `cliente_AI`;
 DELIMITER $$
 CREATE TRIGGER `cliente_AI` AFTER INSERT ON `cliente` FOR EACH ROW INSERT INTO
 cliente_resp(nom_cli,ape_cli,ced_cli,rif_cli,ads_cli,cor_cli,tel_cli,est_cli,cod_usu,cre_cli) VALUES(NEW.nom_cli,NEW.ape_cli,NEW.ced_cli,NEW.rif_cli,NEW.ads_cli,NEW.cor_cli,NEW.tel_cli,NEW.est_cli,NEW.cod_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `cliente_BU`;
+DELIMITER $$
+CREATE TRIGGER `cliente_BU` BEFORE UPDATE ON `cliente` FOR EACH ROW IF(NEW.cod_cli = OLD.cod_cli)THEN
+UPDATE cliente_resp SET nom_cli=NEW.nom_cli,
+							ape_cli=NEW.ape_cli,
+                            ced_cli=NEW.ced_cli,
+                            rif_cli=NEW.rif_cli,
+                            ads_cli=NEW.ads_cli,
+                            cor_cli=NEW.cor_cli,
+                            tel_cli=NEW.tel_cli,
+                            est_cli=NEW.est_cli,
+                            upd_cli=NEW.upd_cli 
+WHERE cod_cli=NEW.cod_cli;
+
+IF(NEW.est_cli='B' && OLD.est_cli='A') THEN
+UPDATE cliente_resp SET del_cli=NEW.del_cli WHERE cod_cli=NEW.cod_cli;
+END IF;
+
+IF(NEW.est_cli='A' && OLD.est_cli='B') THEN
+UPDATE cliente_resp SET res_cli=NEW.res_cli WHERE cod_cli=NEW.cod_cli;
+END IF;
+END IF
 $$
 DELIMITER ;
 
@@ -322,7 +473,7 @@ CREATE TABLE IF NOT EXISTS `cliente_resp` (
   `del_cli` datetime DEFAULT NULL,
   `res_cli` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_cli`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `cliente_resp`
@@ -332,7 +483,8 @@ INSERT INTO `cliente_resp` (`cod_cli`, `nom_cli`, `ape_cli`, `ced_cli`, `rif_cli
 (1, 'rosana ', 'medina', 'V8095668', 'V80956689', 'toico palo gordo', 'rosanamedina@gmail.com', '04140070021', 'A', 1, '2020-02-27 09:34:32', NULL, NULL, NULL),
 (2, 'jose', 'medina', 'V8108469', 'J81084698', 'pueblo nuevo', 'medina_jose@gmail.com', '04247199694', 'A', 1, '2020-02-27 09:35:45', NULL, NULL, NULL),
 (3, 'diego', 'contreras', 'V26789456', 'J2455566', 'toico', 'felixdiego@gmail.com', '04140070021', 'A', 1, '2020-03-17 22:16:45', NULL, NULL, NULL),
-(4, 'maribel', 'medina', 'V88933242', 'V88933242', 'asdasd', 'maribel@gmail.com', '03424234234', 'A', 1, '2020-03-18 02:36:39', NULL, NULL, NULL);
+(4, 'maribel', 'medina', 'V88933242', 'V88933242', 'asdasd', 'maribel@gmail.com', '03424234234', 'A', 1, '2020-03-18 02:36:39', NULL, NULL, NULL),
+(5, 'felipe Ignacio', 'hernandez sanches', 'V29580451', 'V295804511', 'palo gordo', 'blas@gmail.com', '04140070021', 'A', 1, '2020-11-07 04:00:09', '2020-12-02 10:32:42', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -641,16 +793,58 @@ CREATE TABLE IF NOT EXISTS `nomina` (
   `cod_bnt` int(11) NOT NULL,
   `cod_tra` int(11) NOT NULL,
   `cod_usu` int(11) NOT NULL,
-  `cre_nom` datetime NOT NULL,
-  `upd_nom` datetime NOT NULL,
-  `del_nom` datetime NOT NULL,
-  `res_nom` datetime NOT NULL,
+  `cre_nom` datetime DEFAULT NULL,
+  `upd_nom` datetime DEFAULT NULL,
+  `del_nom` datetime DEFAULT NULL,
+  `res_nom` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_nom`),
   KEY `nomina_ibfk_1` (`cod_usu`),
   KEY `nomina_ibfk_2` (`cod_tra`),
   KEY `nomina_ibfk_3` (`cod_bnc`),
   KEY `nomina_ibfk_4` (`cod_bnt`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `nomina`
+--
+
+INSERT INTO `nomina` (`cod_nom`, `nrf_nom`, `cnp_nom`, `fcu_nom`, `est_nom`, `cod_bnc`, `cod_bnt`, `cod_tra`, `cod_usu`, `cre_nom`, `upd_nom`, `del_nom`, `res_nom`) VALUES
+(1, '07689', 200.00, '2020-11-27', 'A', 2, 4, 2, 1, '2020-11-27 02:14:43', '2020-12-02 12:37:14', NULL, NULL),
+(4, '088', 900.00, '2020-11-28', 'A', 1, 4, 2, 1, '2020-11-27 06:52:10', NULL, NULL, NULL),
+(5, '255667', 250.00, '2020-12-02', 'A', 2, 4, 2, 1, '2020-12-02 12:28:56', '2020-12-02 12:29:21', NULL, NULL),
+(6, '0607', 255.00, '2020-12-03', 'A', 1, 4, 2, 1, '2020-12-02 10:55:34', '2020-12-02 10:56:01', NULL, NULL),
+(7, '0345', 300.00, '2020-12-03', 'A', 2, 6, 52, 1, '2020-12-02 11:09:44', NULL, NULL, NULL);
+
+--
+-- Disparadores `nomina`
+--
+DROP TRIGGER IF EXISTS `nomina_AI`;
+DELIMITER $$
+CREATE TRIGGER `nomina_AI` AFTER INSERT ON `nomina` FOR EACH ROW INSERT INTO nomina_resp(nrf_nom,cnp_nom,fcu_nom,est_nom,cod_bnc,cod_bnt,cod_tra,cod_usu,cre_nom) VALUES (NEW.nrf_nom,NEW.cnp_nom,NEW.fcu_nom,NEW.est_nom,NEW.cod_bnc,NEW.cod_bnt,NEW.cod_tra,NEW.cod_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `nomina_BU`;
+DELIMITER $$
+CREATE TRIGGER `nomina_BU` BEFORE UPDATE ON `nomina` FOR EACH ROW IF(NEW.cod_nom = OLD.cod_nom)THEN
+UPDATE nomina_resp SET 		nrf_nom=NEW.nrf_nom,
+                            cnp_nom=NEW.cnp_nom,
+                            fcu_nom=NEW.fcu_nom,
+                            cod_bnc=NEW.cod_bnc,
+                            cod_bnt=NEW.cod_bnt,
+                            cod_tra=NEW.cod_tra,
+                            upd_nom=NEW.upd_nom 
+WHERE cod_nom=NEW.cod_nom;
+
+IF(NEW.est_nom='B' && OLD.est_nom='A') THEN
+UPDATE nomina_resp SET del_nom=NEW.del_nom WHERE cod_nom=NEW.cod_nom;
+END IF;
+
+IF(NEW.est_nom='A' && OLD.est_nom='B') THEN
+UPDATE nomina_resp SET res_nom=NEW.res_nom WHERE cod_nom=NEW.cod_nom;
+END IF;
+END IF
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -669,12 +863,23 @@ CREATE TABLE IF NOT EXISTS `nomina_resp` (
   `cod_bnt` int(11) NOT NULL,
   `cod_tra` int(11) NOT NULL,
   `cod_usu` int(11) NOT NULL,
-  `cre_nom` datetime NOT NULL,
-  `upd_nom` datetime NOT NULL,
-  `del_nom` datetime NOT NULL,
-  `res_nom` datetime NOT NULL,
+  `cre_nom` datetime DEFAULT NULL,
+  `upd_nom` datetime DEFAULT NULL,
+  `del_nom` datetime DEFAULT NULL,
+  `res_nom` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `nomina_resp`
+--
+
+INSERT INTO `nomina_resp` (`cod_nom`, `nrf_nom`, `cnp_nom`, `fcu_nom`, `est_nom`, `cod_bnc`, `cod_bnt`, `cod_tra`, `cod_usu`, `cre_nom`, `upd_nom`, `del_nom`, `res_nom`) VALUES
+(1, '07689', 200.00, '2020-11-27', 'A', 2, 4, 2, 1, '2020-11-27 18:49:39', '2020-12-02 12:37:14', NULL, NULL),
+(2, '088', 900.00, '2020-11-28', 'A', 1, 4, 2, 1, '2020-11-27 18:52:10', NULL, NULL, NULL),
+(3, '255667', 250.00, '2020-12-02', 'A', 4, 4, 2, 1, '2020-12-02 00:28:56', NULL, NULL, NULL),
+(4, '0607', 250.00, '2020-12-03', 'A', 1, 4, 2, 1, '2020-12-02 10:55:34', NULL, NULL, NULL),
+(5, '0345', 300.00, '2020-12-03', 'A', 2, 6, 52, 1, '2020-12-02 11:09:44', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -778,7 +983,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 
 INSERT INTO `productos` (`cod_pro`, `tas_pro`, `tpo_pro`, `tpa_pro`, `tmo_pro`, `tal_pro`, `ppo_pro`, `ppa_pro`, `pal_pro`, `pmo_pro`, `csp_pro`, `ces_pro`, `prp_pro`, `cpo_pro`, `cpa_pro`, `cal_pro`, `cmo_pro`, `est_pro`, `act_pro`, `fcp_pro`, `fdp_pro`, `cod_edo`, `cod_usu`, `cre_pro`, `upd_pro`, `del_pro`, `res_pro`) VALUES
 (1, 50000.00, 2.50, 1.00, 1.00, 1.00, 125000.00, 50000.00, 50000.00, 50000.00, 2.50, 20, 2.600, 1160, 118.000, 118.000, 59.000, 'A', 'A', '2020-02-25', '2020-02-27', 2, 1, '2020-02-27 09:30:23', '2020-03-21 10:44:01', '2020-03-21 08:41:55', '2020-03-21 08:42:07'),
-(3, 1000000.00, 3.00, 1.00, 1.00, 1.50, 3000000.00, 1000000.00, 1500000.00, 1000000.00, 2.50, 20, 2.600, 2000, 200.000, 200.000, 100.000, 'A', 'B', '2020-03-13', '2020-03-16', 1, 1, '2020-03-16 11:18:23', NULL, '2020-03-21 08:48:57', '2020-03-21 08:49:06');
+(3, 10000.00, 3.00, 1.00, 1.00, 1.50, 30000.00, 10000.00, 15000.00, 10000.00, 2.50, 20, 2.600, 2000, 200.000, 200.000, 100.000, 'A', 'B', '2020-03-13', '2020-03-16', 1, 1, '2020-03-16 11:18:23', '2020-12-01 12:41:22', '2020-03-21 08:48:57', '2020-03-21 08:49:06');
 
 --
 -- Disparadores `productos`
@@ -786,6 +991,40 @@ INSERT INTO `productos` (`cod_pro`, `tas_pro`, `tpo_pro`, `tpa_pro`, `tmo_pro`, 
 DROP TRIGGER IF EXISTS `productos_AI`;
 DELIMITER $$
 CREATE TRIGGER `productos_AI` AFTER INSERT ON `productos` FOR EACH ROW INSERT INTO productos_resp(tas_pro,tpo_pro,tpa_pro,tmo_pro,tal_pro,ppo_pro,ppa_pro,pal_pro,pmo_pro,csp_pro,ces_pro,prp_pro,cpo_pro,cpa_pro,cal_pro,cmo_pro,est_pro,act_pro,fcp_pro,fdp_pro,cod_edo,cod_usu,cre_pro) VALUES(NEW.tas_pro,NEW.tpo_pro,NEW.tpa_pro,NEW.tmo_pro,NEW.tal_pro,NEW.ppo_pro,NEW.ppa_pro,NEW.pal_pro,NEW.pmo_pro,NEW.csp_pro,NEW.ces_pro,NEW.prp_pro,NEW.cpo_pro,NEW.cpa_pro,NEW.cal_pro,NEW.cmo_pro,NEW.est_pro,NEW.act_pro,NEW.fcp_pro,NEW.fdp_pro,NEW.cod_edo,NEW.cod_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `productos_BU`;
+DELIMITER $$
+CREATE TRIGGER `productos_BU` BEFORE UPDATE ON `productos` FOR EACH ROW IF(NEW.cod_pro = OLD.cod_pro)THEN
+UPDATE productos_resp SET tas_pro=NEW.tas_pro,
+							tpo_pro=NEW.tpo_pro,
+                            tpa_pro=NEW.tpa_pro,
+                            tmo_pro=NEW.tmo_pro,
+                            tal_pro=NEW.tal_pro,
+                            ppo_pro=NEW.ppo_pro,
+                            ppa_pro=NEW.ppa_pro,
+                            pal_pro=NEW.pal_pro,
+                            pmo_pro=NEW.pmo_pro,
+                            csp_pro=NEW.csp_pro,
+                            ces_pro=NEW.ces_pro,
+                            prp_pro=NEW.prp_pro,
+                            cpo_pro=NEW.cpo_pro,
+                            cpa_pro=NEW.cpa_pro,
+                            cal_pro=NEW.cal_pro,
+                            cmo_pro=NEW.cmo_pro,
+                            act_pro=NEW.act_pro,
+                            est_pro=NEW.est_pro,
+                            upd_pro=NEW.upd_pro 
+WHERE cod_pro=NEW.cod_pro;
+
+IF(NEW.est_pro='B' && OLD.est_pro='A') THEN
+UPDATE productos_resp SET del_pro=NEW.del_pro WHERE cod_pro=NEW.cod_pro;
+END IF;
+
+IF(NEW.est_pro='A' && OLD.est_pro='B') THEN
+UPDATE productos_resp SET res_pro=NEW.res_pro WHERE cod_pro=NEW.cod_pro;
+END IF;
+END IF
 $$
 DELIMITER ;
 
@@ -816,6 +1055,28 @@ CREATE TABLE IF NOT EXISTS `productos_precios` (
 INSERT INTO `productos_precios` (`cod_pde`, `nom_pde`, `est_pde`, `cod_usu`, `cre_pde`, `upd_pde`, `del_pde`, `res_pde`) VALUES
 (1, 'pollo', 'A', 1, NULL, NULL, NULL, NULL),
 (2, 'patas', 'A', 1, NULL, NULL, NULL, NULL);
+
+--
+-- Disparadores `productos_precios`
+--
+DROP TRIGGER IF EXISTS `productos_precios_BU`;
+DELIMITER $$
+CREATE TRIGGER `productos_precios_BU` BEFORE UPDATE ON `productos_precios` FOR EACH ROW IF(NEW.cod_pde = OLD.cod_pde)THEN
+UPDATE productos_precios_resp SET nom_pde=NEW.nom_pde,
+                          est_pde=NEW.est_pde,
+                          upd_pde=NEW.upd_pde 
+WHERE cod_pde=NEW.cod_pde;
+
+IF(NEW.est_pde='B' && OLD.est_pde='A') THEN
+UPDATE productos_precios_resp SET del_pde=NEW.del_pde WHERE cod_pde=NEW.cod_pde;
+END IF;
+
+IF(NEW.est_pde='A' && OLD.est_pde='B') THEN
+UPDATE productos_precios_resp SET res_pde=NEW.res_pde WHERE cod_pde=NEW.cod_pde;
+END IF;
+END IF
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -881,7 +1142,7 @@ CREATE TABLE IF NOT EXISTS `productos_resp` (
 INSERT INTO `productos_resp` (`cod_pro`, `tas_pro`, `tpo_pro`, `tpa_pro`, `tmo_pro`, `tal_pro`, `ppo_pro`, `ppa_pro`, `pal_pro`, `pmo_pro`, `csp_pro`, `ces_pro`, `prp_pro`, `cpo_pro`, `cpa_pro`, `cal_pro`, `cmo_pro`, `est_pro`, `act_pro`, `fcp_pro`, `fdp_pro`, `cod_edo`, `cod_usu`, `cre_pro`, `upd_pro`, `del_pro`, `res_pro`) VALUES
 (1, 50000.00, 2.50, 1.00, 1.00, 1.00, 125000.00, 50000.00, 50000.00, 50000.00, 2.50, 20, 2.600, 1500, 150.000, 150.000, 75.000, 'A', 'A', '2020-02-25 00:00:00', '2020-02-27 00:00:00', 1, 1, '2020-02-27 09:30:23', NULL, NULL, NULL),
 (2, 40000.00, 2.60, 1.00, 1.00, 1.00, 104000.00, 40000.00, 40000.00, 40000.00, 2.50, 20, 2.600, 2000, 200.000, 200.000, 100.000, 'A', 'B', '2020-02-24 00:00:00', '2020-02-26 00:00:00', 2, 1, '2020-02-27 09:32:54', NULL, NULL, NULL),
-(3, 1000000.00, 3.00, 1.00, 1.00, 1.50, 3000000.00, 1000000.00, 1500000.00, 1000000.00, 2.50, 20, 2.600, 2000, 200.000, 200.000, 100.000, 'A', 'B', '2020-03-13 00:00:00', '2020-03-16 00:00:00', 1, 1, '2020-03-16 11:18:23', NULL, NULL, NULL),
+(3, 10000.00, 3.00, 1.00, 1.00, 1.50, 30000.00, 10000.00, 15000.00, 10000.00, 2.50, 20, 2.600, 2000, 200.000, 200.000, 100.000, 'A', 'B', '2020-03-13 00:00:00', '2020-03-16 00:00:00', 1, 1, '2020-03-16 11:18:23', '2020-12-01 12:41:22', NULL, NULL),
 (4, 2000.00, 1.00, 1.00, 1.00, 1.00, 2000.00, 2000.00, 2000.00, 2000.00, 2.50, 20, 2.600, 500, 50.000, 50.000, 25.000, 'A', 'B', '2020-03-16 00:00:00', '2020-03-18 00:00:00', 2, 1, '2020-03-16 11:48:57', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -912,10 +1173,10 @@ CREATE TABLE IF NOT EXISTS `proovedor` (
 --
 
 INSERT INTO `proovedor` (`cod_edo`, `nom_edo`, `rif_edo`, `cor_edo`, `dir_edo`, `est_edo`, `cod_usu`, `cre_edo`, `upd_edo`, `del_edo`, `res_edo`) VALUES
-(1, 'tobi pollo', 'V22801656', 'alejandra@gmail.com', 'tachira-concordia', 'A', 1, '2020-02-27 09:29:04', '2020-05-04 06:23:37', NULL, NULL),
+(1, 'tobi pollo', 'V2280', 'alejandra@gmail.com', 'tachira-concordia', 'A', 1, '2020-02-27 09:29:04', '2020-12-01 12:49:34', NULL, NULL),
 (2, 'guasima pollo', 'J9096731', 'guasimapollo@gmail.com', 'falcon venezuela', 'A', 1, '2020-02-27 09:29:35', '2020-10-31 06:01:50', NULL, NULL),
 (10, 'okispollo', 'J8096735', 'okispollo@gmail.com', 'fafdsfcs', 'A', 1, '2020-03-18 02:35:33', NULL, '2020-03-21 08:27:41', '2020-03-21 08:28:45'),
-(11, 'guasimodopollo', 'J28580457', 'guasi@gmail.com', 'fsdgsdfsdf', 'A', 1, '2020-03-18 02:40:20', NULL, '2020-07-09 08:56:13', '2020-07-09 08:56:29');
+(11, 'guasimodopollo', 'J2858045', 'guasi@gmail.com', 'valencia-tachira', 'A', 1, '2020-03-18 02:40:20', '2020-12-01 11:43:21', '2020-07-09 08:56:13', '2020-07-09 08:56:29');
 
 --
 -- Disparadores `proovedor`
@@ -924,6 +1185,27 @@ DROP TRIGGER IF EXISTS `proovedor_AI`;
 DELIMITER $$
 CREATE TRIGGER `proovedor_AI` AFTER INSERT ON `proovedor` FOR EACH ROW INSERT INTO proovedor_resp (nom_edo,rif_edo,cor_edo,dir_edo,est_edo,cod_usu,cre_edo) 
 VALUES (NEW.nom_edo,NEW.rif_edo,NEW.cor_edo,NEW.dir_edo,NEW.est_edo,NEW.cod_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `proveedor_BU`;
+DELIMITER $$
+CREATE TRIGGER `proveedor_BU` BEFORE UPDATE ON `proovedor` FOR EACH ROW IF(NEW.cod_edo = OLD.cod_edo)THEN
+UPDATE proovedor_resp SET nom_edo=NEW.nom_edo,
+						  rif_edo=NEW.rif_edo,
+                          cor_edo=NEW.cor_edo,
+                          dir_edo=NEW.dir_edo,
+                          est_edo=NEW.est_edo,
+                          upd_edo=NEW.upd_edo 
+WHERE cod_edo=NEW.cod_edo;
+
+IF(NEW.est_edo='B' && OLD.est_edo='A') THEN
+UPDATE proovedor_resp SET del_edo=NEW.del_edo WHERE cod_edo=NEW.cod_edo;
+END IF;
+
+IF(NEW.est_edo='A' && OLD.est_edo='B') THEN
+UPDATE proovedor_resp SET res_edo=NEW.res_edo WHERE cod_edo=NEW.cod_edo;
+END IF;
+END IF
 $$
 DELIMITER ;
 
@@ -954,7 +1236,7 @@ CREATE TABLE IF NOT EXISTS `proovedor_resp` (
 --
 
 INSERT INTO `proovedor_resp` (`cod_edo`, `nom_edo`, `rif_edo`, `cor_edo`, `dir_edo`, `est_edo`, `cod_usu`, `cre_edo`, `upd_edo`, `del_edo`, `res_edo`) VALUES
-(1, 'tobi pollo', 'V22801656', 'alejandro@gmail.com', 'concordia', 'A', 1, '2020-02-27 09:29:04', NULL, NULL, NULL),
+(1, 'tobi pollo', 'V2280', 'alejandra@gmail.com', 'tachira-concordia', 'A', 1, '2020-02-27 09:29:04', '2020-12-01 12:49:34', NULL, NULL),
 (2, 'guasima pollo', 'J9096734', 'guasimapollo@gmail.com', 'valencia', 'A', 1, '2020-02-27 09:29:35', NULL, NULL, NULL),
 (3, 'felixpo', 'J9096735', 'felix@gmail.com', 'guarumitos', 'A', 1, '2020-03-18 02:28:04', NULL, NULL, NULL),
 (4, 'felixpo', 'J9096735', 'felix@gmail.com', 'guarumitos', 'A', 1, '2020-03-18 02:28:06', NULL, NULL, NULL),
@@ -964,7 +1246,7 @@ INSERT INTO `proovedor_resp` (`cod_edo`, `nom_edo`, `rif_edo`, `cor_edo`, `dir_e
 (8, 'felixpo', 'J9096735', 'felix@gmail.com', 'guarumitos', 'A', 1, '2020-03-18 02:28:09', NULL, NULL, NULL),
 (9, 'felixpo', 'J9096735', 'felix@gmail.com', 'guarumitos', 'A', 1, '2020-03-18 02:28:10', NULL, NULL, NULL),
 (10, 'okispollo', 'J8096735', 'okispollo@gmail.com', 'fafdsfcs', 'A', 1, '2020-03-18 02:35:33', NULL, NULL, NULL),
-(11, 'guasimodopollo', 'J28580457', 'guasi@gmail.com', 'fsdgsdfsdf', 'A', 1, '2020-03-18 02:40:20', NULL, NULL, NULL);
+(11, 'guasimodopollo', 'J2858045', 'guasi@gmail.com', 'valencia-tachira', 'A', 1, '2020-03-18 02:40:20', '2020-12-01 11:43:21', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -989,7 +1271,7 @@ CREATE TABLE IF NOT EXISTS `trabajadores` (
   `res_tra` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_tra`),
   KEY `trabajadores_ibfk_1` (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `trabajadores`
@@ -997,17 +1279,14 @@ CREATE TABLE IF NOT EXISTS `trabajadores` (
 
 INSERT INTO `trabajadores` (`cod_tra`, `nom_tra`, `ape_tra`, `ced_tra`, `ads_tra`, `cor_tra`, `tel_tra`, `est_tra`, `cod_usu`, `cre_tra`, `upd_tra`, `del_tra`, `res_tra`) VALUES
 (1, 'jose', 'medina', '8108469', 'pueblo nuevo', 'felix_josefa@gmail.com', '04247199694', 'B', 1, '2020-05-09 11:50:31', '2020-05-09 03:07:37', '2020-05-12 01:48:59', NULL),
-(2, 'felix ', 'jesus', 'V8018469', 'palo gordo', 'felixjesus@gmail.com', '04247734274', 'A', 1, '2020-05-09 11:51:03', NULL, NULL, NULL),
+(2, 'felix  con', 'jesus', 'V8018469', 'palo gordo-toico-naran', 'felixjesus@gmail.com', '04247734274', 'A', 1, '2020-05-09 11:51:03', '2020-12-02 10:42:49', '2020-12-02 10:53:43', '2020-12-02 10:54:05'),
 (3, 'tulio', 'zambrano', 'V16578472', 'barrio obrero', 'tuliocortes@gmail.com', '04167824316', 'A', 1, '2020-05-09 04:14:57', '2020-05-14 12:55:44', NULL, NULL),
-(4, '', '', '', '', '', '', 'B', 1, '2020-05-11 06:15:45', NULL, '2020-05-11 06:16:04', NULL),
 (5, 'manuel', 'cepeda', 'V8096665', 'junco', 'manuelcepeda@gmail.com', '04267897653', 'B', 1, '2020-05-12 11:57:41', NULL, '2020-05-12 01:49:08', NULL),
 (6, 'manolo', 'suarez', 'V26789540', 'palo gordo', 'manolosuarez@gmail.com', '0412345789', 'B', 1, '2020-05-12 12:01:56', NULL, '2020-05-12 01:49:07', NULL),
 (7, 'fdfds', 'fdsfsdf', '5234234', 'fddsf', 'gsdfsd', '524234', 'B', 1, '2020-05-12 12:03:33', NULL, '2020-05-14 12:55:31', NULL),
-(8, 'dasdas', 'dasdasd', '431242', 'sdadasd', 'dsadasd', '341323', 'B', 1, '2020-05-12 12:04:59', NULL, '2020-05-14 12:55:25', NULL),
 (9, 'kkkk', '', '5646456', '', '', '', 'B', 1, '2020-05-12 12:05:35', NULL, '2020-05-12 12:28:03', NULL),
 (11, 'jose', 'm', '423423', 'asdasd', '', '', 'B', 1, '2020-05-12 12:06:30', NULL, '2020-05-12 12:32:15', NULL),
-(12, 'dsyuio', 'adsads', '7898776', 'dasdasd', 'dsadasd@hotmail.com', '4324234', 'B', 1, '2020-05-12 12:12:40', NULL, '2020-05-14 12:55:28', NULL),
-(13, 'dsadasd', 'dasdasd', 'V8018463', '', '', '', 'B', 1, '2020-05-12 12:32:02', NULL, '2020-05-12 12:32:11', NULL),
+(12, 'dsyuio', 'adsads', '7898776', 'dasdasd', 'dsadasd@hotmail.com', '4324234', 'B', 1, '2020-05-12 12:12:40', NULL, '2020-11-26 01:29:46', '2020-11-26 01:29:32'),
 (15, 'jose', '', 'V59654321', '', '', '', 'B', 1, '2020-05-12 12:33:13', NULL, '2020-05-12 12:38:03', NULL),
 (16, 'jun', '', 'V4234324', '', '', '', 'B', 1, '2020-05-12 12:33:39', NULL, '2020-05-12 12:38:05', NULL),
 (18, 'jon', '', 'V56465', '', '', '', 'B', 1, '2020-05-12 12:34:20', NULL, '2020-05-12 12:37:57', NULL),
@@ -1015,8 +1294,8 @@ INSERT INTO `trabajadores` (`cod_tra`, `nom_tra`, `ape_tra`, `ced_tra`, `ads_tra
 (20, 'jon ', '', 'V2221132', '', '', '', 'B', 1, '2020-05-12 12:36:42', NULL, '2020-05-12 12:37:59', NULL),
 (21, 'jon ', '', 'V22211323', '', '', '', 'B', 1, '2020-05-12 12:36:45', NULL, '2020-05-12 12:38:00', NULL),
 (22, 'sdasdasd', '', 'V29009765', '', '', '', 'B', 1, '2020-05-12 12:37:47', NULL, '2020-05-12 12:38:08', NULL),
-(23, 'felix', 'medina', 'V12345670', 'palo grande', 'felixmedina@gmail.com', '04247734274', 'A', 1, '2020-05-12 01:30:56', '2020-05-14 12:54:11', NULL, NULL),
-(24, 'juan', 'mendez', 'V31456907', 'juncis', 'juncis@gmail.com', '056564523', 'B', 1, '2020-05-12 01:33:14', NULL, '2020-05-12 01:49:01', NULL),
+(23, 'felix', 'medina', 'V12345670', 'palo grande', 'felixmedina@gmail.com', '04247734274', 'A', 1, '2020-05-12 01:30:56', '2020-12-01 01:54:16', '2020-12-01 01:01:53', '2020-12-01 01:02:23'),
+(24, 'juan', 'mendez', 'V31456907', 'juncis', 'juncis@gmail.com', '056564523', 'A', 1, '2020-05-12 01:33:14', NULL, '2020-05-12 01:49:01', '2020-12-02 11:04:42'),
 (25, 'jone', 'sdadasd', '1111133', 'erfgdhfh', '', '4234234243', 'B', 1, '2020-05-12 01:35:11', NULL, '2020-05-12 01:49:10', NULL),
 (26, 'jones', 'sadasda', '444455566', 'dsdfsf', '', '423432', 'B', 1, '2020-05-12 01:36:18', NULL, '2020-05-12 01:48:57', NULL),
 (27, 'junes', 'sdasd', '777666', 'asdasda', '', '432543535', 'B', 1, '2020-05-12 01:42:05', NULL, '2020-05-12 01:49:04', NULL),
@@ -1032,7 +1311,16 @@ INSERT INTO `trabajadores` (`cod_tra`, `nom_tra`, `ape_tra`, `ced_tra`, `ads_tra
 (39, 'k', '', '45111', '', '', '', 'B', 1, '2020-05-12 02:05:01', NULL, '2020-05-14 12:35:28', NULL),
 (40, 'mbnhgh', '', '6781001', '', '', '', 'B', 1, '2020-05-12 02:08:26', NULL, '2020-05-14 12:55:00', NULL),
 (41, 'lon', '', '444', '', '', '', 'B', 1, '2020-05-12 02:15:04', NULL, '2020-05-14 12:35:31', NULL),
-(42, 'dsadasd', '', '09', '', '', '', 'B', 1, '2020-05-12 02:15:34', NULL, '2020-05-14 12:55:13', NULL);
+(43, 'Medina', 'asdasda', 'V42342356', 'toico ', 's@gmail.com', '04126577888', 'A', 1, '2020-11-07 06:24:40', '2020-11-26 06:41:36', NULL, NULL),
+(44, 'yoselin', 'castillo', 'V3123123', 'yosei', 'bb@gmail.com', '04123123334', 'B', 1, '2020-11-07 06:28:27', '2020-11-30 12:25:47', '2020-12-01 11:51:32', NULL),
+(45, 'felixx', 'rwe', 'V29580433', 'asdasd', 'felix@gmail.es', '42424', 'B', 1, '2020-11-07 06:30:31', '2020-12-01 01:00:01', '2020-12-01 01:54:23', NULL),
+(46, 'petrofosefina ', 'luna', 'V90578654', 'palo gordo', 'petrajosefa@gmail.com', '04147724274', 'B', 1, '2020-11-26 12:53:49', NULL, '2020-12-01 01:54:30', NULL),
+(47, 'manuel ', 'perez', 'V8018169', 'loibon', 'loibon@gmail.com', '04127776655', 'A', 1, '2020-11-26 12:58:45', NULL, NULL, NULL),
+(48, 'josue', 'molina', 'V21789654', 'moneli', 'molina@gmail.com', '04123456785', 'A', 1, '2020-11-26 02:01:17', NULL, NULL, NULL),
+(49, 'Jesus David', 'Medina Medina', 'V29581457', 'toico palogordo', 'jesus@gmail.com', '04140070021', 'A', 1, '2020-12-01 11:50:25', '2020-12-01 11:50:39', NULL, NULL),
+(50, 'jose hernandez', 'labrador', 'V21560789', 'palo gordo', 'jose1@gmail.com', '04140070020', 'A', 1, '2020-12-02 10:36:20', '2020-12-02 10:40:19', NULL, NULL),
+(51, 'manuel hernandez', 'perez moreno', 'V9109456', 'junco', 'perez@gmail.com', '04247724376', 'A', 1, '2020-12-02 10:45:54', '2020-12-02 10:46:08', NULL, NULL),
+(52, 'jose manuel', 'perez benitez', 'V27456780', 'palmira', 'manueljose@gmail.com', '04140070021', 'A', 1, '2020-12-02 11:06:41', '2020-12-02 11:06:56', '2020-12-02 11:07:04', '2020-12-02 11:07:19');
 
 --
 -- Disparadores `trabajadores`
@@ -1041,6 +1329,29 @@ DROP TRIGGER IF EXISTS `trabajadores_AI`;
 DELIMITER $$
 CREATE TRIGGER `trabajadores_AI` AFTER INSERT ON `trabajadores` FOR EACH ROW INSERT INTO
 trabajadores_resp(nom_tra,ape_tra,ced_tra,ads_tra,cor_tra,tel_tra,est_tra,cod_usu,cre_tra) VALUES(NEW.nom_tra,NEW.ape_tra,NEW.ced_tra,NEW.ads_tra,NEW.cor_tra,NEW.tel_tra,NEW.est_tra,New.cod_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `trabajadores_BU`;
+DELIMITER $$
+CREATE TRIGGER `trabajadores_BU` BEFORE UPDATE ON `trabajadores` FOR EACH ROW IF(NEW.cod_tra = OLD.cod_tra)THEN
+UPDATE trabajadores_resp SET nom_tra=NEW.nom_tra,
+                          ape_tra=NEW.ape_tra,
+                          ced_tra=NEW.ced_tra,
+                          ads_tra=NEW.ads_tra,
+                          cor_tra=NEW.cor_tra,
+                          tel_tra=NEW.tel_tra,
+                          est_tra=NEW.est_tra,
+                          upd_tra=NEW.upd_tra 
+WHERE cod_tra=NEW.cod_tra;
+
+IF(NEW.est_tra='B' && OLD.est_tra='A') THEN
+UPDATE trabajadores_resp SET del_tra=NEW.del_tra WHERE cod_tra=NEW.cod_tra;
+END IF;
+
+IF(NEW.est_tra='A' && OLD.est_tra='B') THEN
+UPDATE trabajadores_resp SET res_tra=NEW.res_tra WHERE cod_tra=NEW.cod_tra;
+END IF;
+END IF
 $$
 DELIMITER ;
 
@@ -1066,7 +1377,7 @@ CREATE TABLE IF NOT EXISTS `trabajadores_resp` (
   `del_tra` datetime DEFAULT NULL,
   `res_tra` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_tra`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `trabajadores_resp`
@@ -1074,30 +1385,15 @@ CREATE TABLE IF NOT EXISTS `trabajadores_resp` (
 
 INSERT INTO `trabajadores_resp` (`cod_tra`, `nom_tra`, `ape_tra`, `ced_tra`, `ads_tra`, `cor_tra`, `tel_tra`, `est_tra`, `cod_usu`, `cre_tra`, `upd_tra`, `del_tra`, `res_tra`) VALUES
 (1, 'felix', 'jose', 'V29580357', 'junco', 'felix@gmail.com', '04140070021', 'A', 1, '2020-05-08 19:28:56', NULL, NULL, NULL),
-(2, 'jose', 'medina', '8108469', 'pueblo nuevo', 'felix_jose@gmail.com', '04247199694', 'A', 1, '2020-05-09 11:50:31', NULL, NULL, NULL),
-(3, 'felix ', 'jesus', 'V8018469', 'palo gordo', 'felixjesus@gmail.com', '04247734274', 'A', 1, '2020-05-09 11:51:03', NULL, NULL, NULL),
-(4, '', '', '', 'palo gordo', '', '', 'A', 1, '2020-05-09 16:14:57', NULL, NULL, NULL),
-(5, '', '', '', '', '', '', 'A', 1, '2020-05-11 18:15:45', NULL, NULL, NULL),
+(2, 'felix  con', 'jesus', 'V8018469', 'palo gordo-toico-naran', 'felixjesus@gmail.com', '04247734274', 'A', 1, '2020-05-09 11:51:03', '2020-12-02 10:42:49', '2020-12-02 10:53:43', '2020-12-02 10:54:05'),
 (6, 'manuel', 'cepeda', 'V8096665', 'junco', 'manuelcepeda@gmail.com', '04267897653', 'A', 1, '2020-05-12 11:57:42', NULL, NULL, NULL),
 (7, 'manolo', 'suarez', 'V26789540', 'palo gordo', 'manolosuarez@gmail.com', '0412345789', 'A', 1, '2020-05-12 12:01:56', NULL, NULL, NULL),
 (8, 'fdfds', 'fdsfsdf', '5234234', 'fddsf', 'gsdfsd', '524234', 'A', 1, '2020-05-12 12:03:33', NULL, NULL, NULL),
 (9, 'dasdas', 'dasdasd', '431242', 'sdadasd', 'dsadasd', '341323', 'A', 1, '2020-05-12 12:04:59', NULL, NULL, NULL),
-(10, 'kkkk', '', '5646456', '', '', '', 'A', 1, '2020-05-12 12:05:35', NULL, NULL, NULL),
-(11, 'jose', 'm', '423423', 'asdasd', '', '', 'A', 1, '2020-05-12 12:06:31', NULL, NULL, NULL),
 (12, 'dsyuio', 'adsads', '7898776', 'dasdasd', 'dsadasd@hotmail.com', '4324234', 'A', 1, '2020-05-12 12:12:40', NULL, NULL, NULL),
-(13, 'dsadasd', 'dasdasd', 'V8018463', '', '', '', 'A', 1, '2020-05-12 12:32:02', NULL, NULL, NULL),
-(14, 'jose', '', 'V59654321', '', '', '', 'A', 1, '2020-05-12 12:33:13', NULL, NULL, NULL),
-(15, 'jun', '', 'V4234324', '', '', '', 'A', 1, '2020-05-12 12:33:39', NULL, NULL, NULL),
-(16, 'jon', '', 'V56465', '', '', '', 'A', 1, '2020-05-12 12:34:20', NULL, NULL, NULL),
-(17, 'jan', '', 'V4535345', '', '', '', 'A', 1, '2020-05-12 12:35:47', NULL, NULL, NULL),
-(18, 'jon ', '', 'V2221132', '', '', '', 'A', 1, '2020-05-12 12:36:42', NULL, NULL, NULL),
-(19, 'jon ', '', 'V22211323', '', '', '', 'A', 1, '2020-05-12 12:36:45', NULL, NULL, NULL),
-(20, 'sdasdasd', '', 'V29009765', '', '', '', 'A', 1, '2020-05-12 12:37:47', NULL, NULL, NULL),
 (21, 'felix', 'medina', 'V12345679', 'palo grande', 'felixmedinamedina@gmail.com', '04247734274', 'A', 1, '2020-05-12 13:30:56', NULL, NULL, NULL),
 (22, 'juan', 'mendez', 'V31456907', 'juncis', 'juncis@gmail.com', '056564523', 'A', 1, '2020-05-12 13:33:14', NULL, NULL, NULL),
-(23, 'jone', 'sdadasd', '1111133', 'erfgdhfh', '', '4234234243', 'A', 1, '2020-05-12 13:35:11', NULL, NULL, NULL),
-(24, 'jones', 'sadasda', '444455566', 'dsdfsf', '', '423432', 'A', 1, '2020-05-12 13:36:18', NULL, NULL, NULL),
-(25, 'junes', 'sdasd', '777666', 'asdasda', '', '432543535', 'A', 1, '2020-05-12 13:42:05', NULL, NULL, NULL),
+(23, 'felix', 'medina', 'V12345670', 'palo grande', 'felixmedina@gmail.com', '04247734274', 'A', 1, '2020-05-12 13:35:11', '2020-12-01 01:54:16', '2020-12-01 01:01:53', '2020-12-01 01:02:23'),
 (26, 'janes', 'dasdasd', '568909754', '', '', '', 'A', 1, '2020-05-12 13:43:27', NULL, NULL, NULL),
 (27, 'jine', 'fadfsf', '2453534', 'sfsdfsd', 'sdffsdf', '5345654', 'A', 1, '2020-05-12 13:45:43', NULL, NULL, NULL),
 (28, 'jn', 'fdsdfsdf', '235654758', '', '', '', 'A', 1, '2020-05-12 13:47:13', NULL, NULL, NULL),
@@ -1110,7 +1406,17 @@ INSERT INTO `trabajadores_resp` (`cod_tra`, `nom_tra`, `ape_tra`, `ced_tra`, `ad
 (35, 'k', '', '45111', '', '', '', 'A', 1, '2020-05-12 14:05:01', NULL, NULL, NULL),
 (36, 'mbnhgh', '', '6781001', '', '', '', 'A', 1, '2020-05-12 14:08:26', NULL, NULL, NULL),
 (37, 'lon', '', '444', '', '', '', 'A', 1, '2020-05-12 14:15:04', NULL, NULL, NULL),
-(38, 'dsadasd', '', '09', '', '', '', 'A', 1, '2020-05-12 14:15:34', NULL, NULL, NULL);
+(38, 'dsadasd', '', '09', '', '', '', 'A', 1, '2020-05-12 14:15:34', NULL, NULL, NULL),
+(39, 'asdasdasd', 'asdasda', 'V42342356', 'dasdasd', 's@gmail.com', '04126577888', 'A', 1, '2020-11-07 06:24:40', NULL, NULL, NULL),
+(40, 'dasdsadasdaa', 'dasdasd', 'V3123123', 'eqweqeq', 'bb@gmail.com', '04123123334', 'A', 1, '2020-11-07 06:28:27', NULL, NULL, NULL),
+(41, 'felix', 'dasdasd', 'V29580458', 'dasdad', 'felix@gmail.com', '04140070021', 'A', 1, '2020-11-07 06:30:31', NULL, NULL, NULL),
+(42, 'petrofosefina ', 'luna', 'V90578654', 'palo gordo', 'petrajosefa@gmail.com', '04147724274', 'A', 1, '2020-11-26 00:53:49', NULL, NULL, NULL),
+(43, 'manuel ', 'perez', 'V8018169', 'loibon', 'loibon@gmail.com', '04127776655', 'A', 1, '2020-11-26 00:58:45', NULL, NULL, NULL),
+(44, 'yoselin', 'castillo', 'V3123123', 'yosei', 'bb@gmail.com', '04123123334', 'B', 1, '2020-11-26 02:01:17', '2020-11-30 12:25:47', '2020-12-01 11:51:32', NULL),
+(45, 'JesusDavid', 'Medina Medina', 'V29581457', 'toico palogordo', 'jesus@gmail.com', '04140070021', 'A', 1, '2020-12-01 23:50:25', NULL, NULL, NULL),
+(50, 'jose ignacio', 'labrador', 'V21560789', 'palo gordo', 'jose@gmail.com', '04140070020', 'A', 1, '2020-12-02 10:36:20', NULL, NULL, NULL),
+(51, 'manuel hernandez', 'perez moreno', 'V9109456', 'junco', 'perez@gmail.com', '04247724376', 'A', 1, '2020-12-02 10:45:54', '2020-12-02 10:46:08', NULL, NULL),
+(52, 'jose manuel', 'perez benitez', 'V27456780', 'palmira', 'manueljose@gmail.com', '04140070021', 'A', 1, '2020-12-02 11:06:41', '2020-12-02 11:06:56', '2020-12-02 11:07:04', '2020-12-02 11:07:19');
 
 -- --------------------------------------------------------
 
@@ -1132,20 +1438,25 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `las_usu` datetime DEFAULT NULL,
   `res_usu` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`cod_usu`, `nom_usu`, `ema_usu`, `pas_usu`, `rol_usu`, `est_usu`, `cre_usu`, `upd_usu`, `del_usu`, `las_usu`, `res_usu`) VALUES
-(1, 'felix', 'felixmedina07052000@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'A', 'A', '2020-02-27 09:27:56', '2020-10-31 04:44:27', NULL, '2020-10-31 04:47:13', NULL),
-(2, 'marbe', 'marbe@gmail.com', '3af1b547a8dd07a5ac0bcf962ec852b3f060b716', 'E', 'A', '2020-03-18 03:07:57', '2020-03-21 08:53:19', NULL, '2020-03-21 08:53:29', NULL),
-(3, 'jose', 'jose@gmail.com', '5b53cad999b409898a88133ca9851b097abb500d', 'S', 'A', '2020-03-19 02:26:32', '2020-10-31 04:44:33', '2020-03-19 02:27:19', '2020-03-19 02:45:26', '2020-03-19 02:44:56'),
-(4, 'kevin', 'kevin@gmail.com', '1c51e553cb863175222ebd166abc152cca513a50', 'E', 'A', '2020-07-02 11:42:16', '2020-07-02 11:44:37', NULL, '2020-07-02 11:44:51', NULL),
-(5, 'luis', 'luis@gmail.com', 'a77fc64da554424bfcbb1ce6036a1f814073fe28', 'V', 'A', '2020-10-31 04:46:19', NULL, NULL, NULL, NULL),
-(8, 'lol', 'lol@gmail.com', 'a75b563181dea35f4a19ef34324aedfaa388caa1', 'V', 'A', '2020-10-31 04:53:46', NULL, NULL, NULL, NULL),
-(10, 'jesus', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'A', '2020-10-31 06:11:38', NULL, NULL, NULL, NULL);
+(1, 'felix', 'felixmedina07052000@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'A', 'A', '2020-02-27 09:27:56', '2020-10-31 04:44:27', NULL, '2020-12-02 10:59:56', NULL),
+(2, 'marbe', 'marbe@gmail.com', '3af1b547a8dd07a5ac0bcf962ec852b3f060b716', 'E', 'B', '2020-03-18 03:07:57', '2020-03-21 08:53:19', '2020-11-29 11:46:31', '2020-03-21 08:53:29', NULL),
+(3, 'jose', 'jose@gmail.com', '5b53cad999b409898a88133ca9851b097abb500d', 'S', 'B', '2020-03-19 02:26:32', '2020-10-31 04:44:33', '2020-12-01 11:21:41', '2020-03-19 02:45:26', '2020-03-19 02:44:56'),
+(4, 'kevin', 'kevin@gmail.com', '1c51e553cb863175222ebd166abc152cca513a50', 'E', 'B', '2020-07-02 11:42:16', '2020-07-02 11:44:37', '2020-12-01 11:21:37', '2020-07-02 11:44:51', NULL),
+(5, 'luis', 'luis@gmail.com', 'a77fc64da554424bfcbb1ce6036a1f814073fe28', 'V', 'B', '2020-10-31 04:46:19', NULL, '2020-11-29 11:46:55', NULL, NULL),
+(8, 'lol', 'lol@gmail.com', 'a75b563181dea35f4a19ef34324aedfaa388caa1', 'V', 'B', '2020-10-31 04:53:46', NULL, '2020-11-29 11:46:43', NULL, NULL),
+(12, 'kfff', 'kfkf@gmail.com', '09595e7223d759a4aaff9dae7bf5ce01fd99eb45', 'V', 'B', '2020-11-24 10:14:21', NULL, '2020-11-29 11:46:36', NULL, NULL),
+(13, 'manojose', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'B', '2020-11-25 12:58:56', NULL, '2020-11-29 11:46:45', NULL, NULL),
+(14, 'josefiladelfia', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'B', '2020-11-25 12:59:42', NULL, '2020-11-29 11:46:40', NULL, NULL),
+(15, 'luisa', 'luisa@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'S', 'B', '2020-11-29 11:43:45', '2020-11-29 11:47:19', '2020-12-02 12:08:40', '2020-11-30 05:27:23', NULL),
+(16, 'Yony', 'jonny@gmail.com', 'e55376f27439b31804b56d77c3c9552d89c2b8dd', 'E', 'A', '2020-12-01 11:28:13', '2020-12-02 12:08:35', NULL, '2020-12-01 11:30:14', NULL),
+(17, 'prueba', 'prueba@gmail.com', '93301ada8177f4b7841620847f3d06d41febdd1d', 'S', 'A', '2020-12-01 11:40:07', '2020-12-01 11:41:39', NULL, '2020-12-01 11:40:51', NULL);
 
 --
 -- Disparadores `usuarios`
@@ -1153,6 +1464,27 @@ INSERT INTO `usuarios` (`cod_usu`, `nom_usu`, `ema_usu`, `pas_usu`, `rol_usu`, `
 DROP TRIGGER IF EXISTS `usuarios_AI`;
 DELIMITER $$
 CREATE TRIGGER `usuarios_AI` AFTER INSERT ON `usuarios` FOR EACH ROW INSERT INTO usuarios_resp(nom_usu,ema_usu,pas_usu,rol_usu,est_usu,cre_usu) VALUES(NEW.nom_usu,NEW.ema_usu,NEW.pas_usu,NEW.rol_usu,NEW.est_usu,NOW())
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `usuarios_BU`;
+DELIMITER $$
+CREATE TRIGGER `usuarios_BU` BEFORE UPDATE ON `usuarios` FOR EACH ROW IF(NEW.cod_usu = OLD.cod_usu)THEN
+UPDATE usuarios_resp SET nom_usu=NEW.nom_usu,
+                         nom_usu=NEW.nom_usu,
+                         pas_usu=NEW.pas_usu,
+                         rol_usu=NEW.rol_usu,
+                         est_usu=NEW.est_usu,
+                         upd_usu=NEW.upd_usu 
+WHERE cod_usu=NEW.cod_usu;
+
+IF(NEW.est_usu='B' && OLD.est_usu='A') THEN
+UPDATE usuarios_resp SET del_usu=NEW.del_usu WHERE cod_usu=NEW.cod_usu;
+END IF;
+
+IF(NEW.est_usu='A' && OLD.est_usu='B') THEN
+UPDATE usuarios_resp SET res_usu=NEW.res_usu WHERE cod_usu=NEW.cod_usu;
+END IF;
+END IF
 $$
 DELIMITER ;
 
@@ -1176,23 +1508,30 @@ CREATE TABLE IF NOT EXISTS `usuarios_resp` (
   `las_usu` datetime DEFAULT NULL,
   `res_usu` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios_resp`
 --
 
 INSERT INTO `usuarios_resp` (`cod_usu`, `nom_usu`, `ema_usu`, `pas_usu`, `rol_usu`, `est_usu`, `cre_usu`, `upd_usu`, `del_usu`, `las_usu`, `res_usu`) VALUES
-(1, 'felix', 'felixmedina07052000@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'A', 'A', '2020-02-27 09:27:56', NULL, NULL, NULL, NULL),
+(1, 'felix', 'felixmedina07052000@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'A', 'A', '2020-02-27 09:27:56', '2020-10-31 04:44:27', NULL, NULL, NULL),
 (2, 'marbe', 'marbe@gmail.com', 'fb3122091edeff3ecea93e9347d20ee8caec987b', 'V', 'A', '2020-03-18 15:07:58', NULL, NULL, NULL, NULL),
-(3, 'jose', 'jose@gmail.com', '5b53cad999b409898a88133ca9851b097abb500d', 'V', 'A', '2020-03-19 02:26:32', NULL, NULL, NULL, NULL),
-(4, 'kevin', 'kevin@gmail.com', '1c51e553cb863175222ebd166abc152cca513a50', 'V', 'A', '2020-07-02 11:42:16', NULL, NULL, NULL, NULL),
+(3, 'jose', 'jose@gmail.com', '5b53cad999b409898a88133ca9851b097abb500d', 'S', 'B', '2020-03-19 02:26:32', '2020-10-31 04:44:33', '2020-12-01 11:21:41', NULL, NULL),
+(4, 'kevin', 'kevin@gmail.com', '1c51e553cb863175222ebd166abc152cca513a50', 'E', 'B', '2020-07-02 11:42:16', '2020-07-02 11:44:37', '2020-12-01 11:21:37', NULL, NULL),
 (5, 'luis', 'luis@gmail.com', 'a77fc64da554424bfcbb1ce6036a1f814073fe28', 'V', 'A', '2020-10-31 16:46:19', NULL, NULL, NULL, NULL),
 (6, 'lola', 'lola@gmail.com', '2a5bb5475ac143cc17acc38d28e97ad2cb2114d5', 'V', 'A', '2020-10-31 16:48:58', NULL, NULL, NULL, NULL),
 (7, 'lodas', 'lodas@gmail.com', 'db8cdd9e722cfe60a69883da73e78df77c9120e8', 'V', 'A', '2020-10-31 16:50:05', NULL, NULL, NULL, NULL),
 (8, 'lol', 'lol@gmail.com', 'a75b563181dea35f4a19ef34324aedfaa388caa1', 'V', 'A', '2020-10-31 16:53:46', NULL, NULL, NULL, NULL),
 (9, 'lului', 'loiloi@gmail.com', 'e80a628d28c05d8490c3be35b26cfc3c49a1b6ac', 'V', 'A', '2020-10-31 17:53:31', NULL, NULL, NULL, NULL),
-(10, 'jesus', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'A', '2020-10-31 18:11:38', NULL, NULL, NULL, NULL);
+(10, 'jesus', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'S', 'B', '2020-10-31 18:11:38', '2020-12-01 01:06:57', '2020-12-01 11:21:44', NULL, NULL),
+(11, 'focas', 'jesus@gmail.com', 'd27f4469be6eadfde078a1e371c9d67d3f7512c7', 'V', 'A', '2020-11-24 22:05:02', NULL, NULL, NULL, NULL),
+(12, 'kfff', 'kfkf@gmail.com', '09595e7223d759a4aaff9dae7bf5ce01fd99eb45', 'V', 'A', '2020-11-24 22:14:21', NULL, NULL, NULL, NULL),
+(13, 'manojose', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'A', '2020-11-25 00:58:56', NULL, NULL, NULL, NULL),
+(14, 'josefiladelfia', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'A', '2020-11-25 00:59:42', NULL, NULL, NULL, NULL),
+(15, 'luisa', 'luisa@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'S', 'B', '2020-11-29 23:43:45', '2020-11-29 11:47:19', '2020-12-02 12:08:40', NULL, NULL),
+(16, 'Yony', 'jonny@gmail.com', 'e55376f27439b31804b56d77c3c9552d89c2b8dd', 'E', 'A', '2020-12-01 23:28:13', '2020-12-02 12:08:35', NULL, NULL, NULL),
+(17, 'prueba', 'prueba@gmail.com', '93301ada8177f4b7841620847f3d06d41febdd1d', 'S', 'A', '2020-12-01 23:40:08', '2020-12-01 11:41:39', NULL, NULL, NULL);
 
 --
 -- Restricciones para tablas volcadas

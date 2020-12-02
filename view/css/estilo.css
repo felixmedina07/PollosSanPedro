@@ -79,14 +79,14 @@
 .bc-banco{
     background-color: #000272;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-banco:hover{
     color: white;
     background-color: #3282b8;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .bntrab{
@@ -96,13 +96,13 @@
 .bc-banco-t{
     background-color:#ffba5a ;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-banco-t:hover{
     color: white;
     background-color: #FDC830;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-bancop{
@@ -112,14 +112,14 @@
 .bc-bancop{
     background-color: #3282b8;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-bancop:hover{
     color: white;
     background-color: #000272;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 /*  */
@@ -133,13 +133,13 @@
 .bc-cliente{
     background-color:#ffba5a ;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 .bc-cliente:hover{
     background-color: #FDC830;  /* fallback for old browsers */
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 
@@ -150,13 +150,13 @@
    .bc-clientep{
        background-color: #FDC830;
        color: white;
-       transition: 0.5s;
+       transition: 0.2s;
    }
    .bc-clientep:hover{
        background-color: #ffba5a;  /* fallback for old browsers */
        color: white;
        border-radius: 20px;
-       transition: 1s;
+       transition: 0.2s;
    }
 
 /*  */
@@ -167,27 +167,27 @@
 .bc-despacho{
     background-color:#ff5e62 ;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-despacho:hover{
     background-color: #ff9966;  /* fallback for old browsers */
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .bc-despachor{
     background-color:#ff9966 ;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-despachor:hover{
     background-color: #ff5e62 ;  /* fallback for old browsers */
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-despachop{
@@ -196,14 +196,14 @@
 .bc-despachop{
     background-color:#ff9966;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-despachop:hover{
     background-color:#ff5e62;  /* fallback for old browsers */
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 
@@ -214,14 +214,14 @@ background-color: #007991;
 .bc-cuenta{
     background-color: #007991;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-cuenta:hover{
     background-color:#38ef7d;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-cuentap{
@@ -231,14 +231,14 @@ background-color: #007991;
     .bc-cuentap{
         background-color:#38ef7d;
         color: white;
-        transition: 0.5s;
+        transition: 0.2s;
     }
     
     .bc-cuentap:hover{
         background-color:#007991;
         color: white;
         border-radius: 20px;
-        transition: 1s;
+        transition: 0.2s;
     }
 
 .c-cuadres{
@@ -248,14 +248,14 @@ background-color: #007991;
 .bc-cuadres{
     background-color: #00C9FF;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-cuadres:hover{
     background-color: #92FE9D;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-cuadresp{
@@ -265,14 +265,14 @@ background-color: #007991;
 .bc-cuadresp{
     background-color: #92FE9D;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-cuadresp:hover{
     background-color: #00C9FF;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-producto{
@@ -283,14 +283,14 @@ background-color: #007991;
 .bc-producto{
     background-color: #FFD200;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-producto:hover{
     background-color: #F7971E;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-productop{
@@ -301,14 +301,14 @@ background-color: #007991;
 .bc-productop{
     background-color: #F7971E;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-productop:hover{
     background-color:  #FFD200;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-usuario{
@@ -319,14 +319,14 @@ background-color: #007991;
 .bc-usuario{
     background-color: #0575E6;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-usuario:hover{
     background-color: #43C6AC;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-usuariop{
@@ -337,14 +337,14 @@ background-color: #007991;
 .bc-usuariop{
     background-color:  #43C6AC;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-usuariop:hover{
     background-color: #0575E6;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-dia{
@@ -355,14 +355,14 @@ background-color: #007991;
 .bc-dia{
     background-color:  #f46b45;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-dia:hover{
     background-color: #ffa259;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-diap{
@@ -373,14 +373,14 @@ background-color: #007991;
 .bc-diap{
     background-color:  #ffa259;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-diap:hover{
     background-color:  #f46b45;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 
@@ -410,14 +410,14 @@ background-color: #007991;
 .bc-proovedor{
     background-color: #229c9e;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-proovedor:hover{
     background-color: #2657eb;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 /*  */
@@ -430,14 +430,14 @@ background-color: #007991;
 .bc-proovedorp{
     background-color: #2657eb;
     color: white;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-proovedorp:hover{
     background-color:  #229c9e;
     color: white;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .c-login{
@@ -449,14 +449,14 @@ background-color: #007991;
     color:white;
     background-color: #c02739;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .bc-login:hover{
     background-color: #851d41;  
     color:#ffd739;
     border-radius: 20px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
 .r-login{

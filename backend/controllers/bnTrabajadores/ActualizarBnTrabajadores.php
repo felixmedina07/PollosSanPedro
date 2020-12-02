@@ -1,6 +1,5 @@
 <?php
  session_start();
- require_once "../../class/conexion.php";
  require_once "../../class/bnTrabajadores.php";
  $obj = new BnTrabajador();
  $datos = array(

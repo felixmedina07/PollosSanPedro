@@ -19,7 +19,7 @@ $sql="SELECT b.not_bnt,
 <br>
     <div class="card p-5 sombra">
         <div class="card-title mx-auto text-white text-center c-banco sombra mt-2 pt-2 " style="width: 80%; height: 80%; border-radius:10px;">
-                <h3>Historial Bancos Clientes</h3>
+                <h3>Historial Bancos Trabajadores</h3>
         </div>
      <hr style="width: 90%; height: 90%;" class="mx-auto">
         <table class="table table-hover table-bordered text-center" id="tablabnTrabHDataTable">

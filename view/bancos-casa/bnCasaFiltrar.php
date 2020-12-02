@@ -10,6 +10,9 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' || $_SESSION['rol'] ==
 ?>
 
 <div class="container p-4">
+    <div class="col">
+    <a href="../../bn-casa.php" class="btn bc-banco"><i class="fas fa-angle-left"></i></a>
+    </div>
 <br>  
         <div class="mx-auto sombra" style="width: 50rem;">
          <div class="card mb-2">

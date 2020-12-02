@@ -8,7 +8,7 @@ if(isset($_SESSION['nom_usu'])){
 
 <div class="container p-4">
 <div class="row">
-     <a href="menu_nomina.php" class="btn btn-dark" style="border-radius: 20px;"><i class="fas fa-angle-left"></i></a>
+     <a href="menu_nomina.php" class="btn bc-banco"><i class="fas fa-angle-left"></i></a>
     </div>
     <br>
     <div class="row">
@@ -30,14 +30,21 @@ if(isset($_SESSION['nom_usu'])){
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 d-flex justify-content-around">
-                            <button class="btn bc-banco">
-                            Filtrar Banco Trabajadores 
-                            </button>
+                        <div class="col-md-6 mb-3 d-flex justify-content-around">
+                        <a href="view/bancos-trabajadores/bnTrabFiltrar.php" class="btn bc-banco ml-3">
+                                Filtrar Banco Trabajadores
+                            </a>
                         </div>
-                        <div class="col-md-6 d-flex justify-content-around">
+                        <div class="col-md-6 mb-3 d-flex justify-content-around">
                         <a href="view/bancos-trabajadores/bnTrabHistorial.php" class="btn bc-banco ml-3">
                                 Historial Banco Trabajadores
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6 d-flex justify-content-around">
+                        <a href="view/bancos-trabajadores/bnTrabEliminar.php" class="btn bc-banco ml-3">
+                                Papelera Banco Trabajadores
                             </a>
                         </div>
                     </div>

@@ -17,7 +17,7 @@ $sql4="SELECT d.cod_des,d.fec_des,c.cod_cli,c.nom_cli,d.ctc_des FROM despacho AS
                                                           INNER JOIN cliente AS c
                                                           ON d.cod_cli=c.cod_cli
                                                           AND d.est_des='A'";
-$result4=mysqli_query($conexion,$sql4);                                                          
+$result4=mysqli_query($conexion,$sql4);
 ?>
 
 

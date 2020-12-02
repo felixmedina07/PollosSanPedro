@@ -88,6 +88,7 @@ $(document).ready(function () {
            $('#cuentaVer').hide();
            $('#cuentaEstado').hide();
            $('#cuentaPdf').hide();
+           $('#cuentaHistorial').hide();
            $('#cuentaUpdate').hide();
        }
 </script> 

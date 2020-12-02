@@ -68,6 +68,12 @@ class Trabajador extends Conectar{
   $sql="SELECT nom_tra,ape_tra,ced_tra,ads_tra,cor_tra,tel_tra FROM trabajadores WHERE cod_tra='$idtrab'";
   return  mysqli_query($conexion,$sql);
  }
+ public function listarTodo(){
+   $conexion = Conectar::conexion();
+   $sql="SELECT cod_tra,nom_tra,ape_tra FROM trabajadores WHERE est_tra='A'";
+   return mysqli_query($conexion,$sql);
+ }
+
  public function listarbanco($idtrab){
   $conexion = Conectar::conexion();
   $sql="SELECT not_bnt,ncu_bnt,tpc_bnt,rcd_bnt,nom_bnt,cor_bnt,tti_bnt FROM bancos_trabajadores WHERE cod_tra='$idtrab'";

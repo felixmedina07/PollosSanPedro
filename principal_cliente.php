@@ -1,0 +1,70 @@
+<?php
+session_start();
+require_once "backend/class/conexion.php";
+$obj= new Conectar();
+$conexion= $obj->conexion();
+$idusuario = $_SESSION['idUsuario'];
+$sql="SELECT * FROM cliente WHERE est_cli='A' AND cod_cli='$idusuario'";
+$result=mysqli_query($conexion,$sql);
+$ver= mysqli_fetch_array($result);
+if(isset($_SESSION['nom_cli']) && $result){
+  require_once "view/head/head2.php";
+  require_once "view/menu/menu3.php";
+?>
+
+  <div class="container p-4">
+  
+  <?php
+         if (isset($_GET["msg"]) AND !empty($_GET["msg"])):
+      ?>
+         <div class="alert alert-info bg-paso text-center" id="alert" role="alert" style="font-size: 40px;">
+            <?php echo $_GET["msg"]; ?>
+        </div>
+      <?php
+         endif;
+      ?>
+      <div class="container p-4">
+    <div class="card mx-auto sombra"  style="width: 50rem;">
+        <div class="card-header c-usuario text-center">
+           <h4 class="text-center">Opciones</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4  d-flex justify-content-around">
+                    <a href="menu_trabajadores.php" class="btn bc-cliente">
+                      Mis Bancos  
+                    </a>
+                </div>
+                <div class="col-md-4  d-flex justify-content-around">
+                    <a href="menu_bn_trabajadores.php" class="btn bc-despacho">
+                      Mis Despacho
+                    </a>
+                </div>
+                <div class="col-md-4  d-flex justify-content-around">
+                    <a href="menu_pg_nomina.php" class="btn bc-cuenta">
+                      Mis Cuentas
+                    </a>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center mt-3 ml-1">
+                <div class="col-md-2">
+                    <a href="menu_trabajadores.php" class="btn bc-cliente">
+                      Pedidos  
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+     
+  </div>
+   <?php
+      require_once "view/footer/footer.php";
+   ?>
+ <?php
+}else{
+      header("location:sistema_cliente.php");
+      }
+  ?> 
+  
+

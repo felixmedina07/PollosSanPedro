@@ -1,0 +1,589 @@
+.navbar-expand-lg .navbar-nav .nav-link{
+    font-size: 14px;
+}
+.h:hover{
+    background: none;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+.bproducto:hover{
+    background-color:white;
+    color: aqua;
+}
+.navbar-felix,.link-felix{
+    color:white;
+    background-color: #ffd739;
+}
+
+.link-felix:hover{
+    color:#c02739;
+}
+
+.nav-link:hover{
+ color:#c02739;
+}
+.dropdown-menu{
+    color:white;
+    background-color: #851d41;
+    border-radius: 10px;
+}
+
+
+.dropdown-item{
+    color: white;
+}
+.dropdown-item:hover{
+    color:#fddb3a;
+    background-color: #851d41;
+}
+.btn-menu{
+    color:white;
+    background-color: #c02739;
+    border-radius: 10px;
+}
+
+.btn-menu:hover{
+    background-color: #851d41;  
+    color:white;
+}
+.bg-f:hover{
+    color: #851d41;
+    background-color: #f8b400;
+}
+.bg-fe{
+    color: #851d41;
+    background-color: #f8b400;
+}
+
+.sombra{
+    -webkit-box-shadow: -1px 1px 10px 2px rgba(183,178,214,0.41);
+    -moz-box-shadow: -1px 1px 10px 2px rgba(183,178,214,0.41);
+    box-shadow: -1px 1px 10px 2px rgba(183,178,214,0.41);
+}
+.bg-negro{
+    color: black;
+}
+
+.c-banco{
+    background-color: #000272;
+}
+
+.bc-banco{
+    background-color: #000272;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-banco:hover{
+    color: white;
+    background-color: #3282b8;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.bntrab{
+    background-color: #000272;
+}
+
+.bc-banco-t{
+    background-color:#ffba5a ;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-banco-t:hover{
+    color: white;
+    background-color: #FDC830;
+    transition: 0.2s;
+}
+
+.c-bancop{
+    background-color: #3282b8;
+}
+
+.bc-bancop{
+    background-color: #3282b8;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-bancop:hover{
+    color: white;
+    background-color: #000272;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+/*  */
+.c-cliente{
+ background-color:#ffba5a ;
+}
+.trab{
+    background-color:#ffba5a ;
+}
+
+.bc-cliente{
+    background-color:#ffba5a ;
+    color: white;
+    transition: 0.2s;
+}
+.bc-cliente:hover{
+    background-color: #FDC830;  /* fallback for old browsers */
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+
+.c-clientep{
+    background-color: #FDC830;
+   }
+   
+   .bc-clientep{
+       background-color: #FDC830;
+       color: white;
+       transition: 0.2s;
+   }
+   .bc-clientep:hover{
+       background-color: #ffba5a;  /* fallback for old browsers */
+       color: white;
+       border-radius: 20px;
+       transition: 0.2s;
+   }
+
+/*  */
+
+.c-despacho{
+    background-color:#ff5e62 ;
+}
+.bc-despacho{
+    background-color:#ff5e62 ;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-despacho:hover{
+    background-color: #ff9966;  /* fallback for old browsers */
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.bc-despachor{
+    background-color:#ff9966 ;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-despachor:hover{
+    background-color: #ff5e62 ;  /* fallback for old browsers */
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-despachop{
+    background-color:#ff9966;
+}
+.bc-despachop{
+    background-color:#ff9966;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-despachop:hover{
+    background-color:#ff5e62;  /* fallback for old browsers */
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+
+.c-cuenta{
+background-color: #007991;
+}
+
+.bc-cuenta{
+    background-color: #007991;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-cuenta:hover{
+    background-color:#38ef7d;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-cuentap{
+    background-color: #38ef7d;
+    }
+    
+    .bc-cuentap{
+        background-color:#38ef7d;
+        color: white;
+        transition: 0.2s;
+    }
+    
+    .bc-cuentap:hover{
+        background-color:#007991;
+        color: white;
+        border-radius: 20px;
+        transition: 0.2s;
+    }
+
+.c-cuadres{
+    background-color: #00C9FF;
+}
+
+.bc-cuadres{
+    background-color: #00C9FF;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-cuadres:hover{
+    background-color: #92FE9D;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-cuadresp{
+    background-color: #92FE9D;
+}
+
+.bc-cuadresp{
+    background-color: #92FE9D;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-cuadresp:hover{
+    background-color: #00C9FF;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-producto{
+    background-color: #FFD200;
+    color: white;
+}
+
+.bc-producto{
+    background-color: #FFD200;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-producto:hover{
+    background-color: #F7971E;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-productop{
+    background-color: #F7971E;
+    color: white;
+}
+
+.bc-productop{
+    background-color: #F7971E;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-productop:hover{
+    background-color:  #FFD200;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-usuario{
+    background-color: #0575E6;
+    color: white;
+}
+
+.bc-usuario{
+    background-color: #0575E6;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-usuario:hover{
+    background-color: #43C6AC;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-usuariop{
+    background-color: #43C6AC;
+    color: white;
+}
+
+.bc-usuariop{
+    background-color:  #43C6AC;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-usuariop:hover{
+    background-color: #0575E6;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-dia{
+    background-color: #f46b45;
+    color: white;
+}
+
+.bc-dia{
+    background-color:  #f46b45;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-dia:hover{
+    background-color: #ffa259;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-diap{
+    background-color:  #ffa259;
+    color: white;
+}
+
+.bc-diap{
+    background-color:  #ffa259;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-diap:hover{
+    background-color:  #f46b45;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+
+
+/* Espacios del boton y letras del guardar */
+.px-8{
+    padding: 5px 70px 5px 70px;
+    font-size: 19px;
+}
+
+.pxx-8{
+    padding: 15px 40px 15px 40px;
+    font-size: 19px;
+}
+
+
+.pagination{
+ padding-top: 5px;
+ margin-top: 5px;
+}
+
+.c-proovedor{
+    background-color: #229c9e;
+    color:white;
+}
+
+.bc-proovedor{
+    background-color: #229c9e;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-proovedor:hover{
+    background-color: #2657eb;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+/*  */
+
+.c-proovedorp{
+    background-color:#2657eb ;
+    color:white;
+}
+
+.bc-proovedorp{
+    background-color: #2657eb;
+    color: white;
+    transition: 0.2s;
+}
+
+.bc-proovedorp:hover{
+    background-color:  #229c9e;
+    color: white;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.c-login{
+    background-color: #851d41;
+    color:white;
+    font-size: 28px;
+}
+
+.bc-login{
+    color:white;
+    background-color: #c02739;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.bc-login:hover{
+    background-color: #851d41;  
+    color:#ffd739;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.r-login{
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
+}
+
+.r-login:hover{
+    color:white;
+}
+
+.c-vista{
+    background-color: #851d41;
+    color:#FFD200;
+}
+.btn-vista{
+    background: #CAC531;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F3F9A7, #CAC531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+}
+
+.bg-paso{
+    background-color:  rgb(20, 189, 57) !important;    
+}
+
+.content-input input,
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+ 
+.content-input input{
+	visibility: hidden;
+	position: absolute;
+	right: 0;
+}
+
+.content-input{
+	position: relative;
+	margin-bottom: 30px;
+	padding:5px 0 5px 60px; /* Damos un padding de 60px para posicionar 
+        el elemento <i> en este espacio*/
+	display: block;
+}
+
+/* Estas reglas se aplicarán a todos las elementos i 
+después de cualquier input*/
+.content-input input + i{
+       background: #f0f0f0;
+       border:2px solid rgba(0,0,0,0.2);
+       position: absolute; 
+       left: 0;
+       top: 0;
+}
+
+/* Estas reglas se aplicarán a todos los i despues 
+de un input de tipo checkbox*/
+.content-input input[type=checkbox ] + i{
+	width: 52px;
+	height: 30px;
+	border-radius: 15px;
+}
+
+.content-input input[type=checkbox] + i:before{
+	content: ''; /* No hay contenido */
+	width: 26px;
+	height: 26px;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+	-webkit-box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+}
+
+.content-input input[type=checkbox]:checked + i:before{
+	left: 22px;
+	-webkit-box-shadow: -3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 -3px 0 rgba(0,0,0,0.2);
+}
+ 
+.content-input input[type=checkbox]:checked + i{
+ background: #2AC176;
+}
+
+.content-input input[type=checkbox] + i:after{
+	content: 'ON';
+	position: absolute;
+	font-size: 10px;
+	color: rgba(255,255,255,0.6);
+	top: 8px;
+	left: 4px;
+	opacity: 0 /* Ocultamos este elemento */;
+	transition: all 0.25s ease 0.25s;
+}
+ 
+/* Cuando esté checkeado cambiamos la opacidad a 1 y lo mostramos */
+.content-input input[type=checkbox]:checked + i:after{
+ opacity: 1;
+}
+
+.btn-activo{
+    background: green;
+}
+
+
+img.zoom {
+   
+    --webkit-transition: all .2s ease-in-out;
+    --moz-transition: all .2s ease-in-out;
+    --o-transition: all .2s ease-in-out;
+    --ms-transition: all .2s ease-in-out;
+}
+ 
+.transition {
+    width: 350px;
+    height: 200px;
+    --webkit-transform: scale(1.8); 
+    --moz-transform: scale(1.8);
+    --o-transform: scale(1.8);
+    transform: scale(1.8);
+}
+
+

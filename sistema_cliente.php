@@ -44,7 +44,7 @@ require_once "view/head/head2.php";
                 <span style="margin-left:2px;"><a href="registrar_cliente.php" class="btn bc-login">Register</a></span>
             </form>
         </div>
-        <div class="card-footer c-login"><a href="recuperar.php" class="r-login">Recuperar Contraseña</a></div>
+        <div class="card-footer c-login"><a href="recuperar_cliente.php" class="r-login">Recuperar Contraseña</a></div>
     </div>
 </div>
 

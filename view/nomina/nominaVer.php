@@ -31,7 +31,7 @@ require_once "../menu/menu2.php";
 </div>
 <?php
    }else{
-    header("location:../../sistema_principal.php");
+    header("location:../../index.php");
      }
  ?>
 

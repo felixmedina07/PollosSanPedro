@@ -40,7 +40,7 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A'||$_SESSION['rol']=='E'||
   
  <?php
 }else{
-    header("location:sistema_principal.php");
+    header("location:index.php");
      }
  ?> 
 <?php

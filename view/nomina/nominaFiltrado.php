@@ -37,8 +37,8 @@ $bant=($_POST['bnbTrabajadorSelect'] === 'A')?"":$_POST['bnbTrabajadorSelect'];
             <h3>Pago Nomina Filtrados</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover table-bordered  text-center">
-                <thead class="bc-cuenta">
+            <table id="table" class="table table-hover table-bordered  text-center">
+                <thead id="thead" class="bc-cuenta">
                     <tr>
                         <td>Nombre Trabajador</td>
                         <td>Apellido Trabajador</td>
@@ -77,3 +77,12 @@ $bant=($_POST['bnbTrabajadorSelect'] === 'A')?"":$_POST['bnbTrabajadorSelect'];
 <?php 
 $head = $es->pie(); 
 ?>
+<script>
+    $(document).ready(function(){
+        $('#boton').click(function(){
+            console.log('hola')
+       location.reload();
+        
+    });
+});
+</script>

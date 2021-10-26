@@ -57,7 +57,7 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] =='A' &&  $ver==1){
  
  <?php
    }else{
-    header("location:sistema_principal.php");
+    header("location:index.php");
      }
  ?> 
 

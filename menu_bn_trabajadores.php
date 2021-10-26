@@ -55,7 +55,7 @@ if(isset($_SESSION['nom_usu'])){
 
  <?php
    }else{
-    header("location:sistema_principal.php");
+    header("location:index.php");
      }
  ?> 
 <?php

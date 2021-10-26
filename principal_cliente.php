@@ -31,28 +31,29 @@ if(isset($_SESSION['nom_cli']) && $result){
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4  d-flex justify-content-around">
-                    <a href="menu_trabajadores.php" class="btn bc-cliente">
+                    <a href="view/bancos-clientes/bnClientVer.php" class="btn bc-banco">
                       Mis Bancos  
                     </a>
                 </div>
                 <div class="col-md-4  d-flex justify-content-around">
-                    <a href="menu_bn_trabajadores.php" class="btn bc-despacho">
+                    <a href="view/despacho/despachosVer.php" class="btn bc-despacho">
                       Mis Despacho
                     </a>
                 </div>
                 <div class="col-md-4  d-flex justify-content-around">
-                    <a href="menu_pg_nomina.php" class="btn bc-cuenta">
+                    <a href="view/cuentas/CuentaVer.php" class="btn bc-cuenta">
                       Mis Cuentas
                     </a>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center mt-3 ml-1">
-                <div class="col-md-2">
-                    <a href="menu_trabajadores.php" class="btn bc-cliente">
+            <div class="row mt-4 ml-1">
+                <div class="col-md-4 d-flex justify-content-around">
+                    <a href="menu_pedidos.php" class="btn bc-cliente">
                       Pedidos  
                     </a>
                 </div>
             </div>
+            <div class="col-md-2 d-flex justify-content-around"></div>
         </div>
     </div>
 </div>
@@ -63,7 +64,7 @@ if(isset($_SESSION['nom_cli']) && $result){
    ?>
  <?php
 }else{
-      header("location:sistema_cliente.php");
+  header("location:index.php");
       }
   ?> 
   

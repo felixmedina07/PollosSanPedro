@@ -34,7 +34,7 @@ $result=mysqli_query($conexion,$sql);
                    <div class="row">
                        <div class="col-12">
                             <label for="pas_cli">Contraseña:</label>
-                            <input type="password" class="form-control" id="pas_cli" name="pas_cli" placeholder="Ingrese Contraseña" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+                            <input type="password" class="form-control" id="pas_cli" name="pas_cli" placeholder="Ingrese Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&-.])[A-Za-z\d$@$!%*?&-.]{8,15}$">
                             <small id="p1-error" class="form-text text-muted">La contraseña tiene que ser mas de 8 caracteres contener al menos una letra y un numero</small>
                        </div>
                    </div>

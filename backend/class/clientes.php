@@ -159,6 +159,23 @@ public function buscarUsuarioCliente($tel_cli,$cor_cli){
   }
 }
 
+public function recuperar($datos){
+  $conexion = Conectar::conexion();
+  $sql="SELECT * FROM cliente WHERE tel_cli = '$datos[0]' AND cor_cli = '$datos[1]' AND est_cli='A'";
+  $dato= mysqli_query($conexion,$sql);
+  if(mysqli_num_rows($dato) > 0){
+    $sql="UPDATE cliente SET pas_cli ='$datos[2]' WHERE tel_cli='$datos[0]' AND cor_cli='$datos[1]' AND est_cli='A'";
+    $result = mysqli_query($conexion,$sql);
+   if($result){
+       return 1;
+   }else if(!$result){
+       return 0;
+   }
+  }else{
+      return 2;
+  }
+}
+
  }
 
 

@@ -20,7 +20,7 @@
             <thead class="bc-usuario">
                 <tr>
                     <td>Nombre</td>
-                    <td>Apellido</td>
+                    <td>Correo</td>
                     <td>Rol</td>
                     <td>Ultimo logeo</td>
                     <td>Editar</td>

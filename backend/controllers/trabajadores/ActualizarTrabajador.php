@@ -12,8 +12,6 @@
      $_POST['tel_traU'],
  );
 
-
-
  echo $obj->actualizarTrab($datos);
 
 

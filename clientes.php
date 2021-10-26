@@ -74,6 +74,6 @@ require_once "view/menu/menu.php";
   
  <?php
    }else{
-    header("location:sistema_principal.php");
+    header("location:index.php");
      }
  ?> 

@@ -29,13 +29,20 @@ if(isset($_SESSION['nom_usu'])){
                     </a>
                 </div>
             </div>
+            <div class="row mt-3">
+                <div class="col-md-4  d-flex justify-content-around">
+                    <a href="menu_pedidos.php" class="btn bc-cliente">
+                      Pedidos  
+                    </a>
+                </div>    
+            </div>
         </div>
     </div>
 </div>
 
  <?php
    }else{
-    header("location:sistema_principal.php");
+    header("location:index.php");
      }
  ?> 
 <?php

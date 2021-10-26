@@ -14,7 +14,7 @@ $sql3="SELECT b.cod_bnt,b.nom_bnt,t.nom_tra,t.ape_tra  FROM bancos_trabajadores 
 $result3=mysqli_query($conexion,$sql3);
 ?>
 <br>
-        <div class="mx-auto sombra" style="width: 70%; height: 70%;">
+        <div class="mx-auto sombra" style="width: 50rem;">
           <div class="card mb-2">
             <div class="card-title mx-auto text-white text-center c-cuenta sombra mt-4 pt-2" style="width: 70%; height: 70%; border-radius:10px;">
                 <h4>Registrar Pago Nomina</h4>

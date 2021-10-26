@@ -1,11 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-felix">
   <div class="container">
-  <a class="navbar-brand" href="principal.php"><img class="img-responsive ml-5" src="logo/pollito.png" alt="" width="110px" height="80px"></a>
+  <a class="navbar-brand" href="principal_cliente.php"><img class="img-responsive ml-5" src="logo/pollito.png" alt="" width="110px" height="80px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse " id="navbarNav">
     <ul class="navbar-nav ml-auto">
+    <?php if(isset($_SESSION['nom_cli'])): ?>
+      <li class="nav-item">
+        <a class="nav-link link-felix" href="perfil.php"><i class="fas fa-user"></i> Perfil</a>
+      </li>
+    <?php endif; ?> 
       <li class="nav-item dropdown">
           <button class="btn btn-menu  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="far fa-address-card bg-red"></i> Usuario <?php echo $_SESSION['nom_cli'];?>

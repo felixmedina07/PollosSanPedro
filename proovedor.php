@@ -30,7 +30,7 @@
     <?php require_once "view/footer/footer.php"; ?>
 
     <?php } else{
-        header("location:index.php");
+         header("location:index.php");
      } ?>
 
 <script src="view/js/Principal/proovedor.js"></script>

@@ -1,11 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-felix ">
   <div class="container">
-  <a class="navbar-brand" href="../../principal.php"><img class="img-responsive ml-5" src="../../logo/pollito.png" alt="" width="110px" height="80px"></a>
+ <?php if(isset($_SESSION['nom_cli'])): ?>
+ <a class="navbar-brand" href="../../principal_cliente.php"><img class="img-responsive ml-5" src="../../logo/pollito.png" alt="" width="110px" height="80px"></a>
+ <?php endif;?>
+ <?php if(isset($_SESSION['nom_usu'])): ?>
+ <a class="navbar-brand" href="../../principal.php"><img class="img-responsive ml-5" src="../../logo/pollito.png" alt="" width="110px" height="80px"></a>
+ <?php endif;?>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse " id="navbarNav">
     <ul class="navbar-nav ml-auto">
+    <?php if(isset($_SESSION['nom_cli'])): ?>
+      <li class="nav-item">
+        <a class="nav-link link-felix" href="../../perfil.php"><i class="fas fa-user"></i> Perfil</a>
+      </li>
+    <?php endif; ?> 
+  <?php if(isset($_SESSION['nom_usu'])):?>    
      <?php if($_SESSION['rol']=='A' && $_SESSION['idUsuario']=1):?>
       <li class="nav-item">
         <a class="nav-link link-felix" href="../../usuarios.php"><i class="fas fa-user"></i> Usuarios</a>
@@ -62,12 +73,23 @@
             </div>
       </li>
       <?php endif;?>
+  <?php endif;?>  
       <li class="nav-item dropdown">
           <button class="btn btn-menu  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="far fa-address-card bg-red"></i> Usuario <?php echo $_SESSION['nom_usu'];?>
+            <?php if(isset($_SESSION['nom_usu'])): ?>
+              <i class="far fa-address-card bg-red"></i> Usuario <?php echo $_SESSION['nom_usu'];?>
+            <?php endif; ?>
+            <?php if(isset($_SESSION['nom_cli'])): ?>
+              <i class="far fa-address-card bg-red"></i> Usuario <?php echo $_SESSION['nom_cli'];?>
+            <?php endif; ?>  
           </button>
             <div class="dropdown-menu bg-fe" aria-labelledby="navbarDropdownLink">
-             <a class="dropdown-item bg-f" href="../../backend/controllers/login/salir.php"><i class="fas fa-power-off"></i> Salir</a>
+            <?php if(isset($_SESSION['nom_usu'])): ?>
+              <a class="dropdown-item bg-f" href="../../backend/controllers/login/salir.php"><i class="fas fa-power-off"></i> Salir</a>
+            <?php endif; ?>
+            <?php if(isset($_SESSION['nom_cli'])): ?>
+              <a class="dropdown-item bg-f" href="../../backend/controllers/login/salirCliente.php"><i class="fas fa-power-off"></i> Salir</a>
+            <?php endif; ?> 
             </div>
       </li>
     </ul>

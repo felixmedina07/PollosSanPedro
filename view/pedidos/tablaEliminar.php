@@ -26,7 +26,7 @@ $sql ="SELECT
                 <h3>Papelera Pedidos</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-        <table class="table table-hover table-bordered text-center" id="tablaPedidoD">
+        <table class="table table-hover table-bordered text-center" id="tablaPedidoD" style="width:100%">
             <thead class="bc-clientep">
             <tr>
                 <td>Cliente</td>
@@ -116,8 +116,8 @@ $sql ="SELECT
 <script>
  $(document).ready(function() {
         $('#tablaPedidoD').DataTable({
-            "scrollX": "100%",
-            "scrollCollapse": false,
+            "scrollX": true,
+            "scrollCollapse": true,
             "language":idioma_español
         });
     } ); 

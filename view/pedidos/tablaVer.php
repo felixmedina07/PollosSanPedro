@@ -35,7 +35,7 @@ WHERE est_ped='A' ORDER BY cod_ped DESC";
             <h3>Lista Pedidos</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover  table-bordered  text-center" id="tablaPedidos">
+            <table class="table table-hover  table-bordered  text-center" id="tablaPedidos" style="width:100%">
                 <thead class="bc-cliente">
                     <tr>
                         <td>Pollos</td>
@@ -228,6 +228,8 @@ function papelera(idped) {
         dateFormat: "yy-mm-dd"
     });
         $('#tablaPedidos').DataTable({
+            "scrollX": true,
+            "scrollCollapse": true,
             "language": idioma_español,
         });
     });

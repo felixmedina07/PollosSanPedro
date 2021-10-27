@@ -34,7 +34,7 @@ if(isset($_SESSION['nom_usu'])){
         <h2> Lista Bancos Pollos San Pedro</h2>
     </div>
     <hr style="width: 90%; height: 90%;" class="mx-auto">
-        <table class="table table-hover table-bordered text-center" id="tablaBncDataTable">
+        <table class="table table-hover table-bordered text-center" style="width:100%" id="tablaBncDataTable">
             <thead class="bc-banco">
                 <tr>
                     <td>Nombre del Banco</td>
@@ -64,8 +64,6 @@ if(isset($_SESSION['nom_usu'])){
 
 <?php $head = $es->pie(); ?>
 
-<!-- MODAL MOSTRAR Y EDITAR
-<!-- Modal -->
 <!-- <div class="modal fade" id="BancoUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -128,7 +126,9 @@ if(isset($_SESSION['nom_usu'])){
        // PLUGIN DATATABLE viene con idioma personalizado  
         $(document).ready(function() {
         $('#tablaBncDataTable').DataTable({
-            "language": idioma_español
+            "scrollX": true,
+            "scrollCollapse": true,
+            "language":idioma_español
         });
         $('#tablaClienteDataTable_next').addClass("next-banco");
     });

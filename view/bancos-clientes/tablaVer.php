@@ -25,7 +25,7 @@ $sql="SELECT b.not_bnk,
                 <h3>Mis Bancos</h3>
         </div>
      <hr style="width: 90%; height: 90%;" class="mx-auto">
-     <table class="table table-hover table-bordered text-center" id="tablabnDataTable">
+     <table class="table table-hover table-bordered text-center" id="tablabnDataTable" style="width:100%">
             <thead class="bc-banco">
                 <tr class="text-center">
                     <td>Nombre titular</td>
@@ -56,8 +56,8 @@ $sql="SELECT b.not_bnk,
 <script>
     $(document).ready(function() {
         $('#tablabnDataTable').DataTable({
-            "scrollX": "90%",
-            "scrollCollapse": false,
+            "scrollX": true,
+            "scrollCollapse": true,
           "language":idioma_español
         });
     } );

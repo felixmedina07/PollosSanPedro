@@ -95,13 +95,14 @@ function agregarCuentas(){
             status2= true;
         }
 
-        if(!regexnu.test(nrf.val())){
+        if(!regexd.test(nrf.val())){
             nrf.addClass("border-danger");
             $("#nrf_error").html("<span class='text-danger'>Datos Numericos.</span>")
             status=false;
         }else{
             nrf.removeClass("border-danger");
             $("#nrf_error").html("");
+            status= true;
             status2= true;
         }
 

@@ -21,12 +21,12 @@ $ide=$_SESSION['idUsuario'];
 ?>
 <br>
 <br>
-    <div class="card p-5 sombra table-responsive">
+    <div class="card p-5 sombra">
         <div class="card-title mx-auto text-white text-center c-banco sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Lista Banco Trabajadores</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover  table-bordered  text-center" id="tablaBancotrabajador">
+            <table class="table table-hover  table-bordered  text-center" id="tablaBancotrabajador" style="width:100%">
                 <thead class="bc-banco">
                     <tr>
                         <td>Nombre titular</td>
@@ -232,6 +232,8 @@ function papelera(idbnt) {
 <script>
     $(document).ready(function() {
         $('#tablaBancotrabajador').DataTable({
+            "scrollX": true,
+            "scrollCollapse": false,
             "language": idioma_español,
         });
     });

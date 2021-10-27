@@ -22,7 +22,7 @@ $ide=$_SESSION['idUsuario'];
             <h3>Lista Trabajadores</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover  table-bordered  text-center" id="tablatrabajador">
+            <table class="table table-hover  table-bordered  text-center" id="tablatrabajador" style="width:100%">
                 <thead class="bc-cliente">
                     <tr>
                         <td>Nombre</td>
@@ -200,6 +200,8 @@ function papelera(idtrab) {
 <script>
     $(document).ready(function() {
         $('#tablatrabajador').DataTable({
+            "scrollX": true,
+            "scrollCollapse": true,
             "language": idioma_español,
         });
     });

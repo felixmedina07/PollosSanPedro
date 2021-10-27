@@ -72,7 +72,7 @@ if(isset($_SESSION['nom_cli']) || isset($_SESSION['nom_usu'])){
                         </a>
                     </div>
                 </div>
-                <div class="row mt-3">
+                <div class="row">
                     <div class="col-md-12 d-flex justify-content-center">
                         <a href="backend/controllers/trabajadores/ReporteTrabajadoresTodosPdf.php" class="btn bc-cliente">
                         Pdf Pedidos

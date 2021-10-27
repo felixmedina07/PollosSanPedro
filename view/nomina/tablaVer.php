@@ -37,7 +37,7 @@ $result3=mysqli_query($conexion,$sql3);
             <h3>Lista Pago Nomina</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover  table-bordered  text-center" id="tablaNomina">
+            <table class="table table-hover  table-bordered  text-center" id="tablaNomina" style="width:100%">
                 <thead class="bc-cuenta">
                     <tr>
                         <td>Nombre Trabajador</td>
@@ -233,8 +233,8 @@ function papelera(idnomina) {
 <script>
     $(document).ready(function() {
         $('#tablaNomina').DataTable({
-            "scrollX": "90%",
-            "scrollCollapse": false,
+            "scrollX": true,
+            "scrollCollapse": true,
             "language": idioma_español,
         });
     });

@@ -41,7 +41,7 @@ $trab = $_POST['bnTrabajadorSelect'];
             <h3>Bancos Trabajadores Filtrados</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover table-bordered  text-center">
+            <table class="table table-hover table-bordered  text-center" id="tablaBancoFiltrabajador" style="width:100%">
                 <thead class="bc-banco">
                     <tr>
                         <td>Trabajador</td>
@@ -54,11 +54,7 @@ $trab = $_POST['bnTrabajadorSelect'];
                         <td>Telefono</td>
                     </tr>
                 </thead>
-                <?php if(!(mysqli_num_rows($result) > 0)):?>
-                    <tr>
-                        <td colspan="8">No hay Datos</td>
-                    </tr>
-                <?php endif;?>
+               
                 <?php while($ver = mysqli_fetch_row($result)): ?>
                     <tr>
                         <td><?php echo $ver[0];?></td>
@@ -83,3 +79,43 @@ $trab = $_POST['bnTrabajadorSelect'];
 <?php 
 $head = $es->pie(); 
 ?>
+
+<script>
+    $(document).ready(function() {
+        $('#tablaBancoFiltrabajador').DataTable({
+            "scrollX": true,
+            "scrollCollapse": false,
+            "language": idioma_español,
+        });
+    });
+
+var idioma_español= {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                };
+
+    </script>

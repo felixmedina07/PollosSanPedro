@@ -37,7 +37,7 @@ $bant=($_POST['bnbTrabajadorSelect'] === 'A')?"":$_POST['bnbTrabajadorSelect'];
             <h3>Pago Nomina Filtrados</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table id="table" class="table table-hover table-bordered  text-center">
+            <table class="table table-hover table-bordered  text-center" id="tablaNominaFiltrado" style="width:100%">
                 <thead id="thead" class="bc-cuenta">
                     <tr>
                         <td>Nombre Trabajador</td>
@@ -49,11 +49,6 @@ $bant=($_POST['bnbTrabajadorSelect'] === 'A')?"":$_POST['bnbTrabajadorSelect'];
                         <td>Fecha Pago</td>
                     </tr>
                 </thead>
-                <?php if(!(mysqli_num_rows($result) > 0)):?>
-                    <tr>
-                        <td colspan="8">No hay Datos</td>
-                    </tr>
-                <?php endif;?>
                 <?php while($ver = mysqli_fetch_row($result)): ?>
                     <tr>
                         <td><?php echo $ver[3];?></td>
@@ -78,11 +73,40 @@ $bant=($_POST['bnbTrabajadorSelect'] === 'A')?"":$_POST['bnbTrabajadorSelect'];
 $head = $es->pie(); 
 ?>
 <script>
-    $(document).ready(function(){
-        $('#boton').click(function(){
-            console.log('hola')
-       location.reload();
-        
-    });
-});
+ $(document).ready(function() {
+        $('#tablaNominaFiltrado').DataTable({
+            "scrollX": true,
+            "scrollCollapse": true,
+            "language":idioma_español
+        });
+    } ); 
+
+    var idioma_español= {
+                        "sProcessing":     "Procesando...",
+                        "sLengthMenu":     "Mostrar _MENU_ registros",
+                        "sZeroRecords":    "No se encontraron resultados",
+                        "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                        "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix":    "",
+                        "sSearch":         "Buscar:",
+                        "sUrl":            "",
+                        "sInfoThousands":  ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst":    "Primero",
+                            "sLast":     "Último",
+                            "sNext":     "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        },
+                        "buttons": {
+                            "copy": "Copiar",
+                            "colvis": "Visibilidad"
+                        }
+                    };
 </script>

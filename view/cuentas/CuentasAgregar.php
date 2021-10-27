@@ -46,7 +46,7 @@ $result4=mysqli_query($conexion,$sql4);
                             <select class="form-control " id="bnDespachoSelect" name="bnDespachoSelect" >
                                 <option value="A">Seleccione Despacho</option> 
                                 <?php while($ver4= mysqli_fetch_row($result4)): ?>
-                                    <?php if($ver4[4]!=0): ?> 
+                                    <?php if($ver4[4]==null): ?> 
                                      <option value="<?php echo $ver4[0];?>"><?php echo $ver4[1]."-".$ver4[3]; ?> </option>
                                     <?php endif;?>
                                 <?php endwhile; ?>

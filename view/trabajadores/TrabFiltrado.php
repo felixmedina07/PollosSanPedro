@@ -33,7 +33,7 @@ require_once "../menu/menu2.php";
             <h3>Trabajadores Filtrados</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
-            <table class="table table-hover table-bordered  text-center" id="tablatrabDataTable">
+            <table class="table table-hover table-bordered  text-center" id="tablatrabajadorFiltradp" style="width:100%">
                 <thead class="bc-cliente">
                     <tr>
                         <td>Nombre</td>
@@ -66,5 +66,42 @@ require_once "../menu/menu2.php";
 <?php 
 $head = $es->pie(); 
 ?>
+<script>
+    $(document).ready(function() {
+        $('#tablatrabajadorFiltradp').DataTable({
+            "scrollX": true,
+            "scrollCollapse": true,
+            "language": idioma_español,
+        });
+    });
 
-<script src="../js/principal/trabajadores.js"></script>
+var idioma_español= {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                };
+
+    </script>

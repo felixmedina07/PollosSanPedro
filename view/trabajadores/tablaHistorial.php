@@ -46,7 +46,8 @@
     <script>
     $(document).ready(function() {
         $('#tablatrabHDataTable').DataTable({
-            "responsive":true,
+            "scrollX": true,
+            "scrollCollapse": true,
             "language": idioma_español
         });
     });

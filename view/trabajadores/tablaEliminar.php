@@ -21,7 +21,7 @@
             <h3>Papelera Trabajadores</h3>
     </div>
     <hr style="width: 90%; height: 90%;" class="mx-auto">
-    <table class="table table-hover table-bordered text-center" id="tablaTrabajadoresD">
+    <table class="table table-hover table-bordered text-center" id="tablaTrabajadoresD" style="width:100%">
         <thead class="bc-clientep">
             <tr>
                 <td>Nombre</td>
@@ -114,6 +114,8 @@ function restaurar(idtrab) {
 <script>
   $(document).ready(function() {
         $('#tablaTrabajadoresD').DataTable({
+            "scrollX": true,
+            "scrollCollapse": true,
             "language":idioma_español
         });
     } ); 

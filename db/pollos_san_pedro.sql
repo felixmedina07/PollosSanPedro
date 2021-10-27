@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 26-10-2021 a las 06:28:22
+-- Tiempo de generación: 27-10-2021 a las 04:57:37
 -- Versión del servidor: 5.7.31
 -- Versión de PHP: 7.3.21
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `bancos_casa` (
   `res_bnc` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnc`),
   KEY `bancosC_ibfk_1` (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `bancos_casa`
@@ -104,7 +104,8 @@ INSERT INTO `bancos_casa` (`cod_bnc`, `nuc_bnc`, `rcd_bnc`, `nom_bnc`, `cor_bnc`
 (2, '01034567899043657522', 'J40346843', 'banesco', 'pollosanpedro@hotmail.com', 'A', 1, '2020-02-27 09:38:13', '2020-11-30 03:31:10', '2020-03-21 08:25:25', '2020-03-21 08:26:53'),
 (3, '01056787454343443132', 'J29789065', 'venezuela', 'bancopollo@gmail.com', 'B', 1, '2020-05-12 12:07:37', NULL, '2020-11-30 03:57:35', NULL),
 (4, '01343434343434344344', 'V29580458', 'bicentenario', 'felixbicentenario@gmail.com', 'A', 1, '2020-06-15 05:48:02', NULL, NULL, NULL),
-(5, '09432423423466666445', 'J28569567', 'provincial', 'provincial@gmail.com', 'A', 1, '2020-11-24 10:17:35', NULL, '2020-11-30 04:02:22', '2020-11-30 04:03:01');
+(5, '09432423423466666445', 'J28569567', 'provincial', 'provincial@gmail.com', 'A', 1, '2020-11-24 10:17:35', NULL, '2020-11-30 04:02:22', '2020-11-30 04:03:01'),
+(6, '00000000000000000000', 'V8101904', 'efectivo', 'efectivo@gmail.com', 'A', 1, '2021-10-26 10:49:58', NULL, NULL, NULL);
 
 --
 -- Disparadores `bancos_casa`
@@ -157,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `bancos_casa_resp` (
   `del_bnc` datetime DEFAULT NULL,
   `res_bnc` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnc`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `bancos_casa_resp`
@@ -168,7 +169,8 @@ INSERT INTO `bancos_casa_resp` (`cod_bnc`, `nuc_bnc`, `rcd_bnc`, `nom_bnc`, `cor
 (2, '01034567899043657522', 'J40346843', 'banesco', 'pollosanpedro@hotmail.com', 'A', 1, '2020-02-27 09:38:13', '2020-11-30 03:31:10', NULL, NULL),
 (3, '01056787454343443132', 'J29789065', 'venezuela', 'bancopollo@gmail.com', 'B', 1, '2020-05-12 12:07:37', NULL, NULL, NULL),
 (4, '01343434343434344344', 'V29580458', 'bicentenario', 'felixbicentenario@gmail.com', 'A', 1, '2020-06-15 17:48:02', NULL, NULL, NULL),
-(5, '09432423423466666445', 'J28569567', 'provincial', 'provincial@gmail.com', 'A', 1, '2020-11-24 22:17:35', NULL, '2020-11-30 04:02:22', '2020-11-30 04:03:01');
+(5, '09432423423466666445', 'J28569567', 'provincial', 'provincial@gmail.com', 'A', 1, '2020-11-24 22:17:35', NULL, '2020-11-30 04:02:22', '2020-11-30 04:03:01'),
+(6, '00000000000000000000', 'V8101904', 'efectivo', 'efectivo@gmail.com', 'A', 1, '2021-10-26 22:49:58', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -196,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `bancos_cliente` (
   PRIMARY KEY (`cod_bnk`),
   KEY `bancos_cliente_ibfk_1` (`cod_usu`),
   KEY `bancos_cliente_ibfk_2` (`cod_cli`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `bancos_cliente`
@@ -207,7 +209,8 @@ INSERT INTO `bancos_cliente` (`cod_bnk`, `not_bnk`, `ncu_bnk`, `tpc_bnk`, `rcd_b
 (2, 'rosana coromoto medina', '02016578954378875434', 'corriente', 'J8095668', 'venezuela', 'rosanamedina1@gmail.com', '04140070021', 'A', 1, 1, '2020-02-27 09:42:24', NULL, NULL, NULL),
 (3, 'jose felix medina', '04050687967534213456', 'corriente', 'J8095668', 'mercantil', 'josemedina@gmail.com', '04247734274', 'A', 2, 1, '2020-02-27 09:47:21', '2020-12-02 12:16:29', '2020-03-21 08:25:35', '2020-03-21 08:26:17'),
 (4, 'jose felix medina ', '05067843671265437890', 'corriente', 'J09566856', 'provincial', 'josemedina@gmail.com', '04247199694', 'A', 2, 1, '2020-02-27 09:49:01', NULL, NULL, NULL),
-(5, 'maribel medina', '07986745234567875625', 'ahorro', 'V28016569', 'banesco', 'mom_maribel@gmail.com', '04247008458', 'A', 4, 1, '2020-03-21 09:28:56', '2020-12-01 12:13:32', NULL, NULL);
+(5, 'maribel medina', '07986745234567875625', 'ahorro', 'V28016569', 'banesco', 'mom_maribel@gmail.com', '04247008458', 'A', 4, 1, '2020-03-21 09:28:56', '2020-12-01 12:13:32', NULL, NULL),
+(6, 'rosana medina', '00000000000000000000', 'efectivo', 'V8095668', 'efectivo', 'rosanamedinazm@gmail.com', '04140070021', 'A', 1, 1, '2021-10-26 10:51:33', NULL, NULL, NULL);
 
 --
 -- Disparadores `bancos_cliente`
@@ -267,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `bancos_cliente_resp` (
   `del_bnk` datetime DEFAULT NULL,
   `res_bnk` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnk`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `bancos_cliente_resp`
@@ -278,7 +281,8 @@ INSERT INTO `bancos_cliente_resp` (`cod_bnk`, `not_bnk`, `ncu_bnk`, `tpc_bnk`, `
 (2, 'rosana coromoto medina', '02016578954378875434', 'corriente', 'J8095668', 'venezuela', 'rosanamedina1@gmail.com', '04140070021', 'A', 1, 1, '2020-02-27 09:42:24', NULL, NULL, NULL),
 (3, 'jose felix medina', '04050687967534213456', 'corriente', 'J8095668', 'mercantil', 'josemedina@gmail.com', '04247734274', 'A', 2, 1, '2020-02-27 09:47:21', '2020-12-02 12:16:29', NULL, NULL),
 (4, 'jose felix medina ', '05067843671265437890', 'corriente', 'J09566856', 'provincial', 'josemedina@gmail.com', '04247199694', 'A', 2, 1, '2020-02-27 09:49:01', NULL, NULL, NULL),
-(5, 'maribel medina', '07986745234567875625', 'ahorro', 'V28016569', 'banesco', 'mom_maribel@gmail.com', '04247008458', 'A', 4, 1, '2020-03-21 21:28:56', '2020-12-01 12:13:32', NULL, NULL);
+(5, 'maribel medina', '07986745234567875625', 'ahorro', 'V28016569', 'banesco', 'mom_maribel@gmail.com', '04247008458', 'A', 4, 1, '2020-03-21 21:28:56', '2020-12-01 12:13:32', NULL, NULL),
+(6, 'rosana medina', '00000000000000000000', 'efectivo', 'V8095668', 'efectivo', 'rosanamedinazm@gmail.com', '04140070021', 'A', 1, 1, '2021-10-26 22:51:33', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -605,7 +609,7 @@ CREATE TABLE IF NOT EXISTS `cuentas` (
   KEY `cuentas_ibfk_3` (`cod_cli`),
   KEY `cuentas_ibfk_4` (`cod_bnk`),
   KEY `cuentas_ibfk_5` (`cod_bnc`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `cuentas`
@@ -618,7 +622,8 @@ INSERT INTO `cuentas` (`cod_cue`, `nrf_cue`, `cnt_cue`, `cnp_cue`, `fcu_cue`, `c
 (4, '909', 4875000.00, 4875000.00, '2020-03-20', 0.00, 'A', 4, 2, 2, 6, 1, '2020-02-27 10:23:22', '2020-03-21 11:16:19', NULL, NULL),
 (5, '453', 4875000.00, 4875000.00, '2020-02-26', 0.00, 'A', 3, 1, 2, 6, 1, '2020-02-27 10:26:15', NULL, NULL, NULL),
 (6, '435435345', 7750000.00, 7750000.00, '2020-03-19', 0.00, 'A', 5, 2, 4, 9, 1, '2020-03-21 09:29:33', '2020-03-21 09:36:56', NULL, NULL),
-(7, '808', 5625000.00, 5625000.00, '2020-03-21', 0.00, 'A', 5, 1, 4, 10, 1, '2020-03-21 10:47:24', '2020-03-21 11:20:35', NULL, NULL);
+(7, '808', 5625000.00, 5625000.00, '2020-03-21', 0.00, 'A', 5, 1, 4, 10, 1, '2020-03-21 10:47:24', '2020-03-21 11:20:35', NULL, NULL),
+(8, '00000000', 1200.00, 1200.00, '2021-10-26', 0.00, 'A', 6, 6, 1, 11, 1, '2021-10-26 10:52:44', NULL, NULL, NULL);
 
 --
 -- Disparadores `cuentas`
@@ -654,7 +659,7 @@ CREATE TABLE IF NOT EXISTS `cuentas_resp` (
   `del_cue` datetime DEFAULT NULL,
   `res_cue` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_cue`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `cuentas_resp`
@@ -667,7 +672,8 @@ INSERT INTO `cuentas_resp` (`cod_cue`, `nrf_cue`, `cnt_cue`, `cnp_cue`, `fcu_cue
 (4, '342435345435345345', 4875000, 2000000, '2020-02-26', 2875000.00, 'A', 4, 2, 2, 6, 1, '2020-02-27 10:23:22', NULL, NULL, NULL),
 (5, '453', 4875000, 4875000, '2020-02-26', 0.00, 'A', 3, 1, 2, 6, 1, '2020-02-27 10:26:15', NULL, NULL, NULL),
 (6, '43424234', 7750000, 3750000, '2020-03-20', 4000000.00, 'A', 5, 2, 4, 9, 1, '2020-03-21 21:29:33', NULL, NULL, NULL),
-(7, '675676', 5625000, 2625000, '2020-03-20', 3000000.00, 'A', 5, 1, 4, 10, 1, '2020-03-21 22:47:24', NULL, NULL, NULL);
+(7, '675676', 5625000, 2625000, '2020-03-20', 3000000.00, 'A', 5, 1, 4, 10, 1, '2020-03-21 22:47:24', NULL, NULL, NULL),
+(8, '00000000', 1200, 1200, '2021-10-26', 0.00, 'A', 6, 6, 1, 11, 1, '2021-10-26 22:52:44', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -706,7 +712,7 @@ CREATE TABLE IF NOT EXISTS `despacho` (
   KEY `despacho_ibfk_1` (`cod_usu`),
   KEY `despacho_ibfk_2` (`cod_cli`),
   KEY `despacho_ibfk_3` (`cod_pro`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `despacho`
@@ -721,7 +727,8 @@ INSERT INTO `despacho` (`cod_des`, `pre_des`, `prd_des`, `cpo_des`, `cpa_des`, `
 (6, 4875000.00, 97.50, 1.00, 1.00, 0.50, 0.50, 25.000, 10.000, 10.000, 15.000, 3125000.00, 500000.00, 500000.00, 750000.00, 0.00, 'A', 1, 2, 1, '2020-02-27', '2020-02-27 09:54:46', NULL, NULL, NULL),
 (8, 7000000.00, 140.00, 2.00, 0.50, 0.00, 0.00, 50.000, 15.000, 0.000, 0.000, 6250000.00, 750000.00, 0.00, 0.00, NULL, 'A', 1, 1, 1, '2020-03-18', '2020-03-18 11:57:37', NULL, NULL, NULL),
 (9, 7750000.00, 155.00, 2.00, 0.00, 0.00, 0.00, 50.000, 10.000, 10.000, 10.000, 6250000.00, 500000.00, 500000.00, 500000.00, NULL, 'A', 1, 4, 1, '2020-03-21', '2020-03-21 02:38:36', NULL, NULL, NULL),
-(10, 5625000.00, 112.50, 1.00, 0.00, 0.00, 0.00, 45.000, 0.000, 0.000, 0.000, 5625000.00, 0.00, 0.00, 0.00, 0.00, 'A', 1, 4, 1, '2020-03-21', '2020-03-21 10:44:33', NULL, NULL, NULL);
+(10, 5625000.00, 112.50, 1.00, 0.00, 0.00, 0.00, 45.000, 0.000, 0.000, 0.000, 5625000.00, 0.00, 0.00, 0.00, 0.00, 'A', 1, 4, 1, '2020-03-21', '2020-03-21 10:44:33', NULL, NULL, NULL),
+(11, 1200.00, 120.00, 1.00, 1.00, 1.00, 1.00, 40.000, 10.000, 5.000, 5.000, 1000.00, 100.00, 50.00, 50.00, 0.00, 'A', 1, 1, 1, '2021-10-26', '2021-10-26 10:41:36', NULL, NULL, NULL);
 
 --
 -- Disparadores `despacho`
@@ -765,7 +772,7 @@ CREATE TABLE IF NOT EXISTS `despacho_resp` (
   `del_des` datetime DEFAULT NULL,
   `res_des` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_des`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `despacho_resp`
@@ -781,7 +788,8 @@ INSERT INTO `despacho_resp` (`cod_des`, `pre_des`, `prd_des`, `cpo_des`, `cpa_de
 (7, 3125000.00, 62.50, 1.00, 0.00, 0.00, 0.00, 25.000, 0.000, 0.000, 0.000, 3125000.00, 0.00, 0.00, 0.00, 'A', 1, 1, 1, '2020-02-27', '2020-02-27 09:55:13', NULL, NULL, NULL),
 (8, 7000000.00, 140.00, 2.00, 0.50, 0.00, 0.00, 50.000, 15.000, 0.000, 0.000, 6250000.00, 750000.00, 0.00, 0.00, 'A', 1, 1, 1, '2020-03-18', '2020-03-18 23:57:37', NULL, NULL, NULL),
 (9, 7750000.00, 155.00, 2.00, 0.00, 0.00, 0.00, 50.000, 10.000, 10.000, 10.000, 6250000.00, 500000.00, 500000.00, 500000.00, 'A', 1, 4, 1, '2020-03-21', '2020-03-21 14:38:36', NULL, NULL, NULL),
-(10, 5625000.00, 112.50, 1.00, 0.00, 0.00, 0.00, 45.000, 0.000, 0.000, 0.000, 5625000.00, 0.00, 0.00, 0.00, 'A', 1, 4, 1, '2020-03-21', '2020-03-21 22:44:33', NULL, NULL, NULL);
+(10, 5625000.00, 112.50, 1.00, 0.00, 0.00, 0.00, 45.000, 0.000, 0.000, 0.000, 5625000.00, 0.00, 0.00, 0.00, 'A', 1, 4, 1, '2020-03-21', '2020-03-21 22:44:33', NULL, NULL, NULL),
+(11, 1200.00, 120.00, 1.00, 1.00, 1.00, 1.00, 40.000, 10.000, 5.000, 5.000, 1000.00, 100.00, 50.00, 50.00, 'A', 1, 1, 1, '2021-10-26', '2021-10-26 22:41:36', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -920,8 +928,8 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
 --
 
 INSERT INTO `pedidos` (`cod_ped`, `cpo_ped`, `cpa_ped`, `cmo_ped`, `cal_ped`, `est_ped`, `cod_cli`, `cod_usu`, `fec_ped`, `inf_ped`, `cre_ped`, `upd_ped`, `del_ped`, `res_ped`) VALUES
-(2, 2.00, 2.00, 1.50, 1.00, 'A', 1, 1, '2021-10-25', 'Cancelado', '2021-10-25 02:15:54', '2021-10-26 02:16:47', '2021-10-25 11:15:54', '2021-10-25 11:16:06'),
-(3, 3.00, 0.50, 0.50, 0.50, 'A', 1, NULL, '2021-10-26', 'Pendiente', '2021-10-25 02:16:23', NULL, NULL, NULL);
+(2, 2.00, 2.00, 1.50, 1.00, 'A', 1, 16, '2021-10-25', 'Pendiente', '2021-10-25 02:15:54', '2021-10-26 11:05:32', '2021-10-25 11:15:54', '2021-10-25 11:16:06'),
+(3, 3.00, 0.50, 0.50, 0.50, 'A', 1, 16, '2021-10-26', 'Pendiente', '2021-10-25 02:16:23', '2021-10-26 11:05:39', NULL, NULL);
 
 --
 -- Disparadores `pedidos`
@@ -976,8 +984,8 @@ CREATE TABLE IF NOT EXISTS `pedidos_resp` (
 
 INSERT INTO `pedidos_resp` (`cod_ped`, `cpo_ped`, `cpa_ped`, `cmo_ped`, `cal_ped`, `est_ped`, `cod_cli`, `cod_usu`, `fec_ped`, `inf_ped`, `cre_ped`, `upd_ped`, `del_ped`, `res_ped`) VALUES
 (1, 2.00, 2.00, 1.00, 1.00, 'A', 1, 1, '2021-10-25', 'Cancelado', '2021-10-24 03:09:57', '2021-10-25 12:27:29', NULL, NULL),
-(2, 2.00, 2.00, 1.50, 1.00, 'A', 1, 1, '2021-10-25', 'Cancelado', '2021-10-25 14:15:54', '2021-10-26 02:16:47', NULL, NULL),
-(3, 3.00, 0.50, 0.50, 0.50, 'A', 1, NULL, '2021-10-26', 'Pendiente', '2021-10-25 14:16:23', NULL, NULL, NULL);
+(2, 2.00, 2.00, 1.50, 1.00, 'A', 1, 16, '2021-10-25', 'Pendiente', '2021-10-25 14:15:54', '2021-10-26 11:05:32', NULL, NULL),
+(3, 3.00, 0.50, 0.50, 0.50, 'A', 1, 16, '2021-10-26', 'Pendiente', '2021-10-25 14:16:23', '2021-10-26 11:05:39', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1080,7 +1088,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 --
 
 INSERT INTO `productos` (`cod_pro`, `tas_pro`, `tpo_pro`, `tpa_pro`, `tmo_pro`, `tal_pro`, `ppo_pro`, `ppa_pro`, `pal_pro`, `pmo_pro`, `csp_pro`, `ces_pro`, `prp_pro`, `cpo_pro`, `cpa_pro`, `cal_pro`, `cmo_pro`, `est_pro`, `act_pro`, `fcp_pro`, `fdp_pro`, `cod_edo`, `cod_usu`, `cre_pro`, `upd_pro`, `del_pro`, `res_pro`) VALUES
-(1, 50000.00, 2.50, 1.00, 1.00, 1.00, 125000.00, 50000.00, 50000.00, 50000.00, 2.50, 20, 2.600, 1160, 116.000, 116.000, 58.000, 'A', 'A', '2020-02-25', '2020-02-27', 2, 1, '2020-02-27 09:30:23', '2021-10-20 11:29:19', '2020-03-21 08:41:55', '2020-03-21 08:42:07'),
+(1, 10.00, 2.50, 1.00, 1.00, 1.00, 25.00, 10.00, 10.00, 10.00, 2.50, 20, 2.600, 1140, 106.000, 111.000, 53.000, 'A', 'A', '2020-02-25', '2020-02-27', 2, 1, '2020-02-27 09:30:23', '2021-10-26 10:41:02', '2020-03-21 08:41:55', '2020-03-21 08:42:07'),
 (3, 10000.00, 3.50, 1.00, 1.00, 1.50, 35000.00, 10000.00, 15000.00, 10000.00, 2.50, 20, 2.600, 2000, 200.000, 200.000, 100.000, 'A', 'B', '2020-03-13', '2020-03-16', 1, 1, '2020-03-16 11:18:23', '2021-10-20 11:32:36', '2020-03-21 08:48:57', '2020-03-21 08:49:06');
 
 --
@@ -1238,7 +1246,7 @@ CREATE TABLE IF NOT EXISTS `productos_resp` (
 --
 
 INSERT INTO `productos_resp` (`cod_pro`, `tas_pro`, `tpo_pro`, `tpa_pro`, `tmo_pro`, `tal_pro`, `ppo_pro`, `ppa_pro`, `pal_pro`, `pmo_pro`, `csp_pro`, `ces_pro`, `prp_pro`, `cpo_pro`, `cpa_pro`, `cal_pro`, `cmo_pro`, `est_pro`, `act_pro`, `fcp_pro`, `fdp_pro`, `cod_edo`, `cod_usu`, `cre_pro`, `upd_pro`, `del_pro`, `res_pro`) VALUES
-(1, 50000.00, 2.50, 1.00, 1.00, 1.00, 125000.00, 50000.00, 50000.00, 50000.00, 2.50, 20, 2.600, 1160, 116.000, 116.000, 58.000, 'A', 'A', '2020-02-25', '2020-02-27', 1, 1, '2020-02-27 09:30:23', '2021-10-20 11:29:19', NULL, NULL),
+(1, 10.00, 2.50, 1.00, 1.00, 1.00, 25.00, 10.00, 10.00, 10.00, 2.50, 20, 2.600, 1140, 106.000, 111.000, 53.000, 'A', 'A', '2020-02-25', '2020-02-27', 1, 1, '2020-02-27 09:30:23', '2021-10-26 10:41:02', NULL, NULL),
 (2, 40000.00, 2.60, 1.00, 1.00, 1.00, 104000.00, 40000.00, 40000.00, 40000.00, 2.50, 20, 2.600, 2000, 200.000, 200.000, 100.000, 'A', 'B', '2020-02-24', '2020-02-26', 2, 1, '2020-02-27 09:32:54', NULL, NULL, NULL),
 (3, 10000.00, 3.50, 1.00, 1.00, 1.50, 35000.00, 10000.00, 15000.00, 10000.00, 2.50, 20, 2.600, 2000, 200.000, 200.000, 100.000, 'A', 'B', '2020-03-13', '2020-03-16', 1, 1, '2020-03-16 11:18:23', '2021-10-20 11:32:36', NULL, NULL),
 (4, 2000.00, 1.00, 1.00, 1.00, 1.00, 2000.00, 2000.00, 2000.00, 2000.00, 2.50, 20, 2.600, 500, 50.000, 50.000, 25.000, 'A', 'B', '2020-03-16', '2020-03-18', 2, 1, '2020-03-16 11:48:57', NULL, NULL, NULL);
@@ -1543,7 +1551,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cod_usu`, `nom_usu`, `ema_usu`, `pas_usu`, `rol_usu`, `est_usu`, `cre_usu`, `upd_usu`, `del_usu`, `las_usu`, `res_usu`) VALUES
-(1, 'felix', 'felixmedina07052000@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'A', 'A', '2020-02-27 09:27:56', '2020-10-31 04:44:27', NULL, '2021-10-26 01:14:21', NULL),
+(1, 'felix', 'felixmedina07052000@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'A', 'A', '2020-02-27 09:27:56', '2020-10-31 04:44:27', NULL, '2021-10-27 12:22:51', NULL),
 (2, 'marbe', 'marbe@gmail.com', '3af1b547a8dd07a5ac0bcf962ec852b3f060b716', 'E', 'B', '2020-03-18 03:07:57', '2020-03-21 08:53:19', '2020-11-29 11:46:31', '2020-03-21 08:53:29', NULL),
 (3, 'jose', 'jose@gmail.com', '5b53cad999b409898a88133ca9851b097abb500d', 'S', 'B', '2020-03-19 02:26:32', '2020-10-31 04:44:33', '2020-12-01 11:21:41', '2020-03-19 02:45:26', '2020-03-19 02:44:56'),
 (4, 'kevin', 'kevin@gmail.com', '1c51e553cb863175222ebd166abc152cca513a50', 'E', 'B', '2020-07-02 11:42:16', '2020-07-02 11:44:37', '2020-12-01 11:21:37', '2020-07-02 11:44:51', NULL),
@@ -1553,7 +1561,7 @@ INSERT INTO `usuarios` (`cod_usu`, `nom_usu`, `ema_usu`, `pas_usu`, `rol_usu`, `
 (13, 'manojose', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'B', '2020-11-25 12:58:56', NULL, '2020-11-29 11:46:45', NULL, NULL),
 (14, 'josefiladelfia', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'B', '2020-11-25 12:59:42', NULL, '2020-11-29 11:46:40', NULL, NULL),
 (15, 'luisa', 'luisa@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'S', 'B', '2020-11-29 11:43:45', '2020-11-29 11:47:19', '2020-12-02 12:08:40', '2020-11-30 05:27:23', NULL),
-(16, 'Yony', 'jonny@gmail.com', 'e55376f27439b31804b56d77c3c9552d89c2b8dd', 'E', 'A', '2020-12-01 11:28:13', '2020-12-02 12:08:35', NULL, '2020-12-01 11:30:14', NULL),
+(16, 'Yony', 'jonny@gmail.com', 'a561cc40b00bf2eee32a8a41c46d8b58d43e3af3', 'E', 'A', '2020-12-01 11:28:13', '2020-12-02 12:08:35', NULL, '2021-10-26 11:05:16', NULL),
 (17, 'prueba', 'prueba@gmail.com', '93301ada8177f4b7841620847f3d06d41febdd1d', 'S', 'A', '2020-12-01 11:40:07', '2020-12-01 11:41:39', NULL, '2020-12-01 11:40:51', NULL),
 (18, 'alejandro', 'alejandro@gmail.com', 'b6ad73304cfbf1f5123fe69d961c6a06c99516ad', 'V', 'A', '2021-10-17 11:39:42', NULL, NULL, '2021-10-17 11:40:40', NULL),
 (19, 'ffefe', 'feee@gmail.com', 'f74fa39850ccb1c516d542ad6a4b717985972201', 'I', 'A', '2021-10-17 02:09:13', NULL, NULL, NULL, NULL),
@@ -1631,7 +1639,7 @@ INSERT INTO `usuarios_resp` (`cod_usu`, `nom_usu`, `ema_usu`, `pas_usu`, `rol_us
 (13, 'manojose', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'A', '2020-11-25 00:58:56', NULL, NULL, NULL, NULL),
 (14, 'josefiladelfia', 'jesus@gmail.com', 'a5083dfb85980adefa5f376b49899e24342359f5', 'V', 'A', '2020-11-25 00:59:42', NULL, NULL, NULL, NULL),
 (15, 'luisa', 'luisa@gmail.com', 'f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e', 'S', 'B', '2020-11-29 23:43:45', '2020-11-29 11:47:19', '2020-12-02 12:08:40', NULL, NULL),
-(16, 'Yony', 'jonny@gmail.com', 'e55376f27439b31804b56d77c3c9552d89c2b8dd', 'E', 'A', '2020-12-01 23:28:13', '2020-12-02 12:08:35', NULL, NULL, NULL),
+(16, 'Yony', 'jonny@gmail.com', 'a561cc40b00bf2eee32a8a41c46d8b58d43e3af3', 'E', 'A', '2020-12-01 23:28:13', '2020-12-02 12:08:35', NULL, NULL, NULL),
 (17, 'prueba', 'prueba@gmail.com', '93301ada8177f4b7841620847f3d06d41febdd1d', 'S', 'A', '2020-12-01 23:40:08', '2020-12-01 11:41:39', NULL, NULL, NULL),
 (18, 'alejandro', 'alejandro@gmail.com', 'b6ad73304cfbf1f5123fe69d961c6a06c99516ad', 'V', 'A', '2021-10-17 11:39:42', NULL, NULL, NULL, NULL),
 (19, 'ffefe', 'feee@gmail.com', 'f74fa39850ccb1c516d542ad6a4b717985972201', 'I', 'A', '2021-10-17 14:09:13', NULL, NULL, NULL, NULL),

@@ -58,7 +58,7 @@ $result=mysqli_query($conexion,$sql);
                 <span style="margin-left:2px;"><a href="sistema_cliente.php" class="btn bc-login">Login</a></span>
             </form>
         </div>
-        <div class="card-footer text-muted c-login"><a href="recuperar.php" class="r-login">Recuperar Contraseña</a></div>
+        <div class="card-footer text-muted c-login"><a href="recuperar_cliente.php" class="r-login">Recuperar Contraseña</a></div>
     </div>
 </div>
 

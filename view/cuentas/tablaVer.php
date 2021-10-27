@@ -13,6 +13,7 @@ $sql="SELECT c.nrf_cue,
              bc.rcd_bnc,
              bk.nom_bnk,
              d.fec_des,
+             d.prd_des,
              c.cod_cue
       FROM cuentas AS c
       INNER JOIN bancos_cliente AS bk
@@ -36,6 +37,7 @@ $result=mysqli_query($conexion,$sql);
               <thead class="bc-cuenta">
                 <tr>
                       <td>Nombre Cliente</td>
+                      <td>Cantidad de la Cuenta $</td>
                       <td>Cantidad de la Cuenta</td>
                       <td>Cantidad despacho</td>
                       <td>Estado</td>
@@ -50,6 +52,7 @@ $result=mysqli_query($conexion,$sql);
               <?php while($ver=mysqli_fetch_row($result)): ?>
                 <tr>
                       <td><?php echo $ver[4]; ?></td>  
+                      <td><?php echo $ver[9]."$";?></td>
                       <td><?php echo $ver[1]."Bs";?></td>
                       <td><?php echo $ver[2]."Bs";?></td>
                       <td>

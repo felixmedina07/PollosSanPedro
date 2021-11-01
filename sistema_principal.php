@@ -17,6 +17,9 @@ require_once "view/head/head2.php";
       ?>
       <br>
       <br>
+      <div class="row">
+        <a href="index.php" class="btn bc-login"><i class="fas fa-angle-left"></i></a>
+      </div>
     <div class="card mx-auto sombra" style="width: 25rem;" style="border-radius: 25px;">
         <h2 class="card-title text-center c-login">Iniciar Sesion</h2>
         <img src="logo/pollito.png" class="card-img-top mx-auto pt-2" style="width:40%; height:90%;" alt="...">

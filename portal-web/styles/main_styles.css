@@ -512,7 +512,6 @@ section
 }
 .item_1 span:first-child
 {
-	font-size: 200px;
 	font-weight: 800;
 	line-height: 1;
 	letter-spacing: 0.1em;
@@ -561,14 +560,15 @@ section
 }
 .hero_slider_nav_bottom
 {
-	position: absolute;
+	display: flex;
+	justify-content: center;
 	bottom: 250px;
 	height: 50px;
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
 	z-index: 10;
 }
 .hero_slider_nav div

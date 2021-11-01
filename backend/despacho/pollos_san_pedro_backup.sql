@@ -15,13 +15,14 @@ CREATE TABLE `bancos_casa` (
   PRIMARY KEY (`cod_bnc`),
   KEY `bancosC_ibfk_1` (`cod_usu`),
   CONSTRAINT `bancosC_ibfk_1` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 INSERT INTO bancos_casa VALUES("1","01020344556677889987","J40346843","mercantil","pollosanpedro2@gmail.com","A","1","2020-02-27 09:37:08","2020-11-30 03:52:30","","");
 INSERT INTO bancos_casa VALUES("2","01034567899043657522","J40346843","banesco","pollosanpedro@hotmail.com","A","1","2020-02-27 09:38:13","2020-11-30 03:31:10","2020-03-21 08:25:25","2020-03-21 08:26:53");
 INSERT INTO bancos_casa VALUES("3","01056787454343443132","J29789065","venezuela","bancopollo@gmail.com","B","1","2020-05-12 12:07:37","","2020-11-30 03:57:35","");
 INSERT INTO bancos_casa VALUES("4","01343434343434344344","V29580458","bicentenario","felixbicentenario@gmail.com","A","1","2020-06-15 05:48:02","","","");
 INSERT INTO bancos_casa VALUES("5","09432423423466666445","J28569567","provincial","provincial@gmail.com","A","1","2020-11-24 10:17:35","","2020-11-30 04:02:22","2020-11-30 04:03:01");
+INSERT INTO bancos_casa VALUES("6","00000000000000000000","V8101904","efectivo","efectivo@gmail.com","A","1","2021-10-26 10:49:58","","","");
 
 
 
@@ -38,13 +39,14 @@ CREATE TABLE `bancos_casa_resp` (
   `del_bnc` datetime DEFAULT NULL,
   `res_bnc` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnc`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 INSERT INTO bancos_casa_resp VALUES("1","01020344556677889987","J40346843","mercantil","pollosanpedro2@gmail.com","A","1","2020-02-27 09:37:08","2020-11-30 03:52:30","","");
 INSERT INTO bancos_casa_resp VALUES("2","01034567899043657522","J40346843","banesco","pollosanpedro@hotmail.com","A","1","2020-02-27 09:38:13","2020-11-30 03:31:10","","");
 INSERT INTO bancos_casa_resp VALUES("3","01056787454343443132","J29789065","venezuela","bancopollo@gmail.com","B","1","2020-05-12 12:07:37","","","");
 INSERT INTO bancos_casa_resp VALUES("4","01343434343434344344","V29580458","bicentenario","felixbicentenario@gmail.com","A","1","2020-06-15 17:48:02","","","");
 INSERT INTO bancos_casa_resp VALUES("5","09432423423466666445","J28569567","provincial","provincial@gmail.com","A","1","2020-11-24 22:17:35","","2020-11-30 04:02:22","2020-11-30 04:03:01");
+INSERT INTO bancos_casa_resp VALUES("6","00000000000000000000","V8101904","efectivo","efectivo@gmail.com","A","1","2021-10-26 22:49:58","","","");
 
 
 
@@ -69,13 +71,14 @@ CREATE TABLE `bancos_cliente` (
   KEY `bancos_cliente_ibfk_2` (`cod_cli`),
   CONSTRAINT `bancos_cliente_ibfk_1` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON UPDATE CASCADE,
   CONSTRAINT `bancos_cliente_ibfk_2` FOREIGN KEY (`cod_cli`) REFERENCES `cliente` (`cod_cli`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 INSERT INTO bancos_cliente VALUES("1","rosana coromoto medina ","02030587986554233421","ahorro","J50986754","bicentenario","rosanamedina2@gmail.com","04140070021","A","1","1","2020-02-27 09:40:36","","","");
 INSERT INTO bancos_cliente VALUES("2","rosana coromoto medina","02016578954378875434","corriente","J8095668","venezuela","rosanamedina1@gmail.com","04140070021","A","1","1","2020-02-27 09:42:24","","","");
-INSERT INTO bancos_cliente VALUES("3","jose felix medina","04050687967534213456","corriente","J8095668","mercantil","josemedina@gmail.com","04247734274","A","1","1","2020-02-27 09:47:21","2020-12-02 12:16:29","2020-03-21 08:25:35","2020-03-21 08:26:17");
+INSERT INTO bancos_cliente VALUES("3","jose felix medina","04050687967534213456","corriente","J8095668","mercantil","josemedina@gmail.com","04247734274","A","2","1","2020-02-27 09:47:21","2020-12-02 12:16:29","2020-03-21 08:25:35","2020-03-21 08:26:17");
 INSERT INTO bancos_cliente VALUES("4","jose felix medina ","05067843671265437890","corriente","J09566856","provincial","josemedina@gmail.com","04247199694","A","2","1","2020-02-27 09:49:01","","","");
 INSERT INTO bancos_cliente VALUES("5","maribel medina","07986745234567875625","ahorro","V28016569","banesco","mom_maribel@gmail.com","04247008458","A","4","1","2020-03-21 09:28:56","2020-12-01 12:13:32","","");
+INSERT INTO bancos_cliente VALUES("6","rosana medina","00000000000000000000","efectivo","V8095668","efectivo","rosanamedinazm@gmail.com","04140070021","A","1","1","2021-10-26 10:51:33","","","");
 
 
 
@@ -96,13 +99,14 @@ CREATE TABLE `bancos_cliente_resp` (
   `del_bnk` datetime DEFAULT NULL,
   `res_bnk` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_bnk`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 INSERT INTO bancos_cliente_resp VALUES("1","rosana coromoto medina ","02030587986554233421","ahorro","J50986754","bicentenario","rosanamedina2@gmail.com","04140070021","A","1","1","2020-02-27 09:40:36","","","");
 INSERT INTO bancos_cliente_resp VALUES("2","rosana coromoto medina","02016578954378875434","corriente","J8095668","venezuela","rosanamedina1@gmail.com","04140070021","A","1","1","2020-02-27 09:42:24","","","");
-INSERT INTO bancos_cliente_resp VALUES("3","jose felix medina","04050687967534213456","corriente","J8095668","mercantil","josemedina@gmail.com","04247734274","A","1","1","2020-02-27 09:47:21","2020-12-02 12:16:29","","");
+INSERT INTO bancos_cliente_resp VALUES("3","jose felix medina","04050687967534213456","corriente","J8095668","mercantil","josemedina@gmail.com","04247734274","A","2","1","2020-02-27 09:47:21","2020-12-02 12:16:29","","");
 INSERT INTO bancos_cliente_resp VALUES("4","jose felix medina ","05067843671265437890","corriente","J09566856","provincial","josemedina@gmail.com","04247199694","A","2","1","2020-02-27 09:49:01","","","");
 INSERT INTO bancos_cliente_resp VALUES("5","maribel medina","07986745234567875625","ahorro","V28016569","banesco","mom_maribel@gmail.com","04247008458","A","4","1","2020-03-21 21:28:56","2020-12-01 12:13:32","","");
+INSERT INTO bancos_cliente_resp VALUES("6","rosana medina","00000000000000000000","efectivo","V8095668","efectivo","rosanamedinazm@gmail.com","04140070021","A","1","1","2021-10-26 22:51:33","","","");
 
 
 
@@ -159,6 +163,59 @@ INSERT INTO bancos_trabajadores_resp VALUES("6","jose benitez","0102345678902134
 
 
 
+CREATE TABLE `bienesnacionales` (
+  `idbienesnacionales` int(11) NOT NULL,
+  `tipo` varchar(45) DEFAULT NULL,
+  `modelo` varchar(45) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  PRIMARY KEY (`idbienesnacionales`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO bienesnacionales VALUES("1","A349","A33348","A");
+INSERT INTO bienesnacionales VALUES("2","A349","A33345","A");
+INSERT INTO bienesnacionales VALUES("3","A346","A33348","A");
+
+
+
+CREATE TABLE `bitacora` (
+  `idbitacora` int(11) NOT NULL,
+  `movimiento` varchar(425) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `hora` time DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idbitacora`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO bitacora VALUES("1","create","2021-10-27","02:55:04","se creo el bien nacionalA346");
+INSERT INTO bitacora VALUES("2","update","2021-10-27","02:57:59","seactualizo el bien nacional A349");
+
+
+
+CREATE TABLE `cargos` (
+  `idcargos` int(11) NOT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  PRIMARY KEY (`idcargos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO cargos VALUES("1","tec","A");
+INSERT INTO cargos VALUES("2","secretary","A");
+INSERT INTO cargos VALUES("3","admin","A");
+
+
+
+CREATE TABLE `cartuchos` (
+  `idcartuchos` int(11) NOT NULL,
+  `tipo` varchar(45) DEFAULT NULL,
+  `modelo` varchar(45) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  PRIMARY KEY (`idcartuchos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO cartuchos VALUES("1","toner","A33348","A");
+
+
+
 CREATE TABLE `cliente` (
   `cod_cli` int(11) NOT NULL AUTO_INCREMENT,
   `nom_cli` varchar(50) NOT NULL,
@@ -174,16 +231,17 @@ CREATE TABLE `cliente` (
   `upd_cli` datetime DEFAULT NULL,
   `del_cli` datetime DEFAULT NULL,
   `res_cli` datetime DEFAULT NULL,
+  `pas_cli` text,
   PRIMARY KEY (`cod_cli`),
   KEY `cliente_ibfk_1` (`cod_usu`),
   CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
-INSERT INTO cliente VALUES("1","rosana ","medina","V8095668","V80956689","toico palo gordo","rosanamedina@gmail.com","04140070021","A","1","2020-02-27 09:34:32","","","");
-INSERT INTO cliente VALUES("2","jose","medina","V8108469","J81084698","pueblo nuevo - Core 2","medina_josefasa@gmail.com","04247199694","A","1","2020-02-27 09:35:45","2020-07-29 05:32:09","2020-03-21 08:09:53","2020-03-21 08:26:07");
-INSERT INTO cliente VALUES("3","diego","contreras","V26789456","J2455566","toico","felixdiego@gmail.com","04140070021","B","1","2020-03-17 10:16:45","","2020-03-21 08:49:39","2020-03-21 08:49:27");
-INSERT INTO cliente VALUES("4","maribel","medina","V88933242","V88933242","las pilas","maribel@gmail.com","03424234234","A","1","2020-03-18 02:36:39","2020-05-08 11:29:08","","");
-INSERT INTO cliente VALUES("5","felipe Ignacio","hernandez sanches","V29580451","V295804511","palo gordo","blas@gmail.com","04140070021","A","1","2020-11-07 04:00:09","2020-12-02 10:32:42","","");
+INSERT INTO cliente VALUES("1","rosana ","medina","V8095668","V80956689","toico palo gordo","rosanamedina@gmail.com","04140070021","A","1","2020-02-27 09:34:32","","","","39472674cb9663dedfb55537704699109ec8f1b7");
+INSERT INTO cliente VALUES("2","jose","medina","V8108469","J81084698","pueblo nuevo - Core 2","medina_josefasa@gmail.com","04247199694","A","1","2020-02-27 09:35:45","2020-07-29 05:32:09","2020-03-21 08:09:53","2020-03-21 08:26:07","");
+INSERT INTO cliente VALUES("3","diego","contreras","V26789456","J2455566","toico","felixdiego@gmail.com","04140070021","B","1","2020-03-17 10:16:45","","2020-03-21 08:49:39","2020-03-21 08:49:27","");
+INSERT INTO cliente VALUES("4","maribel","medina","V88933242","V88933242","las pilas","maribel@gmail.com","03424234234","A","1","2020-03-18 02:36:39","2020-05-08 11:29:08","","","");
+INSERT INTO cliente VALUES("5","felipe Ignacio","hernandez sanches","V29580451","V295804511","palo gordo","blas@gmail.com","04140070020","A","1","2020-11-07 04:00:09","2021-10-17 01:19:46","","","");
 
 
 
@@ -209,7 +267,7 @@ INSERT INTO cliente_resp VALUES("1","rosana ","medina","V8095668","V80956689","t
 INSERT INTO cliente_resp VALUES("2","jose","medina","V8108469","J81084698","pueblo nuevo","medina_jose@gmail.com","04247199694","A","1","2020-02-27 09:35:45","","","");
 INSERT INTO cliente_resp VALUES("3","diego","contreras","V26789456","J2455566","toico","felixdiego@gmail.com","04140070021","A","1","2020-03-17 22:16:45","","","");
 INSERT INTO cliente_resp VALUES("4","maribel","medina","V88933242","V88933242","asdasd","maribel@gmail.com","03424234234","A","1","2020-03-18 02:36:39","","","");
-INSERT INTO cliente_resp VALUES("5","felipe Ignacio","hernandez sanches","V29580451","V295804511","palo gordo","blas@gmail.com","04140070021","A","1","2020-11-07 04:00:09","2020-12-02 10:32:42","","");
+INSERT INTO cliente_resp VALUES("5","felipe Ignacio","hernandez sanches","V29580451","V295804511","palo gordo","blas@gmail.com","04140070020","A","1","2020-11-07 04:00:09","2021-10-17 01:19:46","","");
 
 
 
@@ -294,7 +352,7 @@ CREATE TABLE `cuentas` (
   CONSTRAINT `cuentas_ibfk_3` FOREIGN KEY (`cod_cli`) REFERENCES `cliente` (`cod_cli`) ON UPDATE CASCADE,
   CONSTRAINT `cuentas_ibfk_4` FOREIGN KEY (`cod_bnk`) REFERENCES `bancos_cliente` (`cod_bnk`) ON UPDATE CASCADE,
   CONSTRAINT `cuentas_ibfk_5` FOREIGN KEY (`cod_bnc`) REFERENCES `bancos_casa` (`cod_bnc`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 INSERT INTO cuentas VALUES("1","02233","7500000.00","7500000.00","2020-02-26","0.00","A","2","2","1","3","1","2020-02-27 10:09:30","","","");
 INSERT INTO cuentas VALUES("2","54546","6250000.00","6250000.00","2020-02-26","0.00","A","1","2","1","4","1","2020-02-27 10:11:47","","2020-03-21 08:25:56","2020-03-21 08:27:09");
@@ -303,6 +361,7 @@ INSERT INTO cuentas VALUES("4","909","4875000.00","4875000.00","2020-03-20","0.0
 INSERT INTO cuentas VALUES("5","453","4875000.00","4875000.00","2020-02-26","0.00","A","3","1","2","6","1","2020-02-27 10:26:15","","","");
 INSERT INTO cuentas VALUES("6","435435345","7750000.00","7750000.00","2020-03-19","0.00","A","5","2","4","9","1","2020-03-21 09:29:33","2020-03-21 09:36:56","","");
 INSERT INTO cuentas VALUES("7","808","5625000.00","5625000.00","2020-03-21","0.00","A","5","1","4","10","1","2020-03-21 10:47:24","2020-03-21 11:20:35","","");
+INSERT INTO cuentas VALUES("8","00000000","1200.00","1200.00","2021-10-26","0.00","A","6","6","1","11","1","2021-10-26 10:52:44","","","");
 
 
 
@@ -324,7 +383,7 @@ CREATE TABLE `cuentas_resp` (
   `del_cue` datetime DEFAULT NULL,
   `res_cue` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_cue`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 INSERT INTO cuentas_resp VALUES("1","02233","7500000","7500000","2020-02-26","0.00","A","2","2","1","3","1","2020-02-27 10:09:30","","","");
 INSERT INTO cuentas_resp VALUES("2","54546","6250000","6250000","2020-02-26","0.00","A","1","2","1","4","1","2020-02-27 10:11:47","","","");
@@ -333,6 +392,20 @@ INSERT INTO cuentas_resp VALUES("4","342435345435345345","4875000","2000000","20
 INSERT INTO cuentas_resp VALUES("5","453","4875000","4875000","2020-02-26","0.00","A","3","1","2","6","1","2020-02-27 10:26:15","","","");
 INSERT INTO cuentas_resp VALUES("6","43424234","7750000","3750000","2020-03-20","4000000.00","A","5","2","4","9","1","2020-03-21 21:29:33","","","");
 INSERT INTO cuentas_resp VALUES("7","675676","5625000","2625000","2020-03-20","3000000.00","A","5","1","4","10","1","2020-03-21 22:47:24","","","");
+INSERT INTO cuentas_resp VALUES("8","00000000","1200","1200","2021-10-26","0.00","A","6","6","1","11","1","2021-10-26 22:52:44","","","");
+
+
+
+CREATE TABLE `departamentos` (
+  `iddepartamentos` int(11) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `jefe` varchar(255) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  PRIMARY KEY (`iddepartamentos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO departamentos VALUES("1","informatica","Douglas Perez","A");
+INSERT INTO departamentos VALUES("2","Emergencia","Maria Suarez","A");
 
 
 
@@ -369,7 +442,7 @@ CREATE TABLE `despacho` (
   CONSTRAINT `despacho_ibfk_1` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON UPDATE CASCADE,
   CONSTRAINT `despacho_ibfk_2` FOREIGN KEY (`cod_cli`) REFERENCES `cliente` (`cod_cli`) ON UPDATE CASCADE,
   CONSTRAINT `despacho_ibfk_3` FOREIGN KEY (`cod_pro`) REFERENCES `productos` (`cod_pro`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 INSERT INTO despacho VALUES("1","4625000.00","92.50","1.00","0.50","0.50","0.50","25.000","10.000","10.000","10.000","3125000.00","500000.00","500000.00","500000.00","","B","1","2","1","2020-02-27","2020-02-27 09:49:37","","","");
 INSERT INTO despacho VALUES("2","6250000.00","125.00","2.00","0.00","0.00","0.00","50.000","0.000","0.000","0.000","6250000.00","0.00","0.00","0.00","0.00","A","1","2","1","2020-02-27","2020-02-27 09:50:54","","2020-03-21 08:25:45","2020-03-21 08:27:01");
@@ -380,6 +453,8 @@ INSERT INTO despacho VALUES("6","4875000.00","97.50","1.00","1.00","0.50","0.50"
 INSERT INTO despacho VALUES("8","7000000.00","140.00","2.00","0.50","0.00","0.00","50.000","15.000","0.000","0.000","6250000.00","750000.00","0.00","0.00","","A","1","1","1","2020-03-18","2020-03-18 11:57:37","","","");
 INSERT INTO despacho VALUES("9","7750000.00","155.00","2.00","0.00","0.00","0.00","50.000","10.000","10.000","10.000","6250000.00","500000.00","500000.00","500000.00","","A","1","4","1","2020-03-21","2020-03-21 02:38:36","","","");
 INSERT INTO despacho VALUES("10","5625000.00","112.50","1.00","0.00","0.00","0.00","45.000","0.000","0.000","0.000","5625000.00","0.00","0.00","0.00","0.00","A","1","4","1","2020-03-21","2020-03-21 10:44:33","","","");
+INSERT INTO despacho VALUES("11","1200.00","120.00","1.00","1.00","1.00","1.00","40.000","10.000","5.000","5.000","1000.00","100.00","50.00","50.00","0.00","A","1","1","1","2021-10-26","2021-10-26 10:41:36","","","");
+INSERT INTO despacho VALUES("12","1350.00","135.00","2.00","1.00","0.00","0.00","52.000","5.000","0.000","0.000","1300.00","50.00","0.00","0.00","","A","1","1","1","2021-10-27","2021-10-27 10:29:39","","","");
 
 
 
@@ -409,7 +484,7 @@ CREATE TABLE `despacho_resp` (
   `del_des` datetime DEFAULT NULL,
   `res_des` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_des`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 INSERT INTO despacho_resp VALUES("1","4625000.00","92.50","1.00","0.50","0.50","0.50","25.000","10.000","10.000","10.000","3125000.00","500000.00","500000.00","500000.00","A","1","2","1","2020-02-27","2020-02-27 09:49:37","","","");
 INSERT INTO despacho_resp VALUES("2","6250000.00","125.00","2.00","0.00","0.00","0.00","50.000","0.000","0.000","0.000","6250000.00","0.00","0.00","0.00","A","1","2","1","2020-02-27","2020-02-27 09:50:54","","","");
@@ -421,6 +496,68 @@ INSERT INTO despacho_resp VALUES("7","3125000.00","62.50","1.00","0.00","0.00","
 INSERT INTO despacho_resp VALUES("8","7000000.00","140.00","2.00","0.50","0.00","0.00","50.000","15.000","0.000","0.000","6250000.00","750000.00","0.00","0.00","A","1","1","1","2020-03-18","2020-03-18 23:57:37","","","");
 INSERT INTO despacho_resp VALUES("9","7750000.00","155.00","2.00","0.00","0.00","0.00","50.000","10.000","10.000","10.000","6250000.00","500000.00","500000.00","500000.00","A","1","4","1","2020-03-21","2020-03-21 14:38:36","","","");
 INSERT INTO despacho_resp VALUES("10","5625000.00","112.50","1.00","0.00","0.00","0.00","45.000","0.000","0.000","0.000","5625000.00","0.00","0.00","0.00","A","1","4","1","2020-03-21","2020-03-21 22:44:33","","","");
+INSERT INTO despacho_resp VALUES("11","1200.00","120.00","1.00","1.00","1.00","1.00","40.000","10.000","5.000","5.000","1000.00","100.00","50.00","50.00","A","1","1","1","2021-10-26","2021-10-26 22:41:36","","","");
+INSERT INTO despacho_resp VALUES("12","1350.00","135.00","2.00","1.00","0.00","0.00","52.000","5.000","0.000","0.000","1300.00","50.00","0.00","0.00","A","1","1","1","2021-10-27","2021-10-27 10:29:39","","","");
+
+
+
+CREATE TABLE `detalle_bienes` (
+  `iddetalle_bienes` int(11) NOT NULL,
+  `codigo` varchar(45) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  `bienesnacionales_idbienesnacionales` int(11) NOT NULL,
+  `departamentos_iddepartamentos` int(11) NOT NULL,
+  PRIMARY KEY (`iddetalle_bienes`),
+  KEY `fk_detalle_bienes_bienesnacionales1_idx` (`bienesnacionales_idbienesnacionales`),
+  KEY `fk_detalle_bienes_departamentos1_idx` (`departamentos_iddepartamentos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO detalle_bienes VALUES("1","2349","A","1","1");
+INSERT INTO detalle_bienes VALUES("2","2345","A","2","2");
+INSERT INTO detalle_bienes VALUES("3","2347","A","3","1");
+
+
+
+CREATE TABLE `detalle_cartuchos` (
+  `iddetalle_cartuchos` int(11) NOT NULL,
+  `codigo` varchar(45) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  `cartuchos_idcartuchos` int(11) NOT NULL,
+  `departamentos_iddepartamentos` int(11) NOT NULL,
+  PRIMARY KEY (`iddetalle_cartuchos`),
+  KEY `fk_detalle_cartuchos_cartuchos1_idx` (`cartuchos_idcartuchos`),
+  KEY `fk_detalle_cartuchos_departamentos1_idx` (`departamentos_iddepartamentos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO detalle_cartuchos VALUES("1","trwf457","A","1","2");
+
+
+
+CREATE TABLE `firmadigital` (
+  `idfirmadigital` int(11) NOT NULL,
+  `firmante` varchar(255) DEFAULT NULL,
+  `codigounico` varchar(45) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  PRIMARY KEY (`idfirmadigital`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `inventario` (
+  `idinventario` int(11) NOT NULL,
+  `articulo` varchar(255) DEFAULT NULL,
+  `cantidad` int(100) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  PRIMARY KEY (`idinventario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO inventario VALUES("1","rodillo de impresion","0","A");
+INSERT INTO inventario VALUES("2","rodillo de limpieza","0","A");
+INSERT INTO inventario VALUES("3","tolva","0","A");
+INSERT INTO inventario VALUES("4","lampara","0","A");
+INSERT INTO inventario VALUES("5","toner","0","A");
+INSERT INTO inventario VALUES("6","tinta","0","A");
 
 
 
@@ -479,6 +616,61 @@ INSERT INTO nomina_resp VALUES("2","088","900.00","2020-11-28","A","1","4","2","
 INSERT INTO nomina_resp VALUES("3","255667","250.00","2020-12-02","A","4","4","2","1","2020-12-02 00:28:56","","","");
 INSERT INTO nomina_resp VALUES("4","0607","250.00","2020-12-03","A","1","4","2","1","2020-12-02 10:55:34","","","");
 INSERT INTO nomina_resp VALUES("5","0345","300.00","2020-12-03","A","2","6","52","1","2020-12-02 11:09:44","","","");
+
+
+
+CREATE TABLE `pedidos` (
+  `cod_ped` int(11) NOT NULL AUTO_INCREMENT,
+  `cpo_ped` float(14,2) NOT NULL,
+  `cpa_ped` float(14,2) NOT NULL,
+  `cmo_ped` float(14,2) NOT NULL,
+  `cal_ped` float(14,2) NOT NULL,
+  `est_ped` varchar(1) NOT NULL,
+  `cod_cli` int(11) NOT NULL,
+  `cod_usu` int(11) DEFAULT NULL,
+  `fec_ped` date NOT NULL,
+  `inf_ped` enum('Pendiente','Recibido','Entregado','Cancelado') NOT NULL,
+  `cre_ped` datetime DEFAULT NULL,
+  `upd_ped` datetime DEFAULT NULL,
+  `del_ped` datetime DEFAULT NULL,
+  `res_ped` datetime DEFAULT NULL,
+  PRIMARY KEY (`cod_ped`),
+  KEY `id_fbk_pedidos_1` (`cod_cli`),
+  KEY `id_fbk_pedidos_2` (`cod_usu`),
+  CONSTRAINT `id_fbk_pedidos_1` FOREIGN KEY (`cod_cli`) REFERENCES `cliente` (`cod_cli`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `id_fbk_pedidos_2` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`cod_usu`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+INSERT INTO pedidos VALUES("2","2.00","2.00","1.50","1.00","A","1","1","2021-10-25","Cancelado","2021-10-25 02:15:54","2021-10-27 10:26:56","2021-10-25 11:15:54","2021-10-25 11:16:06");
+INSERT INTO pedidos VALUES("3","3.00","0.50","0.50","0.50","A","1","16","2021-10-26","Pendiente","2021-10-25 02:16:23","2021-10-26 11:05:39","","");
+INSERT INTO pedidos VALUES("4","3.00","0.00","0.00","0.00","A","1","","2021-10-27","Pendiente","2021-10-27 09:05:01","","","");
+
+
+
+CREATE TABLE `pedidos_resp` (
+  `cod_ped` int(11) NOT NULL AUTO_INCREMENT,
+  `cpo_ped` float(14,2) NOT NULL,
+  `cpa_ped` float(14,2) NOT NULL,
+  `cmo_ped` float(14,2) NOT NULL,
+  `cal_ped` float(14,2) NOT NULL,
+  `est_ped` varchar(1) NOT NULL,
+  `cod_cli` int(11) NOT NULL,
+  `cod_usu` int(11) DEFAULT NULL,
+  `fec_ped` date NOT NULL,
+  `inf_ped` enum('Pendiente','Recibido','Entregado','Cancelado') NOT NULL,
+  `cre_ped` datetime DEFAULT NULL,
+  `upd_ped` datetime DEFAULT NULL,
+  `del_ped` datetime DEFAULT NULL,
+  `res_ped` datetime DEFAULT NULL,
+  PRIMARY KEY (`cod_ped`),
+  KEY `id_fbk_pedidos_1` (`cod_cli`),
+  KEY `id_fbk_pedidos_2` (`cod_usu`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+INSERT INTO pedidos_resp VALUES("1","2.00","2.00","1.00","1.00","A","1","1","2021-10-25","Cancelado","2021-10-24 03:09:57","2021-10-25 12:27:29","","");
+INSERT INTO pedidos_resp VALUES("2","2.00","2.00","1.50","1.00","A","1","1","2021-10-25","Cancelado","2021-10-25 14:15:54","2021-10-27 10:26:56","","");
+INSERT INTO pedidos_resp VALUES("3","3.00","0.50","0.50","0.50","A","1","16","2021-10-26","Pendiente","2021-10-25 14:16:23","2021-10-26 11:05:39","","");
+INSERT INTO pedidos_resp VALUES("4","3.00","0.00","0.00","0.00","A","1","","2021-10-27","Pendiente","2021-10-27 09:05:01","","","");
 
 
 
@@ -561,8 +753,8 @@ CREATE TABLE `productos` (
   CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`cod_edo`) REFERENCES `proovedor` (`cod_edo`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-INSERT INTO productos VALUES("1","50000.00","2.50","1.00","1.00","1.00","125000.00","50000.00","50000.00","50000.00","2.50","20","2.600","1160","118.000","118.000","59.000","A","A","2020-02-25","2020-02-27","2","1","2020-02-27 09:30:23","2020-03-21 10:44:01","2020-03-21 08:41:55","2020-03-21 08:42:07");
-INSERT INTO productos VALUES("3","10000.00","3.00","1.00","1.00","1.50","30000.00","10000.00","15000.00","10000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-03-13","2020-03-16","1","1","2020-03-16 11:18:23","2020-12-01 12:41:22","2020-03-21 08:48:57","2020-03-21 08:49:06");
+INSERT INTO productos VALUES("1","10.00","2.50","1.00","1.00","1.00","25.00","10.00","10.00","10.00","2.50","20","2.600","1100","101.000","111.000","53.000","A","A","2020-02-25","2020-02-27","2","1","2020-02-27 09:30:23","2021-10-26 10:41:02","2020-03-21 08:41:55","2020-03-21 08:42:07");
+INSERT INTO productos VALUES("3","10000.00","3.50","1.00","1.00","1.50","35000.00","10000.00","15000.00","10000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-03-13","2020-03-16","1","1","2020-03-16 11:18:23","2021-10-20 11:32:36","2020-03-21 08:48:57","2020-03-21 08:49:06");
 
 
 
@@ -620,8 +812,8 @@ CREATE TABLE `productos_resp` (
   `cmo_pro` float(15,3) NOT NULL,
   `est_pro` varchar(1) NOT NULL,
   `act_pro` varchar(2) NOT NULL,
-  `fcp_pro` datetime NOT NULL,
-  `fdp_pro` datetime NOT NULL,
+  `fcp_pro` date NOT NULL,
+  `fdp_pro` date NOT NULL,
   `cod_edo` int(11) NOT NULL,
   `cod_usu` int(11) NOT NULL,
   `cre_pro` datetime DEFAULT NULL,
@@ -631,10 +823,10 @@ CREATE TABLE `productos_resp` (
   PRIMARY KEY (`cod_pro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
-INSERT INTO productos_resp VALUES("1","50000.00","2.50","1.00","1.00","1.00","125000.00","50000.00","50000.00","50000.00","2.50","20","2.600","1500","150.000","150.000","75.000","A","A","2020-02-25 00:00:00","2020-02-27 00:00:00","1","1","2020-02-27 09:30:23","","","");
-INSERT INTO productos_resp VALUES("2","40000.00","2.60","1.00","1.00","1.00","104000.00","40000.00","40000.00","40000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-02-24 00:00:00","2020-02-26 00:00:00","2","1","2020-02-27 09:32:54","","","");
-INSERT INTO productos_resp VALUES("3","10000.00","3.00","1.00","1.00","1.50","30000.00","10000.00","15000.00","10000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-03-13 00:00:00","2020-03-16 00:00:00","1","1","2020-03-16 11:18:23","2020-12-01 12:41:22","","");
-INSERT INTO productos_resp VALUES("4","2000.00","1.00","1.00","1.00","1.00","2000.00","2000.00","2000.00","2000.00","2.50","20","2.600","500","50.000","50.000","25.000","A","B","2020-03-16 00:00:00","2020-03-18 00:00:00","2","1","2020-03-16 11:48:57","","","");
+INSERT INTO productos_resp VALUES("1","10.00","2.50","1.00","1.00","1.00","25.00","10.00","10.00","10.00","2.50","20","2.600","1100","101.000","111.000","53.000","A","A","2020-02-25","2020-02-27","1","1","2020-02-27 09:30:23","2021-10-26 10:41:02","","");
+INSERT INTO productos_resp VALUES("2","40000.00","2.60","1.00","1.00","1.00","104000.00","40000.00","40000.00","40000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-02-24","2020-02-26","2","1","2020-02-27 09:32:54","","","");
+INSERT INTO productos_resp VALUES("3","10000.00","3.50","1.00","1.00","1.50","35000.00","10000.00","15000.00","10000.00","2.50","20","2.600","2000","200.000","200.000","100.000","A","B","2020-03-13","2020-03-16","1","1","2020-03-16 11:18:23","2021-10-20 11:32:36","","");
+INSERT INTO productos_resp VALUES("4","2000.00","1.00","1.00","1.00","1.00","2000.00","2000.00","2000.00","2000.00","2.50","20","2.600","500","50.000","50.000","25.000","A","B","2020-03-16","2020-03-18","2","1","2020-03-16 11:48:57","","","");
 
 
 
@@ -688,6 +880,79 @@ INSERT INTO proovedor_resp VALUES("8","felixpo","J9096735","felix@gmail.com","gu
 INSERT INTO proovedor_resp VALUES("9","felixpo","J9096735","felix@gmail.com","guarumitos","A","1","2020-03-18 02:28:10","","","");
 INSERT INTO proovedor_resp VALUES("10","okispollo","J8096735","okispollo@gmail.com","fafdsfcs","A","1","2020-03-18 02:35:33","","","");
 INSERT INTO proovedor_resp VALUES("11","guasimodopollo","J2858045","guasi@gmail.com","valencia-tachira","A","1","2020-03-18 02:40:20","2020-12-01 11:43:21","","");
+
+
+
+CREATE TABLE `recarga_cartuchos` (
+  `idrecarga_cartuchos` int(11) NOT NULL,
+  `mes` varchar(45) DEFAULT NULL,
+  `entrada` date DEFAULT NULL,
+  `salida` date DEFAULT NULL,
+  `observaciones` varchar(255) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  `detalle_cartuchos_iddetalle_cartuchos` int(11) NOT NULL,
+  `tecnicos_idtecnicos` int(11) NOT NULL,
+  `inventario_idinventario` int(11) NOT NULL,
+  PRIMARY KEY (`idrecarga_cartuchos`),
+  KEY `fk_recarga_cartuchos_detalle_cartuchos1_idx` (`detalle_cartuchos_iddetalle_cartuchos`),
+  KEY `fk_recarga_cartuchos_tecnicos1_idx` (`tecnicos_idtecnicos`),
+  KEY `fk_recarga_cartuchos_inventario1_idx` (`inventario_idinventario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `reparacion_bienes` (
+  `idreparacion_bienes` int(11) NOT NULL,
+  `mes` varchar(45) DEFAULT NULL,
+  `entrada` date DEFAULT NULL,
+  `salida` date DEFAULT NULL,
+  `observaciones` varchar(255) DEFAULT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  `detalle_bienes_iddetalle_bienes` int(11) NOT NULL,
+  `tecnicos_idtecnicos` int(11) NOT NULL,
+  PRIMARY KEY (`idreparacion_bienes`),
+  KEY `fk_reparacion_bienes_detalle_bienes1_idx` (`detalle_bienes_iddetalle_bienes`),
+  KEY `fk_reparacion_bienes_tecnicos1_idx` (`tecnicos_idtecnicos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO reparacion_bienes VALUES("1","Septiembre","2000-09-20","2001-09-21","hshajsgajbsa","A","2","1");
+
+
+
+CREATE TABLE `reporte_bienes` (
+  `idreporte_bienes` int(11) NOT NULL,
+  `mes` varchar(45) DEFAULT NULL,
+  `expedicion` date DEFAULT NULL,
+  `reparacion_bienes_idreparacion_bienes` int(11) NOT NULL,
+  `firmadigital_idfirmadigital` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `reporte_cartuchos` (
+  `idreporte_cartuchos` int(11) NOT NULL,
+  `mes` varchar(45) DEFAULT NULL,
+  `expedicion` date DEFAULT NULL,
+  `recarga_cartuchos_idrecarga_cartuchos` int(11) NOT NULL,
+  `firmadigital_idfirmadigital` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `tecnicos` (
+  `idtecnicos` int(11) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `codigo` varchar(45) NOT NULL,
+  `estatus` char(1) DEFAULT NULL,
+  `usuarios_idusuarios1` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO tecnicos VALUES("1","Eduardo Rivas","thgr321","A","2");
+INSERT INTO tecnicos VALUES("2","Jorge Neres","yhhg56","A","3");
+INSERT INTO tecnicos VALUES("3","Luis Perez","tfgert","A","4");
 
 
 
@@ -822,9 +1087,9 @@ CREATE TABLE `usuarios` (
   `las_usu` datetime DEFAULT NULL,
   `res_usu` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
-INSERT INTO usuarios VALUES("1","felix","felixmedina07052000@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","A","A","2020-02-27 09:27:56","2020-10-31 04:44:27","","2021-10-17 09:53:36","");
+INSERT INTO usuarios VALUES("1","felix","felixmedina07052000@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","A","A","2020-02-27 09:27:56","2020-10-31 04:44:27","","2021-10-27 11:25:38","");
 INSERT INTO usuarios VALUES("2","marbe","marbe@gmail.com","3af1b547a8dd07a5ac0bcf962ec852b3f060b716","E","B","2020-03-18 03:07:57","2020-03-21 08:53:19","2020-11-29 11:46:31","2020-03-21 08:53:29","");
 INSERT INTO usuarios VALUES("3","jose","jose@gmail.com","5b53cad999b409898a88133ca9851b097abb500d","S","B","2020-03-19 02:26:32","2020-10-31 04:44:33","2020-12-01 11:21:41","2020-03-19 02:45:26","2020-03-19 02:44:56");
 INSERT INTO usuarios VALUES("4","kevin","kevin@gmail.com","1c51e553cb863175222ebd166abc152cca513a50","E","B","2020-07-02 11:42:16","2020-07-02 11:44:37","2020-12-01 11:21:37","2020-07-02 11:44:51","");
@@ -834,8 +1099,11 @@ INSERT INTO usuarios VALUES("12","kfff","kfkf@gmail.com","09595e7223d759a4aaff9d
 INSERT INTO usuarios VALUES("13","manojose","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","B","2020-11-25 12:58:56","","2020-11-29 11:46:45","","");
 INSERT INTO usuarios VALUES("14","josefiladelfia","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","B","2020-11-25 12:59:42","","2020-11-29 11:46:40","","");
 INSERT INTO usuarios VALUES("15","luisa","luisa@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","S","B","2020-11-29 11:43:45","2020-11-29 11:47:19","2020-12-02 12:08:40","2020-11-30 05:27:23","");
-INSERT INTO usuarios VALUES("16","Yony","jonny@gmail.com","e55376f27439b31804b56d77c3c9552d89c2b8dd","E","A","2020-12-01 11:28:13","2020-12-02 12:08:35","","2020-12-01 11:30:14","");
+INSERT INTO usuarios VALUES("16","Yony","jonny@gmail.com","a561cc40b00bf2eee32a8a41c46d8b58d43e3af3","E","A","2020-12-01 11:28:13","2020-12-02 12:08:35","","2021-10-26 11:05:16","");
 INSERT INTO usuarios VALUES("17","prueba","prueba@gmail.com","93301ada8177f4b7841620847f3d06d41febdd1d","S","A","2020-12-01 11:40:07","2020-12-01 11:41:39","","2020-12-01 11:40:51","");
+INSERT INTO usuarios VALUES("18","alejandro","alejandro@gmail.com","b6ad73304cfbf1f5123fe69d961c6a06c99516ad","V","A","2021-10-17 11:39:42","","","2021-10-17 11:40:40","");
+INSERT INTO usuarios VALUES("19","ffefe","feee@gmail.com","f74fa39850ccb1c516d542ad6a4b717985972201","I","A","2021-10-17 02:09:13","","","","");
+INSERT INTO usuarios VALUES("20","felix2","chucho@gmail.com","50136d56438ea71652842fa72addd334d71e2e31","V","A","2021-10-17 02:18:05","","","2021-10-17 02:18:17","");
 
 
 
@@ -852,7 +1120,7 @@ CREATE TABLE `usuarios_resp` (
   `las_usu` datetime DEFAULT NULL,
   `res_usu` datetime DEFAULT NULL,
   PRIMARY KEY (`cod_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 INSERT INTO usuarios_resp VALUES("1","felix","felixmedina07052000@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","A","A","2020-02-27 09:27:56","2020-10-31 04:44:27","","","");
 INSERT INTO usuarios_resp VALUES("2","marbe","marbe@gmail.com","fb3122091edeff3ecea93e9347d20ee8caec987b","V","A","2020-03-18 15:07:58","","","","");
@@ -869,6 +1137,9 @@ INSERT INTO usuarios_resp VALUES("12","kfff","kfkf@gmail.com","09595e7223d759a4a
 INSERT INTO usuarios_resp VALUES("13","manojose","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","A","2020-11-25 00:58:56","","","","");
 INSERT INTO usuarios_resp VALUES("14","josefiladelfia","jesus@gmail.com","a5083dfb85980adefa5f376b49899e24342359f5","V","A","2020-11-25 00:59:42","","","","");
 INSERT INTO usuarios_resp VALUES("15","luisa","luisa@gmail.com","f214c5aec4eb32e4264cd390ea0fcbaf960b8a3e","S","B","2020-11-29 23:43:45","2020-11-29 11:47:19","2020-12-02 12:08:40","","");
-INSERT INTO usuarios_resp VALUES("16","Yony","jonny@gmail.com","e55376f27439b31804b56d77c3c9552d89c2b8dd","E","A","2020-12-01 23:28:13","2020-12-02 12:08:35","","","");
+INSERT INTO usuarios_resp VALUES("16","Yony","jonny@gmail.com","a561cc40b00bf2eee32a8a41c46d8b58d43e3af3","E","A","2020-12-01 23:28:13","2020-12-02 12:08:35","","","");
 INSERT INTO usuarios_resp VALUES("17","prueba","prueba@gmail.com","93301ada8177f4b7841620847f3d06d41febdd1d","S","A","2020-12-01 23:40:08","2020-12-01 11:41:39","","","");
+INSERT INTO usuarios_resp VALUES("18","alejandro","alejandro@gmail.com","b6ad73304cfbf1f5123fe69d961c6a06c99516ad","V","A","2021-10-17 11:39:42","","","","");
+INSERT INTO usuarios_resp VALUES("19","ffefe","feee@gmail.com","f74fa39850ccb1c516d542ad6a4b717985972201","I","A","2021-10-17 14:09:13","","","","");
+INSERT INTO usuarios_resp VALUES("20","felix2","chucho@gmail.com","50136d56438ea71652842fa72addd334d71e2e31","V","A","2021-10-17 14:18:05","","","","");
 

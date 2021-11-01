@@ -24,7 +24,9 @@
 
 @media only screen and (max-width: 1600px)
 {
-	
+	.item_1 span:first-child{
+		font-size: 180px;
+	}
 }
 
 /************
@@ -45,17 +47,34 @@
 	{
 		right: -55px;
 	}
+	.item_1 span:first-child{
+		font-size: 180px;
+	}
 }
 
 /************
 3. 1380px
 ************/
 
-@media only screen and (max-width: 1380px)
-{
-	
-}
 
+@media only screen and (max-width: 425px)
+{
+	.item_1 span:first-child{
+		font-size: 25px;
+	}
+}
+@media only screen and (max-width: 375px)
+{
+	.item_1 span:first-child{
+		font-size: 18px;
+	}
+}
+@media only screen and (max-width: 320px)
+{
+	.item_1 span:first-child{
+		font-size: 14px;
+	}
+}
 /************
 3. 1280px
 ************/
@@ -124,7 +143,9 @@
 
 @media only screen and (max-width: 1024px)
 {
-	
+	.item_1 span:first-child{
+		font-size: 100px;
+	}
 }
 
 /************
@@ -145,11 +166,6 @@
 	.icon_box_button
 	{
 		margin-bottom: 30px;
-	}
-	.item_1 span:first-child
-	{
-		font-size: 20px;
-		margin-bottom: 15px;
 	}
 	.item_1 span:nth-child(2)
 	{
@@ -301,7 +317,9 @@
 
 @media only screen and (max-width: 768px)
 {
-	
+	.item_1 span:first-child{
+		font-size: 50px;
+	}
 }
 
 /************
@@ -357,11 +375,6 @@
 	.hero_slider_nav
 	{
 		display: none;
-	}
-	.item_1 span:first-child
-	{
-		font-size: 16px;
-		margin-bottom: 10px;
 	}
 	.item_1 span:nth-child(2)
 	{

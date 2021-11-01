@@ -6,6 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Pollos San Pedro C.A.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="logo/pollito.png">
 <link rel="stylesheet" type="text/css" href="portal-web/styles/bootstrap4/bootstrap.min.css">
 <link href="portal-web/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="portal-web/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -27,17 +28,18 @@
 		
 		<!-- Logo -->
 		<div class="logo mr-auto">
-			<a href="/">Pollos San Pedro<span>C.A.</span></a>
+			<a href="index.php">Pollos San Pedro<span>C.A.</span></a>
 		</div>
 
 		<!-- Navigation -->
 		<nav class="main_nav justify-self-end text-right">
 			<ul>
-				<li class="active"><a href="index.html">Home</a></li>
+				<li class="active"><a href="index.php">Home</a></li>
 				<li><a href="portal-web/about.html">Nosotros</a></li>
 				<li><a href="portal-web/services.html">Servicios</a></li>
 <!--				<li><a href="blog.html">Blog</a></li>-->
 				<li><a href="portal-web/contact.html">Contacto</a></li>
+				<li><a href="sistema_cliente.php">Clientes</a></li>
 			</ul>
 			
 			<!-- Search -->
@@ -100,11 +102,12 @@
 		<div class="menu menu_mm text-right">
 			<div class="menu_close"><i class="far fa-times-circle trans_200"></i></div>
 			<ul class="menu_mm">
-				<li class="menu_mm active"><a href="portal-web/index.html">Home</a></li>
+				<li class="menu_mm active"><a href="index.php">Home</a></li>
 				<li class="menu_mm"><a href="portal-web/about.html">Nosotros</a></li>
 				<li class="menu_mm"><a href="portal-web/services.html">Servicios</a></li>
 <!--				<li class="menu_mm"><a href="blog.html">Blog</a></li>-->
 				<li class="menu_mm"><a href="portal-web/contact.html">Contacto</a></li>
+				<li class="menu_mm"><a href="sistema_cliente.php">Clientes</a></li>
 			</ul>
 		</div>
 	</div>
@@ -239,7 +242,7 @@
 								<p>Etiam nec odio vestibulum est mattis effic iturut magna. Pelle ntesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mattis effic iturut.</p>
 								<div class="person d-flex flex-row">
 									<div class="person_image">
-										<img src="images/person_1.png" alt="">
+										<img src="portal-web/images/person_1.png" alt="">
 									</div>
 									<div class="person_meta">
 										<div class="person_name">Michael Smith</div>
@@ -395,7 +398,7 @@
 								</div>
 								<p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vesti bul mattis effic iturut magna.</p>
 								<div class="button service_item_button trans_200">
-									<a href="#" class="trans_200">discover more</a>
+									<a href="portal-web/services.html" class="trans_200">discover more</a>
 								</div>
 							</div>
 						</div>
@@ -413,7 +416,7 @@
 								</div>
 								<p>Odio vestibulum est mattis effic iturut magna. Pellente sque sit am et tellus blandit. Etiam nec odio vesti bul.</p>
 								<div class="button service_item_button trans_200">
-									<a href="#" class="trans_200">discover more</a>
+									<a href="portal-web/services.html" class="trans_200">discover more</a>
 								</div>
 							</div>
 						</div>
@@ -431,7 +434,7 @@
 								</div>
 								<p>Odio vestibulum est mattis effic iturut magna. Pellente sque sit am et tellus blandit. Etiam nec odio vesti bul.</p>
 								<div class="button service_item_button trans_200">
-									<a href="#" class="trans_200">discover more</a>
+									<a href="portal-web/services.html" class="trans_200">discover more</a>
 								</div>
 							</div>
 						</div>
@@ -449,7 +452,7 @@
 								</div>
 								<p>Etiam nec odio vestibulum est mattis effic iturut magna. Pel lentesque sit am et tellus bla ndit. Etiam nec odio vestibul.</p>
 								<div class="button service_item_button trans_200">
-									<a href="#" class="trans_200">discover more</a>
+									<a href="portal-web/services.html" class="trans_200">discover more</a>
 								</div>
 							</div>
 						</div>
@@ -467,7 +470,7 @@
 								</div>
 								<p>Etiam nec odio vestibulum est mattis effic iturut magna. Pel lentesque sit am et tellus bla ndit. Etiam nec odio vestibul.</p>
 								<div class="button service_item_button trans_200">
-									<a href="#" class="trans_200">discover more</a>
+									<a href="portal-web/services.html" class="trans_200">discover more</a>
 								</div>
 							</div>
 						</div>
@@ -485,7 +488,7 @@
 								</div>
 								<p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vesti bul mattis effic iturut magna.</p>
 								<div class="button service_item_button trans_200">
-									<a href="#" class="trans_200">discover more</a>
+									<a href="portal-web/services.html" class="trans_200">discover more</a>
 								</div>
 							</div>
 						</div>
@@ -503,7 +506,7 @@
 								</div>
 								<p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vesti bul mattis effic iturut magna.</p>
 								<div class="button service_item_button trans_200">
-									<a href="#" class="trans_200">discover more</a>
+									<a href="portal-web/services.html" class="trans_200">discover more</a>
 								</div>
 							</div>
 						</div>
@@ -551,7 +554,7 @@
 
 				<div class="col-lg-5 text-lg-right text-center">
 					<div class="text_line_image">
-						<img src="images/line.jpg" alt="">
+						<img src="portal-web/images/line.jpg" alt="">
 					</div>
 				</div>
 
@@ -601,6 +604,7 @@
 								<li><a href="https://www.facebook.com/PollosSanPedro/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 								<li><a href="https://twitter.com/PollosSanPedro/" target="_blank"><i class="fab fa-twitter"></i></a></li>
 								<li><a href="https://www.linkedin.com/company/pollossanpedro/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="sistema_principal.php" title="SOLO EMPLEADOS"><i class="fab fa-product-hunt"></i></a></li>
 							</ul>
 						</div>
 
@@ -619,11 +623,12 @@
 					<div class="footer_col">
 						<div class="footer_col_title">Menu</div>
 						<ul>
-							<li><a href="portal-web/index.html">Home</a></li>
+							<li><a href="index.php">Home</a></li>
 							<li><a href="portal-web/about.html">Nosotros</a></li>
 							<li><a href="portal-web/services.html">Servicios</a></li>
 <!--							<li><a href="blog.html">Blog</a></li>-->
 							<li><a href="portal-web/contact.html">Contacto</a></li>
+							<li><a href="sistema_cliente.php">Clientes</a></li>
 						</ul>
 					</div>
 

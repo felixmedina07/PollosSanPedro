@@ -14,12 +14,12 @@ if(isset($_SESSION['nom_cli']) && $result){
 
   <div class="container p-4">
    <div class="row">
-     <a href="principal_cliente.php" class="btn btn-outline-primary"><i class="fas fa-angle-left"></i></a>
+     <a href="principal_cliente.php" class="btn bc-normal"><i class="fas fa-angle-left"></i></a>
     </div>
     <br>
     <div class="row mt-4">
         <div class="card sombra p-5 mx-auto" style="width: 58rem;">
-        <div class="card-header sombra c-usuario">
+        <div class="card-header sombra c-normal">
         <h4 class="card-title text-center text-white" style='font-size:28px;'>PERFIL</h4>
         </div>
             <div class="card-body">

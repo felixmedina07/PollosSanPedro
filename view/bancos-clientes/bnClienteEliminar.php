@@ -24,12 +24,12 @@ $sql="SELECT b.not_bnk,
   <br>
   <br>  
     <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center c-bancop sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
                 <h3>Papelera Bancos Clientes</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
         <table class="table table-hover table-bordered text-center" id="tablaBnClienteD">
-            <thead class="bc-bancop">
+            <thead class="bc-normal">
             <tr>
                 <td>Nombre titular</td>
                 <td>Numero de cuenta</td>
@@ -122,8 +122,8 @@ $sql="SELECT b.not_bnk,
 <script>
  $(document).ready(function() {
         $('#tablaBnClienteD').DataTable({
-            "scrollX": "90%",
-            "scrollCollapse": false,
+            "scrollX": true,
+            "scrollCollapse": true,
             "language":idioma_español
         });
     } ); 

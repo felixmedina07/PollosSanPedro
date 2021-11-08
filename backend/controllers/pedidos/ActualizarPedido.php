@@ -12,6 +12,7 @@
         $_POST['cal_pedU'],
         $_POST['fec_pedU'],
         $_POST['inf_pedU'],
+        $_POST['com_pedU'],
      );
  }
 
@@ -24,7 +25,8 @@
         $_POST['cal_pedU'],
         $_POST['fec_pedU'],
         $_POST['inf_pedU'],
-        $_SESSION['idUsuario']
+        $_SESSION['idUsuario'],
+        $_POST['com_pedU'],
      );
  }
 

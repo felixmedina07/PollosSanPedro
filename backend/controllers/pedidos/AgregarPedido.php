@@ -9,7 +9,8 @@ $datos = array(
     $_POST['cmo_ped'],
     $_POST['cal_ped'],
     $idUsuario,
-    $_POST['fec_ped']
+    $_POST['fec_ped'],
+    $_POST['com_ped']
 );
 
 echo $obj->agregarPedido($datos);

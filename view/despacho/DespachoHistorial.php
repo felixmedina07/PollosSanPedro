@@ -29,13 +29,13 @@ $sql="SELECT d.cod_des,
     <br>
     <br>
     <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center c-despacho sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Historial Facturacion</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <div class="table-responsive">
             <table class="table table-hover table-bordered text-center" id="tablaDespachoHtable">
-                <thead class="bc-despacho">
+                <thead class="bc-normal">
                     <tr>
                         <td>Nombre del Cliente</td>
                         <td>Fecha Despacho</td>

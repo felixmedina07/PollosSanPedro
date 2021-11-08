@@ -24,12 +24,12 @@ $result=mysqli_query($conexion,$sql);
 ?>
 <br>
     <div class="card p-5 sombra table-responsive">
-        <div class="card-title mx-auto text-white text-center c-cuenta sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Historial Pago Nomina</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover  table-bordered  text-center" id="tablaEliminarNomina">
-                <thead class="bc-cuenta">
+                <thead class="bc-normal">
                     <tr>
                         <td>Nombre Trabajador</td>
                         <td>Apellido Trabajador</td>

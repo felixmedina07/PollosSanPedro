@@ -8,10 +8,10 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A'|| $_SESSION['rol'] =='E'
 <div class="container p-4">
     <div class="row">
               <div class="col-sm-12">
-                  <span class="btn bc-banco" id="bnclienteAgregaBtn">Agregar Bancos Clientes</span>
-                  <span class="btn bc-banco ml-2" id="bnclienteVerBtn">Ver Bancos Clientes</span>
+                  <span class="btn bc-normal" id="bnclienteAgregaBtn">Agregar Bancos Clientes</span>
+                  <span class="btn bc-normal ml-2" id="bnclienteVerBtn">Ver Bancos Clientes</span>
                   <?php if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' && $ver==1): ?>
-                    <span class="btn bc-banco ml-2" id="bnclienteHistorialBtn">Historial</span>
+                    <span class="btn bc-normal ml-2" id="bnclienteHistorialBtn">Historial</span>
                   <?php endif; ?>
               </div>
           </div>

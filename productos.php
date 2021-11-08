@@ -9,13 +9,13 @@ require_once "view/menu/menu.php";
 <div class="container p-4">
           <div class="row mt-2">
               <div class="col-sm-12">
-                  <span class="btn bc-producto" id="productoAgregaBtn">Agregar Productos</span>
-                  <span class="btn bc-producto ml-2" id="productoCantidadBtn">Cantidad Productos</span>
-                  <span class="btn bc-producto ml-2" id="productoPrecioBtn">Precios Productos</span>
-                  <span class="btn bc-producto ml-2" id="productoverBtn">Estado Productos</span>
-                  <span class="btn bc-producto ml-2" id="productoPdfBtn">Pdf Productos</span>
+                  <span class="btn bc-normal" id="productoAgregaBtn">Agregar Productos</span>
+                  <span class="btn bc-normal ml-2" id="productoCantidadBtn">Cantidad Productos</span>
+                  <span class="btn bc-normal ml-2" id="productoPrecioBtn">Precios Productos</span>
+                  <span class="btn bc-normal ml-2" id="productoverBtn">Estado Productos</span>
+                  <span class="btn bc-normal ml-2" id="productoPdfBtn">Pdf Productos</span>
                   <?php if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' && $ver==1): ?>
-                    <span class="btn bc-producto ml-2" id="productoHistorialBtn">Historial</span>
+                    <span class="btn bc-normal ml-2" id="productoHistorialBtn">Historial</span>
                   <?php endif; ?> 
              </div>
           </div>

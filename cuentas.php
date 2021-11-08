@@ -9,17 +9,17 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A'||$_SESSION['rol']=='E'||
   <div class="container p-4">
           <div class="row">
                 <div class="col-sm-8">
-                  <span class="btn bc-cuenta" id="cuentaAgregaBtn">Agregar Cuentas </span>
-                  <span class="btn bc-cuenta ml-2" id="cuentaverBtn">Ver Cuentas</span>
-                  <span class="btn bc-cuenta ml-2" id="cuentaestadoBtn">Estado Cuentas</span>
-                  <span class="btn bc-cuenta ml-2" id="cuentaPdfBtn">Pdf Cuentas</span>
+                  <span class="btn bc-normal" id="cuentaAgregaBtn">Agregar Cuentas </span>
+                  <span class="btn bc-normal ml-2" id="cuentaverBtn">Ver Cuentas</span>
+                  <span class="btn bc-normal ml-2" id="cuentaestadoBtn">Estado Cuentas</span>
+                  <span class="btn bc-normal ml-2" id="cuentaPdfBtn">Pdf Cuentas</span>
                   <?php if($_SESSION['rol']=='A' && $ver == 1): ?>
-                    <span class="btn bc-cuenta ml-2" id="cuentaHistorialBtn">Historial</span>
+                    <span class="btn bc-normal ml-2" id="cuentaHistorialBtn">Historial</span>
                   <?php endif;?>  
                 </div>
                 <?php if($_SESSION['rol']=='A' && $ver == 1): ?> 
                 <div class="col-sm-4 d-flex justify-content-end">
-                <span class="btn bc-cuenta" id="cuentaUpdateBtn">Actualizar Cuentas</span>
+                <span class="btn bc-normal" id="cuentaUpdateBtn">Actualizar Cuentas</span>
                 </div>
                <?php endif;?> 
           </div>

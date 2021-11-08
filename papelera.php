@@ -24,15 +24,15 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] =='A' &&  $ver==1){
       <br>
           <div class="row">
                 <div class="col-sm-12">
-                  <span class="btn  bc-productop" id="productoBtn">Producto</span>
-                  <span class="btn bc-clientep ml-2" id="clienteBtn">Cliente</span>
-                  <span class="btn bc-bancop ml-2" id="bancoBtn">Bancos</span>
-                  <span class="btn bc-bancop ml-2" id="bancoClienteBtn">Bancos Clientes</span>
-                  <span class="btn bc-despachop ml-2" id="despachoBtn">Despachos</span>
-                  <span class="btn bc-cuentap ml-2" id="cuentaBtn">Cuentas</span>
-                  <span class="btn bc-cuadresp ml-2" id="cuadreBtn">Cuadres</span>
-                  <span class="btn bc-usuariop ml-2" id="usuarioBtn">Usuarios</span>
-                  <span class="btn bc-proovedorp ml-2" id="proovedorBtn">Proovedores</span>
+                  <span class="btn  bc-normal" id="productoBtn">Producto</span>
+                  <span class="btn bc-normal ml-2" id="clienteBtn">Cliente</span>
+                  <span class="btn bc-normal ml-2" id="bancoBtn">Bancos</span>
+                  <span class="btn bc-normal ml-2" id="bancoClienteBtn">Bancos Clientes</span>
+                  <span class="btn bc-normal ml-2" id="despachoBtn">Despachos</span>
+                  <span class="btn bc-normal ml-2" id="cuentaBtn">Cuentas</span>
+                  <span class="btn bc-normal ml-2" id="cuadreBtn">Cuadres</span>
+                  <span class="btn bc-normal ml-2" id="usuarioBtn">Usuarios</span>
+                  <span class="btn bc-normal ml-2" id="proovedorBtn">Proovedores</span>
 
                 </div>
           </div>

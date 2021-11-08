@@ -14,6 +14,7 @@ class Pedidos extends Conectar{
                                  cod_cli,
                                  fec_ped,
                                  inf_ped,
+                                 com_ped,
                                  cre_ped)
               VALUES ('$datos[0]',
                       '$datos[1]',
@@ -23,6 +24,7 @@ class Pedidos extends Conectar{
                       '$datos[4]',
                       '$datos[5]',
                       'Pendiente',
+                      '$datos[6]',
                       '$cre_ped')";
         $result = mysqli_query($conexion,$sql);
         if($result){
@@ -30,13 +32,14 @@ class Pedidos extends Conectar{
             return 1;
         }
         if(!$result){
+          echo "<script>console.log('$sql')</script>";
             return 0;
         }
     }
 
     public function ObtenerDatosPed($idped){
     $conexion = Conectar::conexion();
-    $sql="SELECT cod_ped,cpo_ped,cpa_ped,cmo_ped,cal_ped,fec_ped,inf_ped FROM pedidos WHERE cod_ped ='$idped'";
+    $sql="SELECT cod_ped,cpo_ped,cpa_ped,cmo_ped,cal_ped,fec_ped,inf_ped,com_ped FROM pedidos WHERE cod_ped ='$idped'";
     $result=mysqli_query($conexion,$sql);
     $ver=mysqli_fetch_row($result);
     $datos=array(
@@ -46,7 +49,8 @@ class Pedidos extends Conectar{
         'cmo_ped' => $ver[3],
         'cal_ped' => $ver[4],
         'fec_ped' => $ver[5],
-        'inf_ped' => $ver[6]
+        'inf_ped' => $ver[6],
+        'com_ped' => $ver[7]
     );
     return $datos;
   }
@@ -62,6 +66,7 @@ class Pedidos extends Conectar{
     cal_ped='$datos[4]',
     fec_ped='$datos[5]',
     inf_ped='$datos[6]',
+    com_ped='$datos[7]',
     upd_ped='$upd_ped' 
     WHERE cod_ped='$datos[0]'";
    }
@@ -73,6 +78,7 @@ class Pedidos extends Conectar{
     cal_ped='$datos[4]',
     fec_ped='$datos[5]',
     inf_ped='$datos[6]',
+    com_ped='$datos[8]',
     cod_usu= '$datos[7]',
     upd_ped='$upd_ped' 
     WHERE cod_ped='$datos[0]'";

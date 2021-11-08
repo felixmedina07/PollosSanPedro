@@ -26,7 +26,7 @@ require_once "../menu/menu2.php";
    <?php $_SESSION['error']=0; ?>
     <div class="row">
     <div class="col">
-    <a href="../../menu_trabajadores.php" class="btn bc-cliente"><i class="fas fa-angle-left"></i></a>
+    <a href="../../menu_trabajadores.php" class="btn bc-normal"><i class="fas fa-angle-left"></i></a>
     </div>
     </div>
     <div id="tablaVer"></div>

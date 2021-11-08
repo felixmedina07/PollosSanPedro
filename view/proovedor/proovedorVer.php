@@ -17,12 +17,12 @@
 <br>
 <br>
     <div class="card p-5 sombra table-responsive" style="width:110%;height:110%">
-        <div class="card-title mx-auto text-white text-center c-proovedor sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Lista Proovedores</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered text-center" id="tablaProovedorDataTable">
-                <thead class="bc-proovedor">
+                <thead class="bc-normal">
                     <tr>
                         <td>Nombre</td>
                         <td>Rif</td>
@@ -70,7 +70,7 @@
  <div class="modal fade" id="abremodalProovedoresUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header c-proovedor text-white">
+                <div class="modal-header c-normal text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Actualizar Proovedor</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -111,7 +111,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnAgregarProovedorU" class="btn px-8 bc-proovedor mx-auto" data-dismiss="modal">Actualizar</button>
+                    <button type="button" id="btnAgregarProovedorU" class="btn px-8 bc-normal mx-auto" data-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>

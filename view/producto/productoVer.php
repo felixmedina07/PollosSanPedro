@@ -17,12 +17,12 @@
 <br>
 <br>
 <div class="card p-5 sombra">
-    <div class="card-title mx-auto text-white text-center c-producto sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+    <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Estado Productos</h3>
     </div>
     <hr style="width: 90%; height: 90%;" class="mx-auto">
     <table class="table table-responsive table-hover table-bordered text-center" id="tablaProductoEstado">
-        <thead class="bc-producto">
+        <thead class="bc-normal">
         <tr>
             <td>Proovedor</td>
             <td>Fecha Salida</td>
@@ -75,7 +75,7 @@
 <div class="modal fade"  id="abremodalProductoUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable sombra" role="document">
             <div class="modal-content">
-                <div class="modal-header c-producto text-white">
+                <div class="modal-header c-normal text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Actualizar Producto</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -168,7 +168,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                        <button type="button" id="btnAgregarProductoU" class="btn bc-producto mx-auto px-8" data-dismiss="modal">Actualizar</button> 
+                        <button type="button" id="btnAgregarProductoU" class="btn bc-normal mx-auto px-8" data-dismiss="modal">Actualizar</button> 
                     </div>
                 </div>
             </div>
@@ -322,6 +322,8 @@ $(function() {
 <script>
     $(document).ready(function() {
         $('#tablaProductoEstado').DataTable({
+        "scrollX": "100%",
+        "scrollCollapse": false,
             "language":idioma_español
         });
     } );

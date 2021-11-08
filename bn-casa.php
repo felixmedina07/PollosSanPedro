@@ -9,11 +9,11 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' || $_SESSION['rol'] ==
 <div class="container p-4">
     <div class="row">
               <div class="col-sm-12">
-                  <span class="btn bc-banco" id="bncasaAgregaBtn">Agregar Bancos</span>
-                  <span class="btn bc-banco ml-2" id="bncasaVerBtn">Ver Bancos</span>
-                  <a class="btn bc-banco ml-2" href="view/bancos-casa/bnCasaFiltrar.php">Filtrar Bancos</a>
+                  <span class="btn bc-normal" id="bncasaAgregaBtn">Agregar Bancos</span>
+                  <span class="btn bc-normal ml-2" id="bncasaVerBtn">Ver Bancos</span>
+                  <a class="btn bc-normal ml-2" href="view/bancos-casa/bnCasaFiltrar.php">Filtrar Bancos</a>
                   <?php if(isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A' && $ver==1): ?>
-                  <span class="btn bc-banco ml-2" id="bncasaHistoralBtn">Historial</span>
+                  <span class="btn bc-normal ml-2" id="bncasaHistoralBtn">Historial</span>
                   <?php endif;?> 
               </div>
           </div>

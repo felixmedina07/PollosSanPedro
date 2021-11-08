@@ -17,12 +17,12 @@ session_start();
 <br>
 <br>
 <div class="card p-5 sombra" >
-    <div class="card-title mx-auto text-white text-center c-banco sombra mt-2 pt-2 " style="width: 80%; height: 80%; border-radius:10px;">
+    <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2 " style="width: 80%; height: 80%; border-radius:10px;">
         <h2> Lista Bancos Pollos San Pedro</h2>
     </div>
     <hr style="width: 90%; height: 90%;" class="mx-auto">
         <table class="table table-hover table-bordered text-center" id="tablaBncDataTable">
-            <thead class="bc-banco">
+            <thead class="bc-normal">
                 <tr>
                     <td>Nombre del Banco</td>
                     <td>Numero De Cuenta</td>
@@ -65,7 +65,7 @@ session_start();
 <div class="modal fade" id="BancoUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header c-banco ">
+                <div class="modal-header c-normal ">
                     <h5 class="modal-title text-white" id="exampleModalLabel">Actualizar Bancos</h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -113,7 +113,7 @@ session_start();
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnAgregarbnCasaU" class="btn px-8 bc-banco mx-auto" data-dismiss="modal">Actualizar</button>
+                    <button type="button" id="btnAgregarbnCasaU" class="btn px-8 bc-normal mx-auto" data-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>

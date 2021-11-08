@@ -33,16 +33,16 @@ $trab = $_POST['bnTrabajadorSelect'];
 ?>
 <div class="container p-4">
 <div class="row">
-<a href="../../menu_bn_trabajadores.php" class="btn bc-banco"><i class="fas fa-angle-left"></i></a>
+<a href="../../menu_bn_trabajadores.php" class="btn bc-normal"><i class="fas fa-angle-left"></i></a>
 </div>
 <br>
     <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center c-banco sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Bancos Trabajadores Filtrados</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered  text-center" id="tablaBancoFiltrabajador" style="width:100%">
-                <thead class="bc-banco">
+                <thead class="bc-normal">
                     <tr>
                         <td>Trabajador</td>
                         <td>Nombre titular</td>

@@ -22,13 +22,13 @@ $sql="SELECT b.not_bnk,
 <div class="container p-4">
 <br>
 <br>
-    <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center c-banco sombra mt-2 pt-2 " style="width: 80%; height: 80%; border-radius:10px;">
+    <div class="card p-5 sombra" style="width:100%;height:100%">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2 " style="width: 80%; height: 80%; border-radius:10px;">
                 <h3>Lista Bancos Clientes</h3>
         </div>
      <hr style="width: 90%; height: 90%;" class="mx-auto">
         <table class="table table-hover table-bordered text-center" id="tablabnDataTable">
-            <thead class="bc-banco">
+            <thead class="bc-normal">
                 <tr class="text-center">
                     <td>Nombre titular</td>
                     <td>Numero de cuenta</td>
@@ -77,7 +77,7 @@ $sql="SELECT b.not_bnk,
  <div class="modal fade" id="abremodalbnClienteUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <div class="modal-header c-banco text-white">
+                <div class="modal-header c-normal text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Actualizar Banco Cliente</h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -156,7 +156,7 @@ $sql="SELECT b.not_bnk,
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnAgregarBnClienteU" class="btn px-8 bc-banco mx-auto" data-dismiss="modal">Actualizar</button>
+                    <button type="button" id="btnAgregarBnClienteU" class="btn px-8 bc-normal mx-auto" data-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>
@@ -232,8 +232,8 @@ $(document).ready(function () {
 <script>
     $(document).ready(function() {
         $('#tablabnDataTable').DataTable({
-            "scrollX": "90%",
-            "scrollCollapse": false,
+            "scrollX": true,
+            "scrollCollapse": true,
           "language":idioma_español
         });
     } );

@@ -25,16 +25,16 @@ require_once "../menu/menu2.php";
 ?>
 <div class="container p-4">
 <div class="row">
-<a href="../../menu_trabajadores.php" class="btn bc-cliente"><i class="fas fa-angle-left"></i></a>
+<a href="../../menu_trabajadores.php" class="btn bc-normal"><i class="fas fa-angle-left"></i></a>
 </div>
 <br>
     <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center c-cliente sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Trabajadores Filtrados</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered  text-center" id="tablatrabajadorFiltradp" style="width:100%">
-                <thead class="bc-cliente">
+                <thead class="bc-normal">
                     <tr>
                         <td>Nombre</td>
                         <td>Apellido</td>

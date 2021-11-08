@@ -29,16 +29,16 @@ $bant=($_POST['bnbTrabajadorSelect'] === 'A')?"":$_POST['bnbTrabajadorSelect'];
 ?>
 <div class="container p-4">
 <div class="row">
-<a href="../../menu_pg_nomina.php" class="btn bc-cuenta"><i class="fas fa-angle-left"></i></a>
+<a href="../../menu_pg_nomina.php" class="btn bc-normal"><i class="fas fa-angle-left"></i></a>
 </div>
 <br>
     <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center c-cuenta sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Pago Nomina Filtrados</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered  text-center" id="tablaNominaFiltrado" style="width:100%">
-                <thead id="thead" class="bc-cuenta">
+                <thead id="thead" class="bc-normal">
                     <tr>
                         <td>Nombre Trabajador</td>
                         <td>Apellido Trabajador</td>

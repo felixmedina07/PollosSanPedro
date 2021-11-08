@@ -37,12 +37,12 @@ $sql="SELECT cl.nom_cli,
     <br>
     <br>
  <div class="card p-5 sombra" style="width:110%;height:110%;">
-        <div class="card-title mx-auto text-white text-center c-cuadresp sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3> Papelera Cuadres</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
         <table class="table table-hover table-bordered text-center" id="tablaCuadresDataTableD">
-          <thead class="bc-cuadresp">
+          <thead class="bc-normal">
           <tr>
                 <td>Nombre del cliente</td>
                 <td>Nombre del Usuario</td>
@@ -137,6 +137,8 @@ $sql="SELECT cl.nom_cli,
 <script>
     $(document).ready(function() {
         $('#tablaCuadresDataTableD').DataTable({
+            "scrollX": true,
+            "scrollCollapse": true,
             "language":idioma_español
         });
     } );

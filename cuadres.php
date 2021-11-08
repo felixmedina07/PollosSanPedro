@@ -9,15 +9,15 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A'){
 <div class="container p-4">
           <div class="row">
               <div class="col-sm-6">
-                  <span class="btn bc-cuadres mr-2" id="cuadreAgregarBtn">Agregar Cuadre</span>
-                  <span class="btn bc-cuadres mr-2" id="cuadreVerBtn">Ver Cuadre</span>
-                  <!-- <span class="btn bc-cuadres" id="cuadreDAgregarBtn">Modificar Facturacion</span> -->
+                  <span class="btn bc-normal mr-2" id="cuadreAgregarBtn">Agregar Cuadre</span>
+                  <span class="btn bc-normal mr-2" id="cuadreVerBtn">Ver Cuadre</span>
+                  <!-- <span class="btn bc-normal" id="cuadreDAgregarBtn">Modificar Facturacion</span> -->
                   <?php if(isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A' && $ver == 1): ?>
-                    <span class="btn bc-cuadres" id="cuadreHistorialBtn">Historial</span>
+                    <span class="btn bc-normal" id="cuadreHistorialBtn">Historial</span>
                   <?php endif; ?> 
               </div>
               <div class="col-sm-6 d-flex justify-content-end">
-                <a href="despacho.php" class="btn bc-despacho" id="">Facturacion</a>
+                <a href="despacho.php" class="btn bc-normal" id="">Facturacion</a>
               </div>
           </div>
           <div class="row">

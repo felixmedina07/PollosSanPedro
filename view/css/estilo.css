@@ -440,6 +440,26 @@ background-color: #007991;
     transition: 0.2s;
 }
 
+.c-normal{
+    background-color: #D15813;
+    color:white;
+    font-size: 28px;
+}
+
+.bc-normal{
+    color:white;
+    background-color: #D15813;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.bc-normal:hover{
+    background-color: #452B78;  
+    color:#fff;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
 .c-login{
     background-color: #851d41;
     color:white;

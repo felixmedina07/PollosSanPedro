@@ -8,7 +8,7 @@ $result =mysqli_query($conexion,$sql);
 <br>
         <div class="mx-auto sombra" style="width: 50rem;">
          <div class="card mb-2">
-            <div class="card-title mx-auto text-white text-center mt-4 pt-2 sombra c-banco" style="width: 70%; height: 70%; border-radius:10px;">
+            <div class="card-title mx-auto text-white text-center mt-4 pt-2 sombra c-normal" style="width: 70%; height: 70%; border-radius:10px;">
                 <h4>Registrar Bancos Trabajadores</h4>
             </div>
             <hr style="width: 90%; height: 90%;" class="mx-auto" >
@@ -74,7 +74,7 @@ $result =mysqli_query($conexion,$sql);
                         <div class="form-group">
                             <div class="row mt-3 mr-4 ml-4">
                                 <div class="col text-center">
-                                    <input  class="btn bc-banco px-8" type="submit" value="Guardar"></input>
+                                    <input  class="btn bc-normal px-8" type="submit" value="Guardar"></input>
                                 </div>
                             </div>
                         </div>

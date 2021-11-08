@@ -27,12 +27,12 @@ $result=mysqli_query($conexion,$sql);
     <br>
     <br>
         <div class="card p-5 sombra" style="width: 110%; height:110%;">
-          <div class="card-title mx-auto text-white text-center c-cuenta sombra mt-4 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+          <div class="card-title mx-auto text-white text-center c-normal sombra mt-4 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Estado Cuentas</h3>
           </div>
           <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered text-center" id="tablaEsDataTable">
-              <thead class="bc-cuenta">
+              <thead class="bc-normal">
                    <tr>
                       <td>Cliente</td>
                       <td>Cantidad Pagada</td>
@@ -78,7 +78,7 @@ $result=mysqli_query($conexion,$sql);
 <div class="modal fade" id="CuentaTotal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header c-cuenta">
+                <div class="modal-header c-normal">
                     <h5 class="modal-title text-white" id="exampleModalLabel">Deuda</h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

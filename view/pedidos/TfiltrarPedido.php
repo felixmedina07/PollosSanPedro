@@ -5,12 +5,12 @@ $result = $fil->filtrar($datos);
 ?>
 <br>
     <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center c-cliente sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Pedidos Filtrados</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered  text-center" id="tableFPedido">
-                <thead class="bc-cliente">
+                <thead class="bc-normal">
                      <tr>
                         <td>Cliente</td>
                         <td>Pollos</td>
@@ -61,7 +61,7 @@ $result = $fil->filtrar($datos);
   <div class="modal fade" id="abremodalPedidoUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header c-cliente text-white">
+                <div class="modal-header c-normal text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Actualizar Pedido</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -120,7 +120,7 @@ $result = $fil->filtrar($datos);
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnAgregarPedidoU" class="btn px-8 bc-cliente mx-auto" data-dismiss="modal">Actualizar</button>
+                    <button type="button" id="btnAgregarPedidoU" class="btn px-8 bc-normal mx-auto" data-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>

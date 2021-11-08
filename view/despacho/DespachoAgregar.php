@@ -11,7 +11,7 @@ $result =mysqli_query($conexion,$sql);
     <br>
                 <div class="mx-auto" style="width: 70%; height: 70%;">
                      <div class="card mb-2 sombra">
-                        <div class="card-title mx-auto text-white c-despacho text-center sombra mt-4 pt-2" style="width: 70%; height: 70%; border-radius:10px;">
+                        <div class="card-title mx-auto text-white c-normal text-center sombra mt-4 pt-2" style="width: 70%; height: 70%; border-radius:10px;">
                             <h4>Registrar Facturacion</h4>
                         </div>
                         <hr style="width: 80%; height: 80%;" class="mx-auto" >
@@ -79,7 +79,7 @@ $result =mysqli_query($conexion,$sql);
                                 <div class="form-group mt-3">
                                     <div class="row mt-3 mr-4 ml-4">
                                         <div class="col text-center">
-                                            <input  class="btn bc-despacho px-8 " type="submit" id="btns" value="Guardar"></input>
+                                            <input  class="btn bc-normal px-8 " type="submit" id="btns" value="Guardar"></input>
                                         </div>
                                     </div>
                                 </div>

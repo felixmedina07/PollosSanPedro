@@ -33,12 +33,12 @@ $result3=mysqli_query($conexion,$sql3);
 ?>
 <br>
     <div class="card p-5 sombra table-responsive">
-        <div class="card-title mx-auto text-white text-center c-cuenta sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Lista Pago Nomina</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover  table-bordered  text-center" id="tablaNomina" style="width:100%">
-                <thead class="bc-cuenta">
+                <thead class="bc-normal">
                     <tr>
                         <td>Nombre Trabajador</td>
                         <td>Apellido Trabajador</td>
@@ -83,7 +83,7 @@ $result3=mysqli_query($conexion,$sql3);
     <div class="modal fade" id="abremodalNominaUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header c-cuenta text-white">
+                <div class="modal-header c-normal text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Actualizar Trabajador</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -156,7 +156,7 @@ $result3=mysqli_query($conexion,$sql3);
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnAgregarNominaU" class="btn px-8 bc-cuenta mx-auto" data-dismiss="modal">Actualizar</button>
+                    <button type="button" id="btnAgregarNominaU" class="btn px-8 bc-normal mx-auto" data-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>

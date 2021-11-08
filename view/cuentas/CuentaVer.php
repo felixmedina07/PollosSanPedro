@@ -8,7 +8,7 @@ require_once "../menu/menu2.php";
 ?>
 <div class="container p-4">
     <div class="row">
-     <a href="../../principal_cliente.php" class="btn bc-cuenta"><i class="fas fa-angle-left"></i></a>
+     <a href="../../principal_cliente.php" class="btn bc-normal"><i class="fas fa-angle-left"></i></a>
     </div>
     <div id="tablaVer"></div>
 </div>

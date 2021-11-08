@@ -14,13 +14,13 @@ session_start();
 <div class="container p-4">
 <br>
 <br>
-    <div class="card p-5 sombra" style="width:110%;height:110%">
-        <div class="card-title mx-auto text-white text-center c-proovedor sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+    <div class="card p-5 sombra table-responsive">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Lista Proovedores</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered text-center" id="tablaProovedorHDataTable">
-                <thead class="bc-proovedor">
+                <thead class="bc-normal">
                     <tr>
                         <td>Nombre</td>
                         <td>Rif</td>

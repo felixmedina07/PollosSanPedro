@@ -3,7 +3,7 @@
     <br>  
         <div class="mx-auto sombra" style="width: 70%; height: 70%;">
          <div class="card mb-2">
-            <div class="card-title mx-auto text-white text-center mt-4 pt-2 sombra c-proovedor" style="width: 70%; height: 70%; border-radius:10px;">
+            <div class="card-title mx-auto text-white text-center mt-4 pt-2 sombra c-normal" style="width: 70%; height: 70%; border-radius:10px;">
                 <h4>Registrar Proovedores</h4>
             </div>
             <hr style="width: 80%; height: 80%;" class="mx-auto" >
@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group mt-3 mr-4 ml-4">
                         <div class="col text-center">
-                        <input  class="btn px-8 bc-proovedor" type="submit" value="Guardar"></input>
+                        <input  class="btn px-8 bc-normal" type="submit" value="Guardar"></input>
                         </div>
                     </div>
                 </form>

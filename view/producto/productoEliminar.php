@@ -11,12 +11,12 @@
     <br>
     <br>
     <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center  c-productop sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center  c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Papelera Productos</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-responsive table-hover table-bordered text-center" id="tablaProductoD">
-                <thead class="bc-productop">
+                <thead class="bc-normal">
                     <tr>
                         <td>Tasa General</td>
                         <td>Tasa Pollo</td>
@@ -125,8 +125,8 @@
 <script>
   $(document).ready(function() {
         $('#tablaProductoD').DataTable({
-            "scrollX": "80%",
-            "scrollCollapse": false,
+            "scrollX": true,
+            "scrollCollapse": true,
             "language":idioma_español
         });
     } ); 

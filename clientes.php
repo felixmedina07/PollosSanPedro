@@ -11,13 +11,13 @@ require_once "view/menu/menu.php";
     <div class="container p-4">
     <div class="row">
                 <div class="col-sm-12">
-                  <span class="btn bc-cliente" id="clienteAgregaBtn">Agregar Clientes</span>
-                  <span class="btn bc-cliente ml-2" id="clienteverBtn">Ver Clientes</span>
-                  <span class="btn bc-cliente ml-2" id="clientePdfBtn">Pdf Clientes Detallados</span>
+                  <span class="btn bc-normal" id="clienteAgregaBtn">Agregar Clientes</span>
+                  <span class="btn bc-normal ml-2" id="clienteverBtn">Ver Clientes</span>
+                  <span class="btn bc-normal ml-2" id="clientePdfBtn">Pdf Clientes Detallados</span>
                   <?php if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' && $ver==1): ?>
-                    <span class="btn bc-cliente ml-2" id="clienteHistorialBtn">Historial</span>
+                    <span class="btn bc-normal ml-2" id="clienteHistorialBtn">Historial</span>
                   <?php endif;?>  
-                  <a href="backend/controllers/clientes/ReporteClientesTodosPdf.php" class="btn bc-cliente ml-2">
+                  <a href="backend/controllers/clientes/ReporteClientesTodosPdf.php" class="btn bc-normal ml-2">
                   Pdf Clientes Todos
                   </a>
                 </div>

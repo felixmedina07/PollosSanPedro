@@ -29,12 +29,12 @@ $result=mysqli_query($conexion,$sql);
     <br>
     <br>
         <div class="card p-5 sombra" style="width: 110%; height:110%;">
-          <div class="card-title mx-auto text-white text-center c-cuenta sombra mt-4 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+          <div class="card-title mx-auto text-white text-center c-normal sombra mt-4 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Historial Cuentas</h3>
           </div>
           <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered text-center" id="tablaCuDatable">
-              <thead class="bc-cuenta">
+              <thead class="bc-normal">
                    <tr>
                       <td>N° Referencia</td>
                       <td>Cantidad de la Cuenta</td>
@@ -77,8 +77,8 @@ $result=mysqli_query($conexion,$sql);
 <script>
     $(document).ready(function() {
         $('#tablaCuDatable').DataTable({
-            "scrollX": "90%",
-            "scrollCollapse": false,
+          "scrollX": true,
+            "scrollCollapse": true,
           "language":idioma_español
         });
     });

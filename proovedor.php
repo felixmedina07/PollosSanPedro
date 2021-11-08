@@ -9,10 +9,10 @@
       <div class="container p-4">
       <div class="row">
           <div class="col-md-12">
-          <span class="btn bc-proovedor" id="proovedorAgregaBtn">Agregar Proovedor</span>
-          <span class="btn bc-proovedor ml-2" id="proovedorverBtn">Ver Proovedor</span>
+          <span class="btn bc-normal" id="proovedorAgregaBtn">Agregar Proovedor</span>
+          <span class="btn bc-normal ml-2" id="proovedorverBtn">Ver Proovedor</span>
           <?php if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' && $ver==1): ?>
-          <span class="btn bc-proovedor ml-2" id="proovedorHistorialBtn">Historial Proovedor</span>
+          <span class="btn bc-normal ml-2" id="proovedorHistorialBtn">Historial Proovedor</span>
           <?php endif; ?>
           </div>
       </div>

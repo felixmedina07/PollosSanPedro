@@ -18,12 +18,12 @@ $ide=$_SESSION['idUsuario'];
 <br>
 <br>
     <div class="card p-5 sombra table-responsive">
-        <div class="card-title mx-auto text-white text-center c-cliente sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Lista Trabajadores</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover  table-bordered  text-center" id="tablatrabajador" style="width:100%">
-                <thead class="bc-cliente">
+                <thead class="bc-normal">
                     <tr>
                         <td>Nombre</td>
                         <td>Apellido</td>
@@ -71,7 +71,7 @@ $ide=$_SESSION['idUsuario'];
     <div class="modal fade" id="abremodalTrabUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header c-cliente text-white">
+                <div class="modal-header c-normal text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Actualizar Trabajador</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -123,7 +123,7 @@ $ide=$_SESSION['idUsuario'];
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnAgregarTrabU" class="btn px-8 bc-cliente mx-auto" data-dismiss="modal">Actualizar</button>
+                    <button type="button" id="btnAgregarTrabU" class="btn px-8 bc-normal mx-auto" data-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>

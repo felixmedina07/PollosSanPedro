@@ -11,12 +11,12 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' || $_SESSION['rol'] ==
 
 <div class="container p-4">
     <div class="col">
-    <a href="../../bn-casa.php" class="btn bc-banco"><i class="fas fa-angle-left"></i></a>
+    <a href="../../bn-casa.php" class="btn bc-normal"><i class="fas fa-angle-left"></i></a>
     </div>
 <br>  
         <div class="mx-auto sombra" style="width: 50rem;">
          <div class="card mb-2">
-            <div class="card-title mx-auto text-white text-center mt-4 pt-2 sombra c-banco" style="width: 70%; height: 70%; border-radius:10px;">
+            <div class="card-title mx-auto text-white text-center mt-4 pt-2 sombra c-normal" style="width: 70%; height: 70%; border-radius:10px;">
                 <h4>Registrar Banco Pollos San Pedro</h4>
             </div>
             <hr style="width: 80%; height: 80%;" class="mx-auto" >
@@ -48,7 +48,7 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' || $_SESSION['rol'] ==
                     </div>
                     <div class="form-group mt-3 mr-4 ml-4">
                         <div class="col text-center">
-                        <input  class="btn px-8 bc-banco" type="submit" value="Guardar"></input>
+                        <input  class="btn px-8 bc-normal" type="submit" value="Guardar"></input>
                         </div>
                     </div>
                 </form>

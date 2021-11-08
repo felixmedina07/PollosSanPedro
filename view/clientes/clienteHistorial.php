@@ -18,13 +18,13 @@ session_start();
 ?>
 <br>
 <br>
-    <div class="card p-5 sombra" style="width:110%;height:110%">
-        <div class="card-title mx-auto text-white text-center c-cliente sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+    <div class="card p-5 sombra" >
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Historial Clientes</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
             <table class="table table-hover table-bordered  text-center" id="tablaClienteHDataTable">
-                <thead class="bc-cliente">
+                <thead class="bc-normal">
                     <tr>
                         <td>Nombre</td>
                         <td>Apellido</td>
@@ -55,6 +55,8 @@ session_start();
 
 $(document).ready(function() {
         $('#tablaClienteHDataTable').DataTable({
+            "scrollX": true,
+            "scrollCollapse": false,
             "language": idioma_español
         });
     });

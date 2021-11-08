@@ -14,24 +14,24 @@ if(isset($_SESSION['nom_usu'])){
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4  d-flex justify-content-around">
-                    <a href="menu_trabajadores.php" class="btn bc-cliente">
+                    <a href="menu_trabajadores.php" class="btn bc-normal">
                       Trabajadores  
                     </a>
                 </div>
                 <div class="col-md-4  d-flex justify-content-around">
-                    <a href="menu_bn_trabajadores.php" class="btn bc-banco">
+                    <a href="menu_bn_trabajadores.php" class="btn bc-normal">
                       Bancos Trabajadores
                     </a>
                 </div>
                 <div class="col-md-4  d-flex justify-content-around">
-                    <a href="menu_pg_nomina.php" class="btn bc-cuenta">
+                    <a href="menu_pg_nomina.php" class="btn bc-normal">
                       Pagar Nomina
                     </a>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-4  d-flex justify-content-around">
-                    <a href="menu_pedidos.php" class="btn bc-cliente">
+                    <a href="menu_pedidos.php" class="btn bc-normal">
                       Pedidos  
                     </a>
                 </div>    

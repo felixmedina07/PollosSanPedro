@@ -9,16 +9,16 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol'] == 'A' || $_SESSION['rol'] ==
 <div class="container p-4">
           <div class="row">
                 <div class="col-sm-8">
-                  <span class="btn bc-despacho" id="despachoAgregaBtn">Agregar Facturacion</span>
-                  <span class="btn bc-despacho ml-2" id="despachoverBtn">Ver Facturacion</span>
-                  <span class="btn bc-despacho ml-2" id="despachoPdfBtn">Pdf Facturacion</span>
+                  <span class="btn bc-normal" id="despachoAgregaBtn">Agregar Facturacion</span>
+                  <span class="btn bc-normal ml-2" id="despachoverBtn">Ver Facturacion</span>
+                  <span class="btn bc-normal ml-2" id="despachoPdfBtn">Pdf Facturacion</span>
                   <?php if($_SESSION['rol']=='A' && $ver == 1): ?>  
-                    <span class="btn bc-despacho ml-2" id="despachoHistorialBtn">Historial</span>
+                    <span class="btn bc-normal ml-2" id="despachoHistorialBtn">Historial</span>
                   <?php endif; ?>
                 </div>
                <?php if($_SESSION['rol']=='A' && $ver == 1): ?> 
                 <div class="col-sm-4 d-flex justify-content-end">
-                 <a href="cuadres.php" class="btn bc-cuadres" id="">Cuadres</a>
+                 <a href="cuadres.php" class="btn bc-normal" id="">Cuadres</a>
                 </div>
                <?php endif; ?> 
           </div>

@@ -10,13 +10,13 @@
 <div class="container p-4">
 <br>
 <br>
-        <div class="card p-5 sombra">
-            <div class="card-title mx-auto text-white text-center c-usuariop sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card p-5 sombra table-responsive">
+            <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
                 <h3>Papelera Usuarios</h3>
             </div>
             <hr style="width: 90%; height: 90%;" class="mx-auto">
                 <table class="table table-hover table-bordered text-center" id="tablaUsuarioD">
-                    <thead class="bc-usuariop">
+                    <thead class="bc-normal">
                         <tr>
                             <td>Nombre</td>
                             <td>Apellido</td>

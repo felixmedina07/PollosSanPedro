@@ -33,6 +33,14 @@
 
 @media only screen and (max-width: 1440px)
 {
+	.logo
+	{
+		padding-left: 50px;
+	}
+	.logo a
+	{
+		font-size: 28px;
+	}
 	.main_nav ul
 	{
 		margin-right: 80px;
@@ -147,7 +155,23 @@
 
 @media only screen and (max-width: 1024px)
 {
-	
+	.logo
+	{
+		padding-left: 25px;
+	}
+	.logo a
+	{
+		font-size: 24px;
+	}
+	.search
+	{
+		width: auto;
+		margin-right: 25px;
+	}
+	.main_nav ul
+	{
+		margin-right: 40px;
+	}
 }
 
 /************

@@ -733,7 +733,7 @@ section
 }
 .device_image_container img
 {
-	max-width: 100%;
+	max-width: 80%;
 }
 .device_image_background
 {

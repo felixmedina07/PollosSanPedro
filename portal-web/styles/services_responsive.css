@@ -18,6 +18,7 @@
 11. 539px
 12. 479px
 13. 400px
+15. 320px
 
 ******************************/
 
@@ -33,6 +34,14 @@
 
 @media only screen and (max-width: 1440px)
 {
+	.logo
+	{
+		padding-left: 50px;
+	}
+	.logo a
+	{
+		font-size: 28px;
+	}
 	.main_nav ul
 	{
 		margin-right: 80px;
@@ -109,7 +118,23 @@
 
 @media only screen and (max-width: 1024px)
 {
-	
+	.logo
+	{
+		padding-left: 25px;
+	}
+	.logo a
+	{
+		font-size: 24px;
+	}
+	.search
+	{
+		width: auto;
+		margin-right: 25px;
+	}
+	.main_nav ul
+	{
+		margin-right: 40px;
+	}
 }
 
 /************
@@ -151,7 +176,7 @@
 	{
 		width: 75%;
 		height: 100%;
-		padding-top: 55px;
+		padding-top: 1px;
 		margin: 0 auto;
 	}
 	.device_content
@@ -403,4 +428,21 @@
 @media only screen and (max-width: 400px)
 {
 	
+}
+
+/************
+15. 320px
+************/
+
+@media only screen and (max-width: 320px)
+{
+	.device_image_background
+	{
+		height: 180px;
+		top: 0;
+	    left: 0;
+	    width: 100%;
+	    background: #452b78;
+	    z-index: -1;
+	}
 }

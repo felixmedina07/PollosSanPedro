@@ -131,14 +131,14 @@
 				</div>
 
 				<!-- Slider Item -->
-				<div class="owl-item hero_slider_item item_1 d-flex flex-column align-items-center justify-content-center">
+<!--				<div class="owl-item hero_slider_item item_1 d-flex flex-column align-items-center justify-content-center">
 					<span>Bienvenido!</span>
-				</div>
+				</div>-->
 
 				<!-- Slider Item -->
-				<div class="owl-item hero_slider_item item_1 d-flex flex-column align-items-center justify-content-center">
+<!--				<div class="owl-item hero_slider_item item_1 d-flex flex-column align-items-center justify-content-center">
 					<span>Bienvenido!</span>
-				</div>
+				</div>-->
 
 			</div>
 
@@ -539,7 +539,7 @@
 
 				<div class="col-lg-6 offset-lg-1 order-lg-2 order-1">
 					<div class="cta_image d-flex flex-column justify-content-end">
-						<img src="portal-web/images/cta.png" alt="image by https://unsplash.com/@heysupersimi">
+						<img src="portal-web/images/deliverytodoor.jpg" alt="Delivery to door">
 					</div>
 				</div>
 			</div>
@@ -554,7 +554,7 @@
 
 				<div class="col-lg-5 text-lg-right text-center">
 					<div class="text_line_image">
-						<img src="portal-web/images/line.jpg" alt="">
+						<img src="portal-web/images/truckonroad.jpg" alt="Truck on the road">
 					</div>
 				</div>
 
@@ -596,7 +596,8 @@
 							<a href="#">Pollos San Pedro<span>C.A.</span></a>
 						</div>
 
-						<p>Sirviendo a la ciudad desde 2015, con la mayor calidad y atención del mercado.</p>
+						<p>Sirviendo a la comunidad desde 2015 a través del abastecimiento y comercialización de productos alimenticios de aves de 
+							corral y productos derivados de alta calidad.</p>
 
 						<!-- Social -->
 						<div class="footer_social">

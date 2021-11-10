@@ -12,12 +12,12 @@
 <br>
         
   <div class="card p-5 sombra">
-        <div class="card-title mx-auto text-white text-center c-usuario sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
+        <div class="card-title mx-auto text-white text-center c-normal sombra mt-2 pt-2" style="width: 80%; height: 80%; border-radius:10px;">
             <h3>Lista Usuarios</h3>
         </div>
         <hr style="width: 90%; height: 90%;" class="mx-auto">
     <table class="table table-hover table-bordered text-center" id="tablaUsuario">
-            <thead class="bc-usuario">
+            <thead class="bc-normal">
                 <tr>
                     <td>Nombre</td>
                     <td>Correo</td>
@@ -53,7 +53,7 @@
  <div class="modal fade" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header c-usuario text-white">
+                <div class="modal-header c-normal text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Actualizar Usuario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -95,7 +95,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnUsuarioUpdate" class="btn btn bc-usuario mx-auto px-8" data-dismiss="modal">Actualizar</button>
+                    <button type="button" id="btnUsuarioUpdate" class="btn btn bc-normal mx-auto px-8" data-dismiss="modal">Actualizar</button>
                 </div>
             </div>
         </div>

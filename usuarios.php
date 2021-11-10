@@ -10,10 +10,10 @@ if(isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A' && $ver == 1){
 <div class="container p-4">
           <div class="row">
               <div class="col-sm-12">
-                  <span class="btn bc-usuario" id="usuarioVerbtn">Ver Usuario</span>
+                  <span class="btn bc-normal" id="usuarioVerbtn">Ver Usuario</span>
                 <?php if( isset($_SESSION['nom_usu']) && $_SESSION['rol']=='A' && $ver==1): ?>
-                    <span class="btn bc-usuario ml-2" id="usuarioHistorialbtn">Historial</span> 
-                  <a href="backend/despacho/respaldo.php" class="btn bc-usuario ml-2">Respaldo</a>
+                    <span class="btn bc-normal ml-2" id="usuarioHistorialbtn">Historial</span> 
+                  <a href="backend/despacho/respaldo.php" class="btn bc-normal ml-2">Respaldo</a>
                 <?php endif; ?>
               </div>
           </div>

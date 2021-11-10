@@ -25,7 +25,7 @@ if(isset($_SESSION['nom_cli']) && $result){
       ?>
       <div class="container p-4">
     <div class="card mx-auto sombra"  style="width: 50rem;">
-        <div class="card-header c-usuario text-center">
+        <div class="card-header c-normal text-center">
            <h4 class="text-center">Opciones</h4>
         </div>
         <div class="card-body">
